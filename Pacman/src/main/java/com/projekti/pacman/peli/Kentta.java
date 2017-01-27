@@ -11,4 +11,9 @@ package com.projekti.pacman.peli;
  */
 public interface Kentta {
     
+    public int[][]getKentta();
+    
+    public void asetaUusiArvo(int x, int y, int uusiArvo);
+    
+    public int getPisteet();
 }

@@ -7,36 +7,15 @@ package com.projekti.pacman.logiikka;
 
 import com.projekti.pacman.Suunta;
 
-public class Pacman {
+public class Pacman extends Liikkuva {
 
-    private Suunta suunta;
-    private int xKordinaatti;
-    private int yKordinaatti;
     private int pisteet;
 
     public Pacman(int alkuX, int alkuY) {
-
-        this.suunta = suunta.STOP;
-        this.xKordinaatti = alkuX;
-        this.yKordinaatti = alkuY;
-
+        super(alkuX, alkuY);
     }
 
-    public Suunta getSuunta() {
-        return suunta;
-    }
 
-    public void setSuunta(Suunta suunta) {
-        this.suunta = suunta;
-    }
-
-    public int getxKordinaatti() {
-        return xKordinaatti;
-    }
-
-    public int getyKordinaatti() {
-        return yKordinaatti;
-    }
 
     public int getPisteet() {
         return pisteet;
@@ -46,20 +25,5 @@ public class Pacman {
         pisteet++;
     }
 
-    public void liiku() {
-
-        if (suunta == suunta.VASEN) {
-
-        }
-        if (suunta == suunta.OIKEA) {
-
-        }
-        if (suunta == suunta.YLOS) {
-
-        }
-        if (suunta == suunta.ALAS) {
-
-        }
-    }
 
 }

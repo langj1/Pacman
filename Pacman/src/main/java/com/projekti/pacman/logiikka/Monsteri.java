@@ -11,34 +11,10 @@ import com.projekti.pacman.Suunta;
  *
  * @author langjimi
  */
-public class Monsteri {
+public class Monsteri extends Liikkuva {
     
-    private int xKoordinaatti;
-    private int yKoordinaatti;
-    private Suunta suunta;
-    
-    public Monsteri(int alkuX, int alkuY){
-        
-        this.xKoordinaatti = alkuX;
-        this.yKoordinaatti = alkuY;
-        this.suunta = suunta.STOP;
-        
-    }
-
-    public Suunta getSuunta() {
-        return suunta;
-    }
-
-    public int getxKoordinaatti() {
-        return xKoordinaatti;
-    }
-
-    public int getyKoordinaatti() {
-        return yKoordinaatti;
-    }
-
-    public void liiku(){
-        
+    public Monsteri(int alkuX, int alkuY) {
+        super(alkuX, alkuY);
     }
     
     
