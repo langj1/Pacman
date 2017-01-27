@@ -14,9 +14,7 @@ public class Pacman extends Liikkuva {
     public Pacman(int alkuX, int alkuY) {
         super(alkuX, alkuY);
     }
-
-
-
+    
     public int getPisteet() {
         return pisteet;
     }

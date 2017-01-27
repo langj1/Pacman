@@ -13,7 +13,7 @@ import com.projekti.pacman.Suunta;
  */
 public class Liikkuva {
     
-    private Suunta suunta;
+    Suunta suunta;
     private int xKordinaatti;
     private int yKordinaatti;
 
