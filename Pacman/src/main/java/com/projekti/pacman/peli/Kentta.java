@@ -18,7 +18,7 @@ public abstract class Kentta {
     private int[][] kentta;
     private int pisteet;
 
-    public Kentta(){
+    public Kentta() {
         kentta = new int[111][111];
         pisteet = 0;
     }
@@ -26,7 +26,7 @@ public abstract class Kentta {
     public void setKentta(int[][] kentta) {
         this.kentta = kentta;
     }
-    
+
     public int[][] getKentta() {
         return kentta;
     }

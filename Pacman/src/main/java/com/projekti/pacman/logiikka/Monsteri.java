@@ -13,33 +13,33 @@ import java.util.Random;
  * @author langjimi
  */
 public class Monsteri extends Liikkuva {
-    
+
     public Monsteri(int alkuX, int alkuY) {
         super(alkuX, alkuY);
     }
-    
-    public void arvoSuunta(){
-       
+
+    public void arvoSuunta() {
+
         Random random = new Random();
-        
+
         int satunnaismuuttuja = random.nextInt(101);
-        
-        if(satunnaismuuttuja < 25){
-           
+
+        if (satunnaismuuttuja < 25) {
+
             setSuunta(suunta.ALAS);
-            
-        }else if(satunnaismuuttuja < 50){
-           
+
+        } else if (satunnaismuuttuja < 50) {
+
             setSuunta(suunta.OIKEA);
-            
-        }else if(satunnaismuuttuja < 75){
-           
+
+        } else if (satunnaismuuttuja < 75) {
+
             setSuunta(suunta.VASEN);
-            
-        }else{
-            
+
+        } else {
+
             setSuunta(suunta.YLOS);
         }
     }
-    
+
 }
