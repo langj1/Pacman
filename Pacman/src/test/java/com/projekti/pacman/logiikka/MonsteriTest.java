@@ -36,8 +36,6 @@ public class MonsteriTest {
             y=1;
         }
         
-        System.out.println(x);
-        
         assertEquals(0, y);
     }
     
