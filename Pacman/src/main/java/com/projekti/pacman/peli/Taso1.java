@@ -13,7 +13,7 @@ import java.util.ArrayList;
  *
  * @author langjimi
  */
-public class Taso1 implements Kentta {
+public class Taso1 extends Kentta {
     
     private int[][] kentta;
     private int pisteet;
@@ -42,32 +42,13 @@ public class Taso1 implements Kentta {
         
     }
 
-    @Override
-    public int[][] getKentta() {
-        return kentta;
-    }
-
-    @Override
-    public void asetaUusiArvo(int x, int y, int uusiArvo) {
-         
-        kentta[x][y] = uusiArvo;  
-    }
     
     @Override
-    public int haePisteenArvo(int x, int y){
-        return kentta[x][y];
-    }
-
-    @Override
-    public int getPisteet() {
-        
-        return pisteet;
-    }
-    
     public Pacman pacmaninLahtokohta(){
         return new Pacman(1,0);
     }
     
+    @Override
     public ArrayList<Monsteri> monsterienLahtokohdat(){
         
         ArrayList<Monsteri> monsterit = new ArrayList<>();
@@ -85,6 +66,6 @@ public class Taso1 implements Kentta {
         
     }
     
-    
+
     
 }

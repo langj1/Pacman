@@ -13,17 +13,41 @@ import java.util.ArrayList;
  *
  * @author langjimi
  */
-public interface Kentta {
-    
-    public int[][]getKentta();
-    
-    public void asetaUusiArvo(int x, int y, int uusiArvo);
-    
-    public int haePisteenArvo(int x, int y);
-    
-    public int getPisteet();
-    
-    public Pacman pacmaninLahtokohta();
-    
-    public ArrayList<Monsteri> monsterienLahtokohdat();
+public abstract class Kentta {
+
+    private int[][] kentta;
+    private int pisteet;
+
+    public int[][] getKentta() {
+        return kentta;
+    }
+
+    public void asetaUusiArvo(int x, int y, int uusiArvo) {
+
+        kentta[x][y] = uusiArvo;
+    }
+
+    public int haePisteenArvo(int x, int y) {
+        return kentta[x][y];
+    }
+
+    public int getPisteet() {
+
+        return pisteet;
+    }
+
+    public Pacman pacmaninLahtokohta() {
+        return new Pacman(1, 0);
+    }
+
+    public ArrayList<Monsteri> monsterienLahtokohdat() {
+
+        ArrayList<Monsteri> monsterit = new ArrayList<>();
+
+        for (int i = 0; i < 4; i++) {
+            monsterit.add(new Monsteri(8 + i, 7));
+        }
+
+        return monsterit;
+    }
 }
