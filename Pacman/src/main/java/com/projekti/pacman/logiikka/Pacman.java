@@ -12,6 +12,7 @@ public class Pacman {
     private Suunta suunta;
     private int xKordinaatti;
     private int yKordinaatti;
+    private int pisteet;
 
     public Pacman(int alkuX, int alkuY) {
 
@@ -35,6 +36,14 @@ public class Pacman {
 
     public int getyKordinaatti() {
         return yKordinaatti;
+    }
+
+    public int getPisteet() {
+        return pisteet;
+    }
+    
+    public void syoPiste(){
+        pisteet++;
     }
 
     public void liiku() {

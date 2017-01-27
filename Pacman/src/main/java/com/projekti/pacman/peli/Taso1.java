@@ -9,23 +9,14 @@ package com.projekti.pacman.peli;
  *
  * @author langjimi
  */
-public class Peli {
+public class Taso1 {
     
-    private Kentta kentta;
-    private int elamat;
+    private int[][] kentta;
+    private int pisteet;
     
-    public Peli(Kentta kentta){
-        
-        this.kentta = kentta;
-        elamat = 3;
-    }
+    //0=muuri, 1=tyhja, 2=piste, 3=monsteri, 4=pacman
     
-    public void menetaElama(){
+    public Taso1(){
         
-        elamat--;
-        
-        if(elamat < 0){
-            
-        }
     }
 }
