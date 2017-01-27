@@ -18,6 +18,15 @@ public abstract class Kentta {
     private int[][] kentta;
     private int pisteet;
 
+    public Kentta(){
+        kentta = new int[111][111];
+        pisteet = 0;
+    }
+
+    public void setKentta(int[][] kentta) {
+        this.kentta = kentta;
+    }
+    
     public int[][] getKentta() {
         return kentta;
     }
@@ -34,6 +43,10 @@ public abstract class Kentta {
     public int getPisteet() {
 
         return pisteet;
+    }
+
+    public void setPisteet(int pisteet) {
+        this.pisteet = pisteet;
     }
 
     public Pacman pacmaninLahtokohta() {
