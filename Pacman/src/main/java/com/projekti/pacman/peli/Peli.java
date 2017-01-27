@@ -42,6 +42,13 @@ public class Peli {
     
     public void liiku(){
         
+        arvoSuunnat();
+        pacman.liiku();
+        
+        for (Monsteri monsteri : monsterit) {
+            monsteri.liiku();
+        }
+        
     }
     
     public void arvoSuunnat(){
