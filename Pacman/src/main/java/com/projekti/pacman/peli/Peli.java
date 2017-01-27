@@ -8,6 +8,7 @@ package com.projekti.pacman.peli;
 import com.projekti.pacman.logiikka.Monsteri;
 import com.projekti.pacman.logiikka.Pacman;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -44,6 +45,20 @@ public class Peli {
     }
     
     public void arvoSuunnat(){
+        
+        Random random = new Random();
+        
+        for (Monsteri monsteri : monsterit) {
+            
+            int satunnaismuuttuja = random.nextInt(101);
+            
+            if(satunnaismuuttuja < 50 ){
+                
+                monsteri.arvoSuunta();
+                
+            } 
+            
+        }
         
     }
 }
