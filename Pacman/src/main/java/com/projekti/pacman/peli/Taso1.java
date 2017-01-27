@@ -5,6 +5,10 @@
  */
 package com.projekti.pacman.peli;
 
+import com.projekti.pacman.logiikka.Monsteri;
+import com.projekti.pacman.logiikka.Pacman;
+import java.util.ArrayList;
+
 /**
  *
  * @author langjimi
@@ -30,7 +34,7 @@ public class Taso1 implements Kentta {
                  {0,2,0,0,2,0,0,0,0,0,0,0,0,0,0,2,0,0,2,0},
                  {0,2,0,0,2,0,0,0,0,0,0,0,0,0,0,2,0,0,2,0},
                  {0,2,0,0,2,0,0,0,0,0,0,0,0,0,0,2,0,0,2,0},
-                 {0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,4,0},
+                 {0,4,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0},
                  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
         
         pisteet = 87;
@@ -46,9 +50,12 @@ public class Taso1 implements Kentta {
     @Override
     public void asetaUusiArvo(int x, int y, int uusiArvo) {
          
-        kentta[x][y] = uusiArvo;
-        
-         
+        kentta[x][y] = uusiArvo;  
+    }
+    
+    @Override
+    public int haePisteenArvo(int x, int y){
+        return kentta[x][y];
     }
 
     @Override
@@ -57,7 +64,26 @@ public class Taso1 implements Kentta {
         return pisteet;
     }
     
+    public Pacman pacmaninLahtokohta(){
+        return new Pacman(1,0);
+    }
     
+    public ArrayList<Monsteri> monsterienLahtokohdat(){
+        
+        ArrayList<Monsteri> monsterit = new ArrayList<>();
+        
+        for (int i = 0; i < 4; i++) {
+            monsterit.add(new Monsteri(8+i,7));
+        }
+        
+        return monsterit;
+    }
+    
+    //Kun menettää elämän, pacman ja monsterit siirtyy aloituskohtiin, mutta 
+    //pisteet ei resetoidu
+    public void reset(){
+        
+    }
     
     
     

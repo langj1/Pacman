@@ -5,6 +5,10 @@
  */
 package com.projekti.pacman.peli;
 
+import com.projekti.pacman.logiikka.Monsteri;
+import com.projekti.pacman.logiikka.Pacman;
+import java.util.ArrayList;
+
 /**
  *
  * @author langjimi
@@ -15,5 +19,11 @@ public interface Kentta {
     
     public void asetaUusiArvo(int x, int y, int uusiArvo);
     
+    public int haePisteenArvo(int x, int y);
+    
     public int getPisteet();
+    
+    public Pacman pacmaninLahtokohta();
+    
+    public ArrayList<Monsteri> monsterienLahtokohdat();
 }
