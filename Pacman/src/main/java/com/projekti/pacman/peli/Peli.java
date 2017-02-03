@@ -30,6 +30,22 @@ public class Peli {
         elamat = 3;
     }
 
+    public int getElamat() {
+        return elamat;
+    }
+
+    public Kentta getKentta() {
+        return kentta;
+    }
+
+    public Pacman getPacman() {
+        return pacman;
+    }
+
+    public ArrayList<Monsteri> getMonsterit() {
+        return monsterit;
+    }
+
     public void menetaElama() {
 
         elamat--;
@@ -46,7 +62,9 @@ public class Peli {
 
         liikkuvaLiikkuu(pacman);
         
-        voitto();
+        if(voitto()){
+            
+        }
 
         for (Monsteri monsteri : monsterit) {
             liikkuvaLiikkuu(monsteri);
@@ -163,10 +181,12 @@ public class Peli {
 
     }
 
-    public void voitto() {
+    public boolean voitto() {
 
-        if (pacman.getPisteet() == kentta.getPisteet()) {
-
+        if (pacman.getPisteet() >= kentta.getPisteet()) {
+            return true;
         }
+        
+        return false;
     }
 }
