@@ -80,4 +80,14 @@ public class LiikkuvaTest {
         assertEquals(324, liikkuva.getyKordinaatti());
         assertEquals(12, liikkuva.getxKordinaatti());
     }
+    
+    @Test
+    public void getKoordinaatitToimii() {
+        
+        int[] taulu = liikkuva.getKoordinaatit();
+        
+        assertEquals(324, taulu[0]);
+        assertEquals(12, taulu[1]);
+        
+    }
 }
