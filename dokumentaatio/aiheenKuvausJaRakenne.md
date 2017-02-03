@@ -16,3 +16,6 @@
 * Ennätysten tarkistaminen
 * Pelin sammutus
 
+**Luokkakaavio**
+
+![Luokkakavio](/dokumentaatio/Luokkakaavio.png)
