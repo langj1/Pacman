@@ -9,11 +9,11 @@
 **Käyttäjät:**Pelaaja
 
 **Kaikkien käyttäjien toiminnot:**
--Pelin käynnistäminen
--Tason valitseminen
-	*Jos enemmän kuin yksi, muut aluksi lukittuja
--Pelaaminen
--Ennätysten tarkistaminen
--Pelin sammutus
+* Pelin käynnistäminen
+* Tason valitseminen
+  * Jos enemmän kuin yksi, muut aluksi lukittuja
+* Pelaaminen
+* Ennätysten tarkistaminen
+* Pelin sammutus
 
 
