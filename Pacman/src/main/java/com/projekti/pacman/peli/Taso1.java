@@ -38,8 +38,8 @@ public class Taso1 extends Kentta {
 
         int pisteet = 0;
 
-        for (int i = 0; i < kentta.length; i++) {
-            for (int j = 0; j < kentta[0].length; j++) {
+        for (int i = 0; i < kentta[0].length; i++) {
+            for (int j = 0; j < kentta.length; j++) {
 
                 if (kentta[j][i] == 2) {
                     pisteet++;
