@@ -41,6 +41,18 @@ public class Liikkuva {
         return yKordinaatti;
     }
     
+    public int[] getKoordinaatit(){
+        
+        int[] koordinaatit = {yKordinaatti, xKordinaatti};
+        
+        return koordinaatit;
+    }
+    
+    public void setKoordinaatit(int x, int y){
+        this.xKordinaatti = x;
+        this.yKordinaatti = y;
+    }
+    
     public void liiku() {
 
         if (suunta == suunta.VASEN) {
@@ -55,5 +67,13 @@ public class Liikkuva {
         if (suunta == suunta.ALAS) {
             this.yKordinaatti++;
         }
+    }
+    
+    public int getKenttaNumero(){
+        return 4;
+    }
+    
+    public boolean onPacman(){
+        return false;
     }
 }

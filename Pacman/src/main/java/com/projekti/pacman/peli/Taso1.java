@@ -36,7 +36,18 @@ public class Taso1 extends Kentta {
 
         setKentta(taso);
 
-        setPisteet(87);
+        int pisteet = 0;
+
+        for (int i = 0; i < kentta.length; i++) {
+            for (int j = 0; j < kentta[0].length; j++) {
+
+                if (kentta[j][i] == 2) {
+                    pisteet++;
+                }
+            }
+        }
+
+        setPisteet(pisteet);
 
     }
 
@@ -59,8 +70,8 @@ public class Taso1 extends Kentta {
 
     //Kun menettää elämän, pacman ja monsterit siirtyy aloituskohtiin, mutta 
     //pisteet ei resetoidu
-    public void reset() {
-
-    }
+ 
+    
+    
 
 }

@@ -19,8 +19,17 @@ public class Pacman extends Liikkuva {
         return pisteet;
     }
 
+    public void setPisteet(int pisteet) {
+        this.pisteet = pisteet;
+    }
+
     public void syoPiste() {
         pisteet++;
+    }
+    
+    @Override
+    public boolean onPacman(){
+        return true;
     }
 
 }

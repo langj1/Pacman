@@ -42,4 +42,8 @@ public class Monsteri extends Liikkuva {
         }
     }
 
+    @Override
+    public int getKenttaNumero() {
+        return 3;
+    }
 }

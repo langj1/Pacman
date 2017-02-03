@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public abstract class Kentta {
 
-    private int[][] kentta;
+    int[][] kentta;
     private int pisteet;
 
     public Kentta() {
@@ -48,19 +48,39 @@ public abstract class Kentta {
     public void setPisteet(int pisteet) {
         this.pisteet = pisteet;
     }
-
+    
     public Pacman pacmaninLahtokohta() {
-        return new Pacman(1, 0);
+        
+        for (int i = 0; i < kentta.length; i++) {
+            for (int j = 0; j < kentta[0].length; j++) {
+
+                if (kentta[j][i] == 4) {
+                    return new Pacman(j, i);
+                }
+            }
+        }
+        
+        return null;
     }
 
     public ArrayList<Monsteri> monsterienLahtokohdat() {
 
         ArrayList<Monsteri> monsterit = new ArrayList<>();
 
-        for (int i = 0; i < 4; i++) {
-            monsterit.add(new Monsteri(8 + i, 7));
+        for (int i = 0; i < kentta.length; i++) {
+            for (int j = 0; j < kentta[0].length; j++) {
+
+                if (kentta[j][i] == 3) {
+                    monsterit.add(new Monsteri(j, i));
+                }
+            }
         }
 
         return monsterit;
     }
+
+    public void reset() {
+
+    }
+
 }
