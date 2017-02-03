@@ -10,3 +10,5 @@ ilman, että osuu monstereihin. Pelaajalla on 3 elämää.
 
 [pit-raportti](https://htmlpreview.github.io/?https://github.com/langj1/Pacman/blob/master/dokumentaatio/pit/201702032349/index.html)
 
+[checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/langj1/Pacman/blob/master/dokumentaatio/site/checkstyle.html)
+
