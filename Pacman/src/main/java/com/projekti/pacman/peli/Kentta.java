@@ -51,8 +51,8 @@ public abstract class Kentta {
     
     public Pacman pacmaninLahtokohta() {
         
-        for (int i = 0; i < kentta.length; i++) {
-            for (int j = 0; j < kentta[0].length; j++) {
+        for (int i = 0; i < kentta[0].length; i++) {
+            for (int j = 0; j < kentta.length; j++) {
 
                 if (kentta[j][i] == 4) {
                     return new Pacman(j, i);
@@ -67,8 +67,8 @@ public abstract class Kentta {
 
         ArrayList<Monsteri> monsterit = new ArrayList<>();
 
-        for (int i = 0; i < kentta.length; i++) {
-            for (int j = 0; j < kentta[0].length; j++) {
+        for (int i = 0; i < kentta[0].length; i++) {
+            for (int j = 0; j < kentta.length; j++) {
 
                 if (kentta[j][i] == 3) {
                     monsterit.add(new Monsteri(j, i));
@@ -77,10 +77,6 @@ public abstract class Kentta {
         }
 
         return monsterit;
-    }
-
-    public void reset() {
-
     }
 
 }

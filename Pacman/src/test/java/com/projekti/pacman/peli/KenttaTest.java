@@ -38,4 +38,19 @@ public class KenttaTest {
         assertEquals(120, taso.haePisteenArvo(2, 2));
     }
     
+    @Test
+    public void pacmaninLahtokohtaToimii() {
+        
+        Pacman pacman = taso.pacmaninLahtokohta();
+        
+        assertEquals(13, pacman.getxKordinaatti());
+    }
+    
+    @Test
+    public void monsterienLahtokohdatToimii() {
+        
+        ArrayList<Monsteri> monsterit = taso.monsterienLahtokohdat();
+        
+        assertEquals(7, monsterit.get(0).getxKordinaatti());
+    }
 }
