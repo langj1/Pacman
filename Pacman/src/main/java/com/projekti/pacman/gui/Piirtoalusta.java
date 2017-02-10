@@ -43,28 +43,30 @@ public class Piirtoalusta extends JPanel {
                     
                     g.setColor(Color.BLUE);
                     
-                    g.fillRect(j, i, sivu, sivu);
+                    g.fillRect(j*sivu, i*sivu, sivu, sivu);
+                    
                 }
                 
                 if(kentta[j][i] == 2){
                     
                     g.setColor(Color.PINK);
                     
-                    g.fillOval(j, i, sivu/4, sivu/4);
+                    g.fillOval(j*sivu, i*sivu, sivu/4, sivu/4);
+                    
                 }
                 
                 if(kentta[j][i] == 3){
                     
                     g.setColor(Color.RED);
                     
-                    g.fillOval(j, i, sivu, sivu);
+                    g.fillOval(j*sivu, i*sivu, sivu, sivu);
                 }
                 
                 if(kentta[j][i] == 4){
                     
                     g.setColor(Color.YELLOW);
                     
-                    g.fillOval(j, i, sivu, sivu);
+                    g.fillOval(j*sivu, i*sivu, sivu, sivu);
                 }
             }
         }

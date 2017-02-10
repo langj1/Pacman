@@ -5,29 +5,42 @@
  */
 package com.projekti.pacman.peli;
 
+import com.projekti.pacman.gui.Piirtoalusta;
 import com.projekti.pacman.logiikka.Liikkuva;
 import com.projekti.pacman.logiikka.Monsteri;
 import com.projekti.pacman.logiikka.Pacman;
+import static com.sun.java.accessibility.util.AWTEventMonitor.addActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
+import javax.swing.Timer;
+
 
 /**
  *
  * @author langjimi
  */
-public class Peli {
+public class Peli extends Timer implements ActionListener {
 
     private Kentta kentta;
     private int elamat;
     private ArrayList<Monsteri> monsterit;
     private Pacman pacman;
+    private Piirtoalusta alusta;
 
     public Peli(Kentta kentta) {
+        
+        super(1000, null);
 
         this.kentta = kentta;
         this.pacman = kentta.pacmaninLahtokohta();
         this.monsterit = kentta.monsterienLahtokohdat();
         elamat = 3;
+        
+        addActionListener(this);
+        setInitialDelay(2000);
+        
     }
 
     public int getElamat() {
@@ -44,6 +57,10 @@ public class Peli {
 
     public ArrayList<Monsteri> getMonsterit() {
         return monsterit;
+    }
+
+    public void setAlusta(Piirtoalusta alusta) {
+        this.alusta = alusta;
     }
 
     public void menetaElama() {
@@ -202,5 +219,15 @@ public class Peli {
         }
 
         return false;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        
+        liiku();
+        
+        alusta.paivita();
+        
+        setDelay(200);
     }
 }

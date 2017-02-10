@@ -5,6 +5,11 @@
  */
 package com.projekti.pacman;
 
+import com.projekti.pacman.gui.Kayttoliittyma;
+import com.projekti.pacman.peli.Peli;
+import com.projekti.pacman.peli.Taso1;
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author langjimi
@@ -15,7 +20,25 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        Taso1 kentta = new Taso1();
+        
+        Peli peli = new Peli(kentta);
+        
+        Kayttoliittyma gui = new Kayttoliittyma(peli, 20);
+        SwingUtilities.invokeLater(gui);
+        
+        while(gui.getAlusta() == null){
+            
+            try{
+                Thread.sleep(100);
+            }catch(InterruptedException e){
+                System.out.println("Lataa");
+            }
+        }
+        
+        peli.setAlusta(gui.getAlusta());
+        peli.start();
     }
     
 }

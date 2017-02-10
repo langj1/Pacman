@@ -79,4 +79,11 @@ public abstract class Kentta {
         return monsterit;
     }
 
+    public int getLeveys(){
+        return kentta.length;
+    }
+    
+    public int getPituus(){
+        return kentta[0].length;
+    }
 }
