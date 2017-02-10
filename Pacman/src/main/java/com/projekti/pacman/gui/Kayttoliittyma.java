@@ -12,9 +12,9 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 /**
- *
- * @author langjimi
+ *Huolehtii pelin grafiikoista.
  */
+
 public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
@@ -27,6 +27,10 @@ public class Kayttoliittyma implements Runnable {
         this.peli = peli;
         this.sivu = sivu;
     }
+    
+    /**
+     * Luo uuden ikkunan ja asetta sille arvot ja sisällön.
+     */
 
     @Override
     public void run() {
@@ -45,6 +49,11 @@ public class Kayttoliittyma implements Runnable {
         frame.pack();
         frame.setVisible(true);
     }
+    
+    /**
+     * Yhdistää Näppäimistönkuuntelijan ja Piirtoalustan Käyttöliittymään.
+     * @param container 
+     */
     
     public void luoKomponentit(Container container){
         

@@ -13,8 +13,7 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 /**
- *
- * @author langjimi
+ * Piirtää tason.
  */
 public class Piirtoalusta extends JPanel {
 
@@ -29,6 +28,11 @@ public class Piirtoalusta extends JPanel {
         ;
     }
 
+    /**
+     * Piirtää tasoon kaiken tarvittavan aina kun päivitetään.
+     * @param g 
+     */
+    
     @Override
     protected void paintComponent(Graphics g) {
 
@@ -72,6 +76,10 @@ public class Piirtoalusta extends JPanel {
         }
 
     }
+    
+    /**
+     * Piirtää kentän uudestaan.
+     */
     
     public void paivita(){
         repaint();

@@ -60,7 +60,7 @@ public abstract class Liikkuva {
     }
     
     /**
-     * Liikkuva liikkuu yhden tiettyyn askeleen suuntaan, jonka märittää  
+     * Liikkuva liikkuu yhden askeleen tiettyyn suuntaan, jonka märittää  
      * suunta attribuutti
      */
 

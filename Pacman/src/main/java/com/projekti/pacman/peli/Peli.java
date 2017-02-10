@@ -273,7 +273,7 @@ public class Peli extends Timer implements ActionListener {
     
     /**
      * Arvoo Monstereille uudet suunnat.
-     * @see logiikka.Monsteri#arvoSuunta()
+     * @see com.projekti.pacman.logiikka.Monsteri#arvoSuunta() 
      */
 
     public void arvoSuunnat() {

@@ -11,8 +11,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 /**
- *
- * @author langjimi
+ * Ottaa näppäimistön painallukset vastaan.
  */
 public class Nappaimistonkuuntelija implements KeyListener {
     
@@ -27,6 +26,12 @@ public class Nappaimistonkuuntelija implements KeyListener {
         ; //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     * Määrittää, mitä näppäimiä käytetään ja mitä ne tekee.
+     * 
+     * @param e Näppäin, jota painettu.
+     */
+    
     @Override
     public void keyPressed(KeyEvent e) {
         

@@ -11,8 +11,7 @@ import com.projekti.pacman.peli.Taso1;
 import javax.swing.SwingUtilities;
 
 /**
- *
- * @author langjimi
+ * Käynnistää sovelluksen.
  */
 public class Main {
 
