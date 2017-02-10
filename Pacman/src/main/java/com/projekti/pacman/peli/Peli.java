@@ -106,7 +106,7 @@ public class Peli extends Timer implements ActionListener {
 
         l.liiku();
 
-        if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 0) {
+        if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 0 || kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 3 && !l.onPacman()) {
 
             l.setKoordinaatit(x, y);
 
@@ -115,13 +115,13 @@ public class Peli extends Timer implements ActionListener {
         }
 
         if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 2 && !l.onPacman()) {
-            
+
             l.setPisteenPaalla(true);
-            
+
         } else if (!l.onPacman()) {
-            
+
             l.setPisteenPaalla(false);
-            
+
         }
 
         if (l.onPacman()) {
@@ -165,23 +165,23 @@ public class Peli extends Timer implements ActionListener {
     }
 
     public void reset() {
-        
+
         asetaKaikille1tai2();
 
         int pisteet = pacman.getPisteet();
 
-        pacman.setKoordinaatit(kentta.pacmaninLahtokohta().getxKordinaatti(), kentta.pacmaninLahtokohta().getyKordinaatti());
+        pacman.setKoordinaatit(kentta.getKoordinaatit().get(0)[1], kentta.getKoordinaatit().get(0)[0]);
 
         pacman.setPisteet(pisteet);
-        
+
         pacman.setSuunta(Suunta.STOP);
 
         for (int i = 0; i < 4; i++) {
-            monsterit.get(i).setKoordinaatit(kentta.monsterienLahtokohdat().get(i).getxKordinaatti(), kentta.monsterienLahtokohdat().get(i).getyKordinaatti());
+            monsterit.get(i).setKoordinaatit(kentta.getKoordinaatit().get(i + 1)[1], kentta.getKoordinaatit().get(i + 1)[0]);
         }
 
         asetaKaikilleOmaArvo();
-        
+
         restart();
 
     }
@@ -194,6 +194,7 @@ public class Peli extends Timer implements ActionListener {
 
             if (monsteri.isPisteenPaalla()) {
                 kentta.asetaUusiArvo(monsteri.getxKordinaatti(), monsteri.getyKordinaatti(), 2);
+                monsteri.setPisteenPaalla(false);
                 continue;
             }
 

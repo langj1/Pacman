@@ -86,4 +86,8 @@ public abstract class Kentta {
     public int getPituus(){
         return kentta[0].length;
     }
+    
+    public ArrayList<int[]> getKoordinaatit(){
+        return null;
+    }
 }

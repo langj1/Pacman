@@ -74,6 +74,7 @@ public class Taso1 extends Kentta {
         return lista;
     }
 
+    @Override
     public ArrayList<int[]> getKoordinaatit() {
         return koordinaatit;
     }
