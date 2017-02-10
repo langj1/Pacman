@@ -182,7 +182,7 @@ public class Peli extends Timer implements ActionListener {
 
         asetaKaikilleOmaArvo();
         
-        setDelay(4000);
+        restart();
 
     }
 

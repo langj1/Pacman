@@ -15,26 +15,36 @@ import java.util.ArrayList;
  */
 public class Taso1 extends Kentta {
 
+    private ArrayList<int[]> koordinaatit;
+
     //0=muuri, 1=tyhja, 2=piste, 3=monsteri, 4=pacman
     public Taso1() {
 
         int[][] taso = new int[][]{{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0},
-            {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
-            {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
-            {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
-            {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
-            {0, 2, 0, 0, 2, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 2, 0, 0, 2, 0},
-            {0, 2, 2, 2, 2, 2, 2, 1, 3, 3, 3, 3, 1, 2, 2, 2, 2, 2, 2, 0},
-            {0, 2, 0, 0, 2, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 2, 0, 0, 2, 0},
-            {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
-            {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
-            {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
-            {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
-            {0, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
+        {0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0},
+        {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
+        {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
+        {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
+        {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
+        {0, 2, 0, 0, 2, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 2, 0, 0, 2, 0},
+        {0, 2, 2, 2, 2, 2, 2, 1, 3, 3, 3, 3, 1, 2, 2, 2, 2, 2, 2, 0},
+        {0, 2, 0, 0, 2, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 2, 0, 0, 2, 0},
+        {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
+        {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
+        {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
+        {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
+        {0, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
 
         setKentta(taso);
+
+        setPisteet(laskePisteet());
+
+        this.koordinaatit = laskeKoordinaatit();
+
+    }
+
+    public int laskePisteet() {
 
         int pisteet = 0;
 
@@ -47,31 +57,24 @@ public class Taso1 extends Kentta {
             }
         }
 
-        setPisteet(pisteet);
-
+        return pisteet;
     }
 
-    @Override
-    public Pacman pacmaninLahtokohta() {
-        return new Pacman(13, 1);
-    }
+    public ArrayList<int[]> laskeKoordinaatit() {
 
-    @Override
-    public ArrayList<Monsteri> monsterienLahtokohdat() {
+        ArrayList<int[]> lista = new ArrayList<>();
 
-        ArrayList<Monsteri> monsterit = new ArrayList<>();
+        lista.add(pacmaninLahtokohta().getKoordinaatit());
 
-        for (int i = 0; i < 4; i++) {
-            monsterit.add(new Monsteri(7, 8 + i));
+        for (Monsteri monsteri : monsterienLahtokohdat()) {
+
+            lista.add(monsteri.getKoordinaatit());
         }
 
-        return monsterit;
+        return lista;
     }
 
-    //Kun menettää elämän, pacman ja monsterit siirtyy aloituskohtiin, mutta 
-    //pisteet ei resetoidu
- 
-    
-    
-
+    public ArrayList<int[]> getKoordinaatit() {
+        return koordinaatit;
+    }
 }

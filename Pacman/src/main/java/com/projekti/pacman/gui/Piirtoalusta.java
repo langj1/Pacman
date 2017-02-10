@@ -37,36 +37,36 @@ public class Piirtoalusta extends JPanel {
         int[][] kentta = peli.getKentta().getKentta();
 
         for (int i = 0; i < kentta[0].length; i++) {
-            for (int j = 0; j < kentta.length; j++) {
+            for (int k = 0; k < kentta.length; k++) {
 
-                if(kentta[j][i] == 0){
+                if(kentta[k][i] == 0){
                     
                     g.setColor(Color.BLUE);
                     
-                    g.fillRect(j*sivu, i*sivu, sivu, sivu);
+                    g.fillRect(k*sivu, i*sivu, sivu, sivu);
                     
                 }
                 
-                if(kentta[j][i] == 2){
+                if(kentta[k][i] == 2){
                     
                     g.setColor(Color.PINK);
                     
-                    g.fillOval(j*sivu+sivu/4, i*sivu+sivu/4, sivu/2, sivu/2);
+                    g.fillOval(k*sivu+sivu/4, i*sivu+sivu/4, sivu/2, sivu/2);
                     
                 }
                 
-                if(kentta[j][i] == 3){
+                if(kentta[k][i] == 3){
                     
                     g.setColor(Color.RED);
                     
-                    g.fillOval(j*sivu, i*sivu, sivu, sivu);
+                    g.fillOval(k*sivu, i*sivu, sivu, sivu);
                 }
                 
-                if(kentta[j][i] == 4){
+                if(kentta[k][i] == 4){
                     
                     g.setColor(Color.YELLOW);
                     
-                    g.fillOval(j*sivu, i*sivu, sivu, sivu);
+                    g.fillOval(k*sivu, i*sivu, sivu, sivu);
                 }
             }
         }
