@@ -20,7 +20,7 @@ public class LiikkuvaTest {
 
     @Before
     public void setUp() {
-        liikkuva = new Liikkuva(12, 324);
+        liikkuva = new Pacman(12, 324);
     }
 
     @Test

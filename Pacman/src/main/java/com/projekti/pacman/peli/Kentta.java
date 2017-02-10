@@ -10,8 +10,7 @@ import com.projekti.pacman.logiikka.Pacman;
 import java.util.ArrayList;
 
 /**
- *
- * @author langjimi
+ *Luokka luo yleisen pohjan pelin tasoille 
  */
 public abstract class Kentta {
 
@@ -31,10 +30,24 @@ public abstract class Kentta {
         return kentta;
     }
 
+    /**
+     * 
+     * @param x x koordinaatti
+     * @param y y koordinaatti
+     * @param uusiArvo matriisiin sijoitettava uusi arvo
+     */
+    
     public void asetaUusiArvo(int x, int y, int uusiArvo) {
 
         kentta[x][y] = uusiArvo;
     }
+    
+    /**
+     * 
+     * @param x x koordinaatti
+     * @param y y koordinaatti
+     * @return palauttaa koordinaateissa olevan arvon matriisista
+     */
 
     public int haePisteenArvo(int x, int y) {
         return kentta[x][y];
@@ -49,6 +62,11 @@ public abstract class Kentta {
         this.pisteet = pisteet;
     }
     
+    /**
+     * Etsii matriisista Pacmanin koordinaatit
+     * @return Luo uuden Pacmanin koordinaateilla
+     */
+    
     public Pacman pacmaninLahtokohta() {
         
         for (int i = 0; i < kentta[0].length; i++) {
@@ -62,6 +80,11 @@ public abstract class Kentta {
         
         return null;
     }
+    
+    /**
+     * Etsii matriisista monsterien koordinaatit
+     * @return Luo neljä monsteria koordinaateilla
+     */
 
     public ArrayList<Monsteri> monsterienLahtokohdat() {
 
@@ -86,6 +109,11 @@ public abstract class Kentta {
     public int getPituus(){
         return kentta[0].length;
     }
+    
+    /**
+     * Jätetään tasojen täsmennettäväksi
+     * @return palautta jokaisen Liikkuvan koordinaatit
+     */
     
     public ArrayList<int[]> getKoordinaatit(){
         return null;

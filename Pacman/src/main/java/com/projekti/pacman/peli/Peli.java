@@ -18,6 +18,8 @@ import java.util.Random;
 import javax.swing.Timer;
 
 /**
+ * Luokka, joka hallitsee pelin kulkua ja yhdistää kaikki muut logiikan luokat
+ * sekä käyttöliittymän
  *
  * @author langjimi
  */
@@ -63,6 +65,9 @@ public class Peli extends Timer implements ActionListener {
         this.alusta = alusta;
     }
 
+    /**
+     * Vähentää yhden elämän Jos elämät loppuu peli päättyy
+     */
     public void menetaElama() {
 
         elamat--;
@@ -73,6 +78,11 @@ public class Peli extends Timer implements ActionListener {
 
     }
 
+    /**
+     * Ensiksi arvoo monstereille uudet suunnat, jonka jälkeen liikuttaa
+     * Pacmania. Jos Pacman saavuttaa tason voittoon vaadittavan pistemäärän
+     * peli päättyy. Muussa tapauksessa monsterit liikkuu seuraavaksi.
+     */
     public void liiku() {
 
         arvoSuunnat();
@@ -89,20 +99,22 @@ public class Peli extends Timer implements ActionListener {
 
     }
 
+    /**
+     * Ottaa muistiin Liikkuvan alkuperäiset koordinaatit. Sitten asettaa
+     * koordinaatteihin joista liikutaan pois joko pisteen tai tyhjän ruudun.
+     * Seuraavaksi liikutetaan Liikkuvaa. Sitten katsotaan onko Liikkuva
+     * liikkumassa muuriin, jolloin Liikkuva palaa alkuperäiseen ruutuun. Sitten
+     * katsotaan törmätäänkö pisteeseen, Pacmaniin tai Monsteriin. Lopulta 
+     * asetetaan Liikkuvan oma arvo uuteen ruutuun.
+     * 
+     * @param l Pacman tai Monsteri, jota liikutetaan
+     */
     public void liikkuvaLiikkuu(Liikkuva l) {
 
         int x = l.getxKordinaatti();
         int y = l.getyKordinaatti();
 
-        if (l.isPisteenPaalla()) {
-
-            kentta.asetaUusiArvo(x, y, 2);
-
-        } else {
-
-            kentta.asetaUusiArvo(x, y, 1);
-
-        }
+        onkoPisteenPaalla(x, y, l);
 
         l.liiku();
 
@@ -112,16 +124,6 @@ public class Peli extends Timer implements ActionListener {
 
             kentta.asetaUusiArvo(x, y, l.getKenttaNumero());
             return;
-        }
-
-        if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 2 && !l.onPacman()) {
-
-            l.setPisteenPaalla(true);
-
-        } else if (!l.onPacman()) {
-
-            l.setPisteenPaalla(false);
-
         }
 
         if (l.onPacman()) {
@@ -137,7 +139,34 @@ public class Peli extends Timer implements ActionListener {
         kentta.asetaUusiArvo(l.getxKordinaatti(), l.getyKordinaatti(), l.getKenttaNumero());
 
     }
+    
+    /**
+     * Määrittää, mikä arvo laitetaan lähtöruutuun
+     * @param x x koordinaatti
+     * @param y y koordinaatti
+     * @param l Liikkuva
+     */
 
+    public void onkoPisteenPaalla(int x, int y, Liikkuva l) {
+
+        if (l.isPisteenPaalla()) {
+
+            kentta.asetaUusiArvo(x, y, 2);
+
+        } else {
+
+            kentta.asetaUusiArvo(x, y, 1);
+
+        }
+    }
+
+    /**
+     * Katsoo törmääkö monsteri Pacmaniin, jolloin menetetään elämä ja 
+     * resetoidaan peli. Katsoo myös törmääkö Monsteri pisteeseen, jotta se 
+     * voidaan laitta takaisin.
+     * @param l Monsteri, joka mahdollisesti törmää
+     */
+    
     public void tormaakoMonsteri(Liikkuva l) {
 
         if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 4) {
@@ -146,8 +175,25 @@ public class Peli extends Timer implements ActionListener {
 
             reset();
         }
+
+        if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 2) {
+
+            l.setPisteenPaalla(true);
+
+        } else {
+
+            l.setPisteenPaalla(false);
+
+        }
     }
 
+    /**
+     * Katsoo törmääkö Pacman Monsteriin, jolloin menetetään elämä ja 
+     * resetoidaan peli. Katsoo myös törmätäänkö pisteeseen, jolloin piste
+     * poistetaan ja Pacmanille lisätään piste.
+     * @param l Pacman, joka mahdollisesti törmää
+     */
+    
     public void tormaakoPacman(Liikkuva l) {
 
         if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 3) {
@@ -163,6 +209,10 @@ public class Peli extends Timer implements ActionListener {
 
         }
     }
+    
+    /**
+     * Resetoi pelin alkuperäisasetelmaan paitsi pisteitä ei palauteta.
+     */
 
     public void reset() {
 
@@ -185,6 +235,11 @@ public class Peli extends Timer implements ActionListener {
         restart();
 
     }
+    
+    /**
+     * Asettaa pelin Monsterien ja Pacmanien koordinaatteihin tyhjän ruudun tai
+     * pisteen.
+     */
 
     public void asetaKaikille1tai2() {
 
@@ -202,6 +257,11 @@ public class Peli extends Timer implements ActionListener {
         }
     }
 
+    /**
+     * Asettaa pelin Monsterien ja Pacmanin koordinaatteihin heitä kuvaavat 
+     * arvot.
+     */
+    
     public void asetaKaikilleOmaArvo() {
 
         kentta.asetaUusiArvo(pacman.getxKordinaatti(), pacman.getyKordinaatti(), pacman.getKenttaNumero());
@@ -210,6 +270,11 @@ public class Peli extends Timer implements ActionListener {
             kentta.asetaUusiArvo(monsteri.getxKordinaatti(), monsteri.getyKordinaatti(), monsteri.getKenttaNumero());
         }
     }
+    
+    /**
+     * Arvoo Monstereille uudet suunnat.
+     * @see logiikka.Monsteri#arvoSuunta()
+     */
 
     public void arvoSuunnat() {
 
@@ -228,6 +293,11 @@ public class Peli extends Timer implements ActionListener {
         }
 
     }
+    
+    /**
+     * Katsoo onko Pacmanillä tarpeeksi pisteitä voittoon.
+     * @return True jos on tarpeeksi muulloin false.
+     */
 
     public boolean voitto() {
 
@@ -238,6 +308,11 @@ public class Peli extends Timer implements ActionListener {
         return false;
     }
 
+    /**
+     * Pyörittää peliä.
+     * @param e ei käytetä
+     */
+    
     @Override
     public void actionPerformed(ActionEvent e) {
 

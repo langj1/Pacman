@@ -1,17 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.projekti.pacman.logiikka;
 
 import com.projekti.pacman.Suunta;
 
 /**
- *
- * @author langjimi
+ * Luokka luo pohjan, jonka Pacman ja monsterit perii
  */
-public class Liikkuva {
+
+public abstract class Liikkuva {
 
     Suunta suunta;
     private int xKordinaatti;
@@ -62,6 +58,11 @@ public class Liikkuva {
         this.xKordinaatti = x;
         this.yKordinaatti = y;
     }
+    
+    /**
+     * Liikkuva liikkuu yhden tiettyyn askeleen suuntaan, jonka märittää  
+     * suunta attribuutti
+     */
 
     public void liiku() {
 

@@ -10,14 +10,22 @@ import com.projekti.pacman.logiikka.Pacman;
 import java.util.ArrayList;
 
 /**
- *
- * @author langjimi
+ *Yksi mahdollisista tasoista
+ *Perii luokan Kentta
  */
+
 public class Taso1 extends Kentta {
 
     private ArrayList<int[]> koordinaatit;
 
-    //0=muuri, 1=tyhja, 2=piste, 3=monsteri, 4=pacman
+    /**
+     * Matriisi kuvaa tasoa
+     * 0 = muuri
+     * 1 = tyhjä ruutu
+     * 2 = ruutu, jossa on piste
+     * 3 = ruutu, jossa on monsteri
+     * 4 = ruutu, jossa on Pacman
+     */
     public Taso1() {
 
         int[][] taso = new int[][]{{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -43,6 +51,11 @@ public class Taso1 extends Kentta {
         this.koordinaatit = laskeKoordinaatit();
 
     }
+    
+    /**
+     * Laskee kaikkien matriisissa olevien pisteiden määrän
+     * @return Pisteiden summa
+     */
 
     public int laskePisteet() {
 
@@ -60,6 +73,11 @@ public class Taso1 extends Kentta {
         return pisteet;
     }
 
+    /**
+     * Laskee jokaisen Liikkuvan koordinaatit ja lisää ne listaan
+     * @return Palauttaa listan koordinaatteja
+     */
+    
     public ArrayList<int[]> laskeKoordinaatit() {
 
         ArrayList<int[]> lista = new ArrayList<>();
