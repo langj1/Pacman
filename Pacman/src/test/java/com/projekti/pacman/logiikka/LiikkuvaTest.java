@@ -7,6 +7,8 @@ package com.projekti.pacman.logiikka;
 
 import com.projekti.pacman.Suunta;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -89,5 +91,18 @@ public class LiikkuvaTest {
         assertEquals(324, taulu[0]);
         assertEquals(12, taulu[1]);
         
+    }
+    
+    @Test
+    public void isPisteenPaallaToimii() {
+        assertFalse(liikkuva.isPisteenPaalla());
+    }
+    
+    @Test
+    public void setPisteenPaallaToimii() {
+        
+        liikkuva.setPisteenPaalla(true);
+        
+        assertTrue(liikkuva.isPisteenPaalla());
     }
 }

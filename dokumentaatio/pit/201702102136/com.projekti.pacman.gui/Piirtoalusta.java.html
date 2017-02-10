@@ -1,0 +1,1521 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+	border: 1px solid #dddddd;
+	padding-top: 10px;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-family: Consolas, Courier, monospace;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+
+.pop {outline:none; }
+.pop strong {line-height:30px;}
+.pop {text-decoration:none;}
+.pop span { z-index:10;display:none; padding:14px 20px; margin-top:-30px; margin-left:28px; width:800px; line-height:16px; word-wrap:break-word; }
+.pop:hover span{ display:inline; position:absolute; color:#111; border:1px solid #DCA; background:#fffAF0;}
+
+.pop span { border-radius:4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; -moz-box-shadow: 5px 5px 8px #CCC; -webkit-box-shadow: 5px 5px 8px #CCC; box-shadow: 5px 5px 8px #CCC; }
+</style>
+
+</head>
+<body>
+
+
+<h1>Piirtoalusta.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/*</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * To change this license header, choose License Headers in Project Properties.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * To change this template file, choose Tools | Templates</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * and open the template in the editor.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.projekti.pacman.gui;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.projekti.pacman.logiikka.Monsteri;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.projekti.pacman.peli.Kentta;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.projekti.pacman.peli.Peli;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.awt.Color;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.awt.Graphics;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import javax.swing.JPanel;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_16'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Piirt&#228;&#228; tason.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_17'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_18'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class Piirtoalusta extends JPanel {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_19'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_20'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private Peli peli;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_21'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private int sivu;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_22'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_23'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_24'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    public Piirtoalusta(Peli peli, int sivu) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_25'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_26'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        this.peli = peli;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_27'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        this.sivu = sivu;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_28'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        ;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_29'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_30'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_31'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_32'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Piirt&#228;&#228; tasoon kaiken tarvittavan aina kun p&#228;ivitet&#228;&#228;n.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_33'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param g </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_34'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_35'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_36'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_37'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    protected void paintComponent(Graphics g) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_38'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_39'/>
+39
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_39'>1</a>
+<span>
+1. paintComponent : removed call to javax/swing/JPanel::paintComponent &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        super.paintComponent(g);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_40'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        </span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_41'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        int[][] kentta = peli.getKentta().getKentta();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_42'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_43'/>
+43
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_43'>3</a>
+<span>
+1. paintComponent : changed conditional boundary &rarr; NO_COVERAGE<br/>
+2. paintComponent : Changed increment from 1 to -1 &rarr; NO_COVERAGE<br/>
+3. paintComponent : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        for (int i = 0; i &#60; kentta[0].length; i++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_44'/>
+44
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_44'>3</a>
+<span>
+1. paintComponent : changed conditional boundary &rarr; NO_COVERAGE<br/>
+2. paintComponent : Changed increment from 1 to -1 &rarr; NO_COVERAGE<br/>
+3. paintComponent : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            for (int j = 0; j &#60; kentta.length; j++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_45'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_46'/>
+46
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_46'>1</a>
+<span>
+1. paintComponent : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                if(kentta[j][i] == 0){</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_47'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    </span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_48'/>
+48
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_48'>1</a>
+<span>
+1. paintComponent : removed call to java/awt/Graphics::setColor &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                    g.setColor(Color.BLUE);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_49'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    </span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_50'/>
+50
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_50'>3</a>
+<span>
+1. paintComponent : Replaced integer multiplication with division &rarr; NO_COVERAGE<br/>
+2. paintComponent : Replaced integer multiplication with division &rarr; NO_COVERAGE<br/>
+3. paintComponent : removed call to java/awt/Graphics::fillRect &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                    g.fillRect(j*sivu, i*sivu, sivu, sivu);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_51'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_52'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_53'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                </span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_54'/>
+54
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_54'>1</a>
+<span>
+1. paintComponent : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                if(kentta[j][i] == 2){</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_55'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    </span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_56'/>
+56
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_56'>1</a>
+<span>
+1. paintComponent : removed call to java/awt/Graphics::setColor &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                    g.setColor(Color.PINK);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_57'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    </span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_58'/>
+58
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_58'>9</a>
+<span>
+1. paintComponent : Replaced integer multiplication with division &rarr; NO_COVERAGE<br/>
+2. paintComponent : Replaced integer division with multiplication &rarr; NO_COVERAGE<br/>
+3. paintComponent : Replaced integer addition with subtraction &rarr; NO_COVERAGE<br/>
+4. paintComponent : Replaced integer multiplication with division &rarr; NO_COVERAGE<br/>
+5. paintComponent : Replaced integer division with multiplication &rarr; NO_COVERAGE<br/>
+6. paintComponent : Replaced integer addition with subtraction &rarr; NO_COVERAGE<br/>
+7. paintComponent : Replaced integer division with multiplication &rarr; NO_COVERAGE<br/>
+8. paintComponent : Replaced integer division with multiplication &rarr; NO_COVERAGE<br/>
+9. paintComponent : removed call to java/awt/Graphics::fillOval &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                    g.fillOval(j*sivu+sivu/4, i*sivu+sivu/4, sivu/2, sivu/2);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_59'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_60'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_61'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                </span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_62'/>
+62
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_62'>1</a>
+<span>
+1. paintComponent : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                if(kentta[j][i] == 3){</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_63'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    </span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_64'/>
+64
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_64'>1</a>
+<span>
+1. paintComponent : removed call to java/awt/Graphics::setColor &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                    g.setColor(Color.RED);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_65'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    </span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_66'/>
+66
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_66'>3</a>
+<span>
+1. paintComponent : Replaced integer multiplication with division &rarr; NO_COVERAGE<br/>
+2. paintComponent : Replaced integer multiplication with division &rarr; NO_COVERAGE<br/>
+3. paintComponent : removed call to java/awt/Graphics::fillOval &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                    g.fillOval(j*sivu, i*sivu, sivu, sivu);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_67'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_68'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                </span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_69'/>
+69
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_69'>1</a>
+<span>
+1. paintComponent : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                if(kentta[j][i] == 4){</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_70'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    </span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_71'/>
+71
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_71'>1</a>
+<span>
+1. paintComponent : removed call to java/awt/Graphics::setColor &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                    g.setColor(Color.YELLOW);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_72'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    </span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_73'/>
+73
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_73'>3</a>
+<span>
+1. paintComponent : Replaced integer multiplication with division &rarr; NO_COVERAGE<br/>
+2. paintComponent : Replaced integer multiplication with division &rarr; NO_COVERAGE<br/>
+3. paintComponent : removed call to java/awt/Graphics::fillOval &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                    g.fillOval(j*sivu, i*sivu, sivu, sivu);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_74'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_75'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_76'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_77'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_78'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_79'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_80'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_81'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Piirt&#228;&#228; kent&#228;n uudestaan.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_82'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_83'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_84'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void paivita(){</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_85'/>
+85
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_85'>1</a>
+<span>
+1. paivita : removed call to com/projekti/pacman/gui/Piirtoalusta::repaint &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        repaint();</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_86'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@64942607_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@64942607_87'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@64942607_39'>39</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@64942607_39'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> removed call to javax/swing/JPanel::paintComponent &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@64942607_43'>43</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@64942607_43'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> Changed increment from 1 to -1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@64942607_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@64942607_44'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> Changed increment from 1 to -1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@64942607_46'>46</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@64942607_46'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@64942607_48'>48</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@64942607_48'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> removed call to java/awt/Graphics::setColor &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@64942607_50'>50</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@64942607_50'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> Replaced integer multiplication with division &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> Replaced integer multiplication with division &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> removed call to java/awt/Graphics::fillRect &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@64942607_54'>54</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@64942607_54'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@64942607_56'>56</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@64942607_56'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> removed call to java/awt/Graphics::setColor &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@64942607_58'>58</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@64942607_58'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> Replaced integer multiplication with division &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> Replaced integer division with multiplication &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> Replaced integer multiplication with division &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> Replaced integer division with multiplication &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> Replaced integer division with multiplication &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> Replaced integer division with multiplication &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> removed call to java/awt/Graphics::fillOval &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@64942607_62'>62</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@64942607_62'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@64942607_64'>64</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@64942607_64'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> removed call to java/awt/Graphics::setColor &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@64942607_66'>66</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@64942607_66'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> Replaced integer multiplication with division &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> Replaced integer multiplication with division &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> removed call to java/awt/Graphics::fillOval &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@64942607_69'>69</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@64942607_69'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@64942607_71'>71</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@64942607_71'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> removed call to java/awt/Graphics::setColor &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@64942607_73'>73</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@64942607_73'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> Replaced integer multiplication with division &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> Replaced integer multiplication with division &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>paintComponent<br/><b>Killed by : </b>none</span></span> removed call to java/awt/Graphics::fillOval &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@64942607_85'>85</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@64942607_85'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>paivita<br/><b>Killed by : </b>none</span></span> removed call to com/projekti/pacman/gui/Piirtoalusta::repaint &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.1.8
+
+</body>
+</html>
