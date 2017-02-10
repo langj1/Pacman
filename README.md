@@ -6,9 +6,9 @@ ilman, että osuu monstereihin. Pelaajalla on 3 elämää.
 
 **Dokumentaatio**
 
-[aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md)
+* [aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md)
 
-[pit-raportti](https://htmlpreview.github.io/?https://github.com/langj1/Pacman/blob/master/dokumentaatio/pit/201702102208/index.html)
+* [pit-raportti](https://htmlpreview.github.io/?https://github.com/langj1/Pacman/blob/master/dokumentaatio/pit/201702102208/index.html)
 
-[checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/langj1/Pacman/blob/master/dokumentaatio/site/checkstyle.html)
+* [checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/langj1/Pacman/blob/master/dokumentaatio/site/checkstyle.html)
 
