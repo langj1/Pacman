@@ -51,7 +51,7 @@ public class Piirtoalusta extends JPanel {
                     
                     g.setColor(Color.PINK);
                     
-                    g.fillOval(j*sivu, i*sivu, sivu/4, sivu/4);
+                    g.fillOval(j*sivu+sivu/4, i*sivu+sivu/4, sivu/2, sivu/2);
                     
                 }
                 
