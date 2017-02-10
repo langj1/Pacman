@@ -244,6 +244,6 @@ public class Peli extends Timer implements ActionListener {
 
         alusta.paivita();
 
-        setDelay(500);
+        setDelay(300);
     }
 }
