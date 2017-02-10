@@ -61,9 +61,9 @@ public class Peli {
         arvoSuunnat();
 
         liikkuvaLiikkuu(pacman);
-        
-        if(voitto()){
-            
+
+        if (voitto()) {
+
         }
 
         for (Monsteri monsteri : monsterit) {
@@ -77,8 +77,16 @@ public class Peli {
         int x = l.getxKordinaatti();
         int y = l.getyKordinaatti();
 
-        kentta.asetaUusiArvo(x, y, 1);
+        if (l.isPisteenPaalla()) {
+            
+           kentta.asetaUusiArvo(x, y, 2); 
 
+        } else {
+            
+            kentta.asetaUusiArvo(x, y, 1);
+            
+        }
+        
         l.liiku();
 
         if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 0) {
@@ -125,13 +133,13 @@ public class Peli {
         if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 2) {
 
             pacman.syoPiste();
-            
+
         }
     }
 
     public void reset() {
 
-        asetaNollaKaikille();
+        asetaKaikille1tai2();
 
         int pisteet = pacman.getPisteet();
 
@@ -141,20 +149,26 @@ public class Peli {
 
         this.monsterit = kentta.monsterienLahtokohdat();
 
-        asetaKaikilleKenttaArvo();
+        asetaKaikilleOmaArvo();
 
     }
 
-    public void asetaNollaKaikille() {
+    public void asetaKaikille1tai2() {
 
-        kentta.asetaUusiArvo(pacman.getxKordinaatti(), pacman.getyKordinaatti(), 0);
+        kentta.asetaUusiArvo(pacman.getxKordinaatti(), pacman.getyKordinaatti(), 1);
 
         for (Monsteri monsteri : monsterit) {
-            kentta.asetaUusiArvo(monsteri.getxKordinaatti(), monsteri.getyKordinaatti(), 0);
+
+            if (monsteri.isPisteenPaalla()) {
+                kentta.asetaUusiArvo(monsteri.getxKordinaatti(), monsteri.getyKordinaatti(), 2);
+                continue;
+            }
+
+            kentta.asetaUusiArvo(monsteri.getxKordinaatti(), monsteri.getyKordinaatti(), 1);
         }
     }
 
-    public void asetaKaikilleKenttaArvo() {
+    public void asetaKaikilleOmaArvo() {
 
         kentta.asetaUusiArvo(pacman.getxKordinaatti(), pacman.getyKordinaatti(), pacman.getKenttaNumero());
 
@@ -186,7 +200,7 @@ public class Peli {
         if (pacman.getPisteet() >= kentta.getPisteet()) {
             return true;
         }
-        
+
         return false;
     }
 }

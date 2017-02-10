@@ -12,17 +12,27 @@ import com.projekti.pacman.Suunta;
  * @author langjimi
  */
 public class Liikkuva {
-    
+
     Suunta suunta;
     private int xKordinaatti;
     private int yKordinaatti;
+    private boolean pisteenPaalla;
 
     public Liikkuva(int alkuX, int alkuY) {
 
         this.suunta = suunta.STOP;
         this.xKordinaatti = alkuX;
         this.yKordinaatti = alkuY;
+        this.pisteenPaalla = false;
 
+    }
+
+    public void setPisteenPaalla(boolean pisteenPaalla) {
+        this.pisteenPaalla = pisteenPaalla;
+    }
+
+    public boolean isPisteenPaalla() {
+        return pisteenPaalla;
     }
 
     public Suunta getSuunta() {
@@ -40,19 +50,19 @@ public class Liikkuva {
     public int getyKordinaatti() {
         return yKordinaatti;
     }
-    
-    public int[] getKoordinaatit(){
-        
+
+    public int[] getKoordinaatit() {
+
         int[] koordinaatit = {yKordinaatti, xKordinaatti};
-        
+
         return koordinaatit;
     }
-    
-    public void setKoordinaatit(int x, int y){
+
+    public void setKoordinaatit(int x, int y) {
         this.xKordinaatti = x;
         this.yKordinaatti = y;
     }
-    
+
     public void liiku() {
 
         if (suunta == suunta.VASEN) {
@@ -68,12 +78,12 @@ public class Liikkuva {
             this.yKordinaatti++;
         }
     }
-    
-    public int getKenttaNumero(){
+
+    public int getKenttaNumero() {
         return 4;
     }
-    
-    public boolean onPacman(){
+
+    public boolean onPacman() {
         return false;
     }
 }

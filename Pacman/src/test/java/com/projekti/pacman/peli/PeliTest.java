@@ -37,7 +37,7 @@ public class PeliTest {
     @Test
     public void asetaNollaKaikilleToimiiPacmanille() {
 
-        peli.asetaNollaKaikille();
+        peli.asetaKaikille1tai2();
 
         assertEquals(0, peli.getKentta().haePisteenArvo(peli.getPacman().getxKordinaatti(), peli.getPacman().getyKordinaatti()));
     }
@@ -45,7 +45,7 @@ public class PeliTest {
     @Test
     public void asetaNollaKaikilleToimiiMonstereille() {
 
-        peli.asetaNollaKaikille();
+        peli.asetaKaikille1tai2();
 
         for (Monsteri m : peli.getMonsterit()) {
             assertEquals(0, peli.getKentta().haePisteenArvo(m.getxKordinaatti(), m.getyKordinaatti()));
@@ -56,7 +56,7 @@ public class PeliTest {
     @Test
     public void asetaKaikilleKenttaArvoToimiiPacmanille() {
 
-        peli.asetaNollaKaikille();
+        peli.asetaKaikille1tai2();
         peli.asetaKaikilleKenttaArvo();
 
         assertEquals(4, peli.getKentta().haePisteenArvo(peli.getPacman().getxKordinaatti(), peli.getPacman().getyKordinaatti()));
@@ -65,7 +65,7 @@ public class PeliTest {
     @Test
     public void asetaNollaKaikilleKenttaArvoToimiiMonstereille() {
 
-        peli.asetaNollaKaikille();
+        peli.asetaKaikille1tai2();
         peli.asetaKaikilleKenttaArvo();
 
         for (Monsteri m : peli.getMonsterit()) {
