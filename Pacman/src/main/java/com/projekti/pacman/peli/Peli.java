@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.Timer;
 
-
 /**
  *
  * @author langjimi
@@ -30,17 +29,17 @@ public class Peli extends Timer implements ActionListener {
     private Piirtoalusta alusta;
 
     public Peli(Kentta kentta) {
-        
+
         super(1000, null);
 
         this.kentta = kentta;
         this.pacman = kentta.pacmaninLahtokohta();
         this.monsterit = kentta.monsterienLahtokohdat();
         elamat = 3;
-        
+
         addActionListener(this);
         setInitialDelay(2000);
-        
+
     }
 
     public int getElamat() {
@@ -95,15 +94,15 @@ public class Peli extends Timer implements ActionListener {
         int y = l.getyKordinaatti();
 
         if (l.isPisteenPaalla()) {
-            
-           kentta.asetaUusiArvo(x, y, 2); 
+
+            kentta.asetaUusiArvo(x, y, 2);
 
         } else {
-            
+
             kentta.asetaUusiArvo(x, y, 1);
-            
+
         }
-        
+
         l.liiku();
 
         if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 0) {
@@ -112,6 +111,16 @@ public class Peli extends Timer implements ActionListener {
 
             kentta.asetaUusiArvo(x, y, l.getKenttaNumero());
             return;
+        }
+
+        if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 2 && !l.onPacman()) {
+            
+            l.setPisteenPaalla(true);
+            
+        } else if (!l.onPacman()) {
+            
+            l.setPisteenPaalla(false);
+            
         }
 
         if (l.onPacman()) {
@@ -223,11 +232,11 @@ public class Peli extends Timer implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+
         liiku();
-        
+
         alusta.paivita();
-        
+
         setDelay(200);
     }
 }
