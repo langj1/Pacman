@@ -5,6 +5,7 @@
  */
 package com.projekti.pacman.peli;
 
+import com.projekti.pacman.Suunta;
 import com.projekti.pacman.gui.Piirtoalusta;
 import com.projekti.pacman.logiikka.Liikkuva;
 import com.projekti.pacman.logiikka.Monsteri;
@@ -164,18 +165,24 @@ public class Peli extends Timer implements ActionListener {
     }
 
     public void reset() {
-
+        
         asetaKaikille1tai2();
 
         int pisteet = pacman.getPisteet();
 
-        this.pacman = kentta.pacmaninLahtokohta();
+        pacman.setKoordinaatit(kentta.pacmaninLahtokohta().getxKordinaatti(), kentta.pacmaninLahtokohta().getyKordinaatti());
 
         pacman.setPisteet(pisteet);
+        
+        pacman.setSuunta(Suunta.STOP);
 
-        this.monsterit = kentta.monsterienLahtokohdat();
+        for (int i = 0; i < 4; i++) {
+            monsterit.get(i).setKoordinaatit(kentta.monsterienLahtokohdat().get(i).getxKordinaatti(), kentta.monsterienLahtokohdat().get(i).getyKordinaatti());
+        }
 
         asetaKaikilleOmaArvo();
+        
+        setDelay(4000);
 
     }
 
@@ -237,6 +244,6 @@ public class Peli extends Timer implements ActionListener {
 
         alusta.paivita();
 
-        setDelay(200);
+        setDelay(500);
     }
 }
