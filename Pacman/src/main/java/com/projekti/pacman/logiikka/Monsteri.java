@@ -9,8 +9,7 @@ import com.projekti.pacman.Suunta;
 import java.util.Random;
 
 /**
- *Luokka kuvaa Pacmania jahtaavia monstereita
- * Perii luokan Liikkuva
+ * Luokka kuvaa Pacmania jahtaavia monstereita Perii luokan Liikkuva.
  */
 public class Monsteri extends Liikkuva {
 
@@ -19,10 +18,8 @@ public class Monsteri extends Liikkuva {
     }
 
     /**
-     * Metodi valitsee sattumanvaraisesti yhden neljästä mahdollisesta
-     * suunnasta
+     * Metodi valitsee sattumanvaraisesti yhden neljästä mahdollisesta suunnasta.
      */
-    
     public void arvoSuunta() {
 
         Random random = new Random();

@@ -6,6 +6,8 @@
     <property name="localeCountry" value="EN"/>
     <property name="localeLanguage" value="en"/>
 
+
+
     <module name='TreeWalker'>
 
         <property name='tabWidth' value='4' />
@@ -85,6 +87,10 @@
     	    <property name="checkEmptyJavadoc" value="true"/>
   	</module>
 
+    </module>
+
+    <module name="SuppressionFilter">
+        <property name="file" value="mysuppressions.xml" />
     </module>
 
     <!-- File Length -->

@@ -8,10 +8,9 @@ package com.projekti.pacman.logiikka;
 import com.projekti.pacman.Suunta;
 
 /**
- * Luokka kuvaa Pacmania, joka kerää pisteitä ja välttää monstereita
- * Perii luokan Liikkuva
+ * Luokka kuvaa Pacmania, joka kerää pisteitä ja välttää monstereita Perii
+ * luokan Liikkuva.
  */
-
 public class Pacman extends Liikkuva {
 
     private int pisteet;
@@ -31,9 +30,9 @@ public class Pacman extends Liikkuva {
     public void syoPiste() {
         pisteet++;
     }
-    
+
     @Override
-    public boolean onPacman(){
+    public boolean onPacman() {
         return true;
     }
 

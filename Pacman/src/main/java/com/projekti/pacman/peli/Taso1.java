@@ -10,39 +10,33 @@ import com.projekti.pacman.logiikka.Pacman;
 import java.util.ArrayList;
 
 /**
- *Yksi mahdollisista tasoista
- *Perii luokan Kentta
+ * Yksi mahdollisista tasoista. Perii luokan Kentta.
  */
-
 public class Taso1 extends Kentta {
 
     private ArrayList<int[]> koordinaatit;
 
     /**
-     * Matriisi kuvaa tasoa
-     * 0 = muuri
-     * 1 = tyhjä ruutu
-     * 2 = ruutu, jossa on piste
-     * 3 = ruutu, jossa on monsteri
-     * 4 = ruutu, jossa on Pacman
+     * Matriisi kuvaa tasoa. 0 = muuri, 1 = tyhjä ruutu, 2 = ruutu, jossa piste,
+     * 3 = ruutu, jossa monsteri, 4 = ruutu, jossa Pacman.
      */
     public Taso1() {
 
         int[][] taso = new int[][]{{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0},
-        {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
-        {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
-        {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
-        {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
-        {0, 2, 0, 0, 2, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 2, 0, 0, 2, 0},
-        {0, 2, 2, 2, 2, 2, 2, 1, 3, 3, 3, 3, 1, 2, 2, 2, 2, 2, 2, 0},
-        {0, 2, 0, 0, 2, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 2, 0, 0, 2, 0},
-        {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
-        {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
-        {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
-        {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
-        {0, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
+            {0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0},
+            {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
+            {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
+            {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
+            {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
+            {0, 2, 0, 0, 2, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 2, 0, 0, 2, 0},
+            {0, 2, 2, 2, 2, 2, 2, 1, 3, 3, 3, 3, 1, 2, 2, 2, 2, 2, 2, 0},
+            {0, 2, 0, 0, 2, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 2, 0, 0, 2, 0},
+            {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
+            {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
+            {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
+            {0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0},
+            {0, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
 
         setKentta(taso);
 
@@ -51,12 +45,12 @@ public class Taso1 extends Kentta {
         this.koordinaatit = laskeKoordinaatit();
 
     }
-    
+
     /**
      * Laskee kaikkien matriisissa olevien pisteiden määrän
+     *
      * @return Pisteiden summa
      */
-
     public int laskePisteet() {
 
         int pisteet = 0;
@@ -75,9 +69,9 @@ public class Taso1 extends Kentta {
 
     /**
      * Laskee jokaisen Liikkuvan koordinaatit ja lisää ne listaan
+     *
      * @return Palauttaa listan koordinaatteja
      */
-    
     public ArrayList<int[]> laskeKoordinaatit() {
 
         ArrayList<int[]> lista = new ArrayList<>();

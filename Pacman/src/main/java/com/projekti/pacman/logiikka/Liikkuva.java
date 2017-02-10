@@ -1,12 +1,10 @@
-
 package com.projekti.pacman.logiikka;
 
 import com.projekti.pacman.Suunta;
 
 /**
- * Luokka luo pohjan, jonka Pacman ja monsterit perii
+ * Luokka luo pohjan, jonka Pacman ja monsterit perii.
  */
-
 public abstract class Liikkuva {
 
     Suunta suunta;
@@ -58,12 +56,11 @@ public abstract class Liikkuva {
         this.xKordinaatti = x;
         this.yKordinaatti = y;
     }
-    
-    /**
-     * Liikkuva liikkuu yhden askeleen tiettyyn suuntaan, jonka märittää  
-     * suunta attribuutti
-     */
 
+    /**
+     * Liikkuva liikkuu yhden askeleen tiettyyn suuntaan, jonka märittää suunta
+     * attribuutti.
+     */
     public void liiku() {
 
         if (suunta == suunta.VASEN) {

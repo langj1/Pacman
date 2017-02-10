@@ -14,10 +14,10 @@ import java.awt.event.KeyListener;
  * Ottaa näppäimistön painallukset vastaan.
  */
 public class Nappaimistonkuuntelija implements KeyListener {
-    
+
     private Pacman pacman;
-    
-    public Nappaimistonkuuntelija(Pacman pacman){
+
+    public Nappaimistonkuuntelija(Pacman pacman) {
         this.pacman = pacman;
     }
 
@@ -28,26 +28,25 @@ public class Nappaimistonkuuntelija implements KeyListener {
 
     /**
      * Määrittää, mitä näppäimiä käytetään ja mitä ne tekee.
-     * 
+     *
      * @param e Näppäin, jota painettu.
      */
-    
     @Override
     public void keyPressed(KeyEvent e) {
-        
-        if(e.getKeyCode() == KeyEvent.VK_RIGHT){
+
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             pacman.setSuunta(Suunta.OIKEA);
         }
-        
-        if(e.getKeyCode() == KeyEvent.VK_LEFT){
+
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             pacman.setSuunta(Suunta.VASEN);
         }
-            
-        if(e.getKeyCode() == KeyEvent.VK_UP){
+
+        if (e.getKeyCode() == KeyEvent.VK_UP) {
             pacman.setSuunta(Suunta.YLOS);
         }
-        
-        if(e.getKeyCode() == KeyEvent.VK_DOWN){
+
+        if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             pacman.setSuunta(Suunta.ALAS);
         }
     }
@@ -56,5 +55,5 @@ public class Nappaimistonkuuntelija implements KeyListener {
     public void keyReleased(KeyEvent e) {
         ; //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

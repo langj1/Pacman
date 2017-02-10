@@ -10,7 +10,7 @@ import com.projekti.pacman.logiikka.Pacman;
 import java.util.ArrayList;
 
 /**
- *Luokka luo yleisen pohjan pelin tasoille 
+ * Luokka luo yleisen pohjan pelin tasoille.
  */
 public abstract class Kentta {
 
@@ -31,24 +31,22 @@ public abstract class Kentta {
     }
 
     /**
-     * 
+     * Asettaa uuden arvon annettuihin koordinaatteihin.
      * @param x x koordinaatti
      * @param y y koordinaatti
      * @param uusiArvo matriisiin sijoitettava uusi arvo
      */
-    
     public void asetaUusiArvo(int x, int y, int uusiArvo) {
 
         kentta[x][y] = uusiArvo;
     }
-    
+
     /**
-     * 
+     * Kertoo koordinaateissa olevan arvon.
      * @param x x koordinaatti
      * @param y y koordinaatti
      * @return palauttaa koordinaateissa olevan arvon matriisista
      */
-
     public int haePisteenArvo(int x, int y) {
         return kentta[x][y];
     }
@@ -61,14 +59,14 @@ public abstract class Kentta {
     public void setPisteet(int pisteet) {
         this.pisteet = pisteet;
     }
-    
+
     /**
-     * Etsii matriisista Pacmanin koordinaatit
+     * Etsii matriisista Pacmanin koordinaatit.
+     *
      * @return Luo uuden Pacmanin koordinaateilla
      */
-    
     public Pacman pacmaninLahtokohta() {
-        
+
         for (int i = 0; i < kentta[0].length; i++) {
             for (int j = 0; j < kentta.length; j++) {
 
@@ -77,15 +75,15 @@ public abstract class Kentta {
                 }
             }
         }
-        
+
         return null;
     }
-    
+
     /**
-     * Etsii matriisista monsterien koordinaatit
+     * Etsii matriisista monsterien koordinaatit.
+     *
      * @return Luo neljä monsteria koordinaateilla
      */
-
     public ArrayList<Monsteri> monsterienLahtokohdat() {
 
         ArrayList<Monsteri> monsterit = new ArrayList<>();
@@ -102,20 +100,20 @@ public abstract class Kentta {
         return monsterit;
     }
 
-    public int getLeveys(){
+    public int getLeveys() {
         return kentta.length;
     }
-    
-    public int getPituus(){
+
+    public int getPituus() {
         return kentta[0].length;
     }
-    
+
     /**
-     * Jätetään tasojen täsmennettäväksi
+     * Jätetään tasojen täsmennettäväksi.
+     *
      * @return palautta jokaisen Liikkuvan koordinaatit
      */
-    
-    public ArrayList<int[]> getKoordinaatit(){
+    public ArrayList<int[]> getKoordinaatit() {
         return null;
     }
 }
