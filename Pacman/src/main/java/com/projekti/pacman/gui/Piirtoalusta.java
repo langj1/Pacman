@@ -80,6 +80,14 @@ public class Piirtoalusta extends JPanel {
                 }
             }
         }
+        
+        gf.setColor(Color.white);
+        
+        String pisteet = "" + peli.getPacman().getPisteet()*10;
+        
+        gf.drawString(pisteet, (kentta.length-2)*sivu, 15);
+        
+        
 
         for (int i = 0; i < peli.getElamat(); i++) {
 
@@ -92,7 +100,7 @@ public class Piirtoalusta extends JPanel {
 
         if (peli.voitto()) {
             g.setColor(Color.WHITE);
-            g.drawString("Voitit tason!", kentta.length * sivu / 2 - 40, kentta[0].length * sivu / 2);
+            g.drawString("Victory!", kentta.length * sivu / 2 - 20, kentta[0].length * sivu / 2);
             peli.stop();
             return;
         }
