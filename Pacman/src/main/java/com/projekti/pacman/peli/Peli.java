@@ -85,7 +85,7 @@ public class Peli extends Timer implements ActionListener {
         liikkuvaLiikkuu(pacman);
 
         if (voitto()) {
-
+            stop();
         }
 
         for (Monsteri monsteri : monsterit) {
@@ -312,6 +312,6 @@ public class Peli extends Timer implements ActionListener {
 
         alusta.paivita();
 
-        setDelay(300);
+        setDelay(200);
     }
 }

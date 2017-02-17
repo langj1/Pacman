@@ -37,8 +37,8 @@ public class Kayttoliittyma implements Runnable {
         
         frame = new JFrame("Pacman");
         
-        int leveys = (peli.getKentta().getLeveys()+1)*sivu+10;
-        int pituus = (peli.getKentta().getPituus()+1)*sivu+10;
+        int leveys = (peli.getKentta().getLeveys())*sivu;
+        int pituus = (peli.getKentta().getPituus()+1)*sivu;
         
         frame.setPreferredSize(new Dimension(leveys, pituus));
         
