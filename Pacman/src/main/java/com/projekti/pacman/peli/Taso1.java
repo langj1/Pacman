@@ -63,7 +63,7 @@ public class Taso1 extends Kentta {
                 }
             }
         }
-
+        
         return pisteet;
     }
 
