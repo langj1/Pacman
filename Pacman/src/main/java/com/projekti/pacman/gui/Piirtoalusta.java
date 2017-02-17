@@ -97,7 +97,7 @@ public class Piirtoalusta extends JPanel {
             return;
         }
 
-        if (peli.havio() || true) {
+        if (peli.havio()) {
             g.setColor(Color.WHITE);
             g.drawString("Game Over", kentta.length * sivu / 2 - 38, kentta[0].length * sivu / 2);
             peli.stop();
