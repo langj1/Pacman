@@ -114,7 +114,7 @@ public abstract class Kentta {
     /**
      * Jätetään tasojen täsmennettäväksi.
      *
-     * @return palautta jokaisen Liikkuvan koordinaatit
+     * @return palauttaa jokaisen Liikkuvan koordinaatit
      */
     public ArrayList<int[]> getKoordinaatit() {
         return null;
