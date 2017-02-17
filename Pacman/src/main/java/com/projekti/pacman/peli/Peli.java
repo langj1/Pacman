@@ -63,14 +63,17 @@ public class Peli extends Timer implements ActionListener {
     /**
      * Vähentää yhden elämän, jos elämät loppuu peli päättyy.
      */
-    public void menetaElama() {
+    public boolean havio() {
 
-        elamat--;
-
-        if (elamat < 0) {
-
+        if (elamat < 1) {
+            return true;
         }
 
+        return false;
+    }
+
+    public void menetaElama() {
+        elamat--;
     }
 
     /**
@@ -81,17 +84,13 @@ public class Peli extends Timer implements ActionListener {
     public void liiku() {
 
         arvoSuunnat();
-        
-        if(liikkuvaLiikkuu(pacman)){
+
+        if (liikkuvaLiikkuu(pacman)) {
             return;
         }
 
-        if (voitto()) {
-            stop();
-        }
-
         for (Monsteri monsteri : monsterit) {
-            if(liikkuvaLiikkuu(monsteri)){
+            if (liikkuvaLiikkuu(monsteri)) {
                 break;
             }
         }

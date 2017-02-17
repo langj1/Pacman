@@ -79,13 +79,28 @@ public class Piirtoalusta extends JPanel {
 
                 }
             }
-
-            g.drawImage(img, 0, 0, this);
         }
+
+        for (int i = 0; i < peli.getElamat(); i++) {
+
+            gf.setColor(Color.YELLOW);
+
+            gf.fillOval(i * sivu, 0 * sivu, sivu / 2, sivu / 2);
+        }
+
+        g.drawImage(img, 0, 0, this);
 
         if (peli.voitto()) {
             g.setColor(Color.WHITE);
             g.drawString("Voitit tason!", kentta.length * sivu / 2 - 40, kentta[0].length * sivu / 2);
+            peli.stop();
+            return;
+        }
+
+        if (peli.havio() || true) {
+            g.setColor(Color.WHITE);
+            g.drawString("Game Over", kentta.length * sivu / 2 - 38, kentta[0].length * sivu / 2);
+            peli.stop();
             return;
         }
 
