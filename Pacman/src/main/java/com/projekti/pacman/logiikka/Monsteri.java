@@ -65,4 +65,10 @@ public class Monsteri extends Liikkuva {
     public int getKenttaNumero() {
         return 3;
     }
+
+    public int getSuuntaArvo() {
+        return suuntaArvo;
+    }
+    
+    
 }
