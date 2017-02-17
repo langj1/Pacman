@@ -78,7 +78,7 @@ public class PeliTest {
     @Test
     public void voittoToimiiKunTarpeeksiPisteita() {
 
-        peli.getPacman().setPisteet(87);
+        peli.getPacman().setPisteet(109);
 
         assertTrue(peli.voitto());
     }
@@ -145,61 +145,4 @@ public class PeliTest {
         assertEquals(2, peli.getKentta().haePisteenArvo(0, 0));
     }
 
-    @Test
-    public void tormaakoMonsteriToimiiKunEiTormaa() {
-
-        peli.tormaakoMonsteri(peli.getMonsterit().get(0));
-
-        assertEquals(3, peli.getElamat());
-        assertFalse(peli.getMonsterit().get(0).isPisteenPaalla());
-    }
-
-    @Test
-    public void tormaakoMonsteriToimiiKunTormaaPacmaniin() {
-
-        peli.getKentta().asetaUusiArvo(peli.getMonsterit().get(0).getxKordinaatti(), peli.getMonsterit().get(0).getyKordinaatti(), 4);
-        peli.tormaakoMonsteri(peli.getMonsterit().get(0));
-
-        assertEquals(2, peli.getElamat());
-        assertFalse(peli.getMonsterit().get(0).isPisteenPaalla());
-    }
-
-    @Test
-    public void tormaakoMonsteriToimiiKunTormaaPisteeseen() {
-
-        peli.getKentta().asetaUusiArvo(peli.getMonsterit().get(0).getxKordinaatti(), peli.getMonsterit().get(0).getyKordinaatti(), 2);
-        peli.tormaakoMonsteri(peli.getMonsterit().get(0));
-
-        assertEquals(3, peli.getElamat());
-        assertTrue(peli.getMonsterit().get(0).isPisteenPaalla());
-    }
-
-    @Test
-    public void tormaakoPacmanToimiiKunEiTormaa() {
-
-        peli.tormaakoPacman(peli.getPacman());
-
-        assertEquals(3, peli.getElamat());
-        assertEquals(0, peli.getPacman().getPisteet());
-    }
-
-    @Test
-    public void tormaakoPacmanToimiiKunTormaaMonsteriin() {
-
-        peli.getKentta().asetaUusiArvo(peli.getPacman().getxKordinaatti(), peli.getPacman().getyKordinaatti(), 3);
-        peli.tormaakoPacman(peli.getPacman());
-
-        assertEquals(2, peli.getElamat());
-        assertEquals(0, peli.getPacman().getPisteet());
-    }
-
-    @Test
-    public void tormaakoPacmanToimiiKunTormaaPisteeseen() {
-
-        peli.getKentta().asetaUusiArvo(peli.getPacman().getxKordinaatti(), peli.getPacman().getyKordinaatti(), 2);
-        peli.tormaakoPacman(peli.getPacman());
-
-        assertEquals(3, peli.getElamat());
-        assertEquals(1, peli.getPacman().getPisteet());
-    }
 }

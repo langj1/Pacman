@@ -6,6 +6,7 @@
 package com.projekti.pacman.logiikka;
 
 
+import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,7 +27,12 @@ public class MonsteriTest {
     @Test
     public void arvoSuuntaAsettaaUudenSuunnan() {
         
-        monsteri.arvoSuunta();
+        ArrayList<Integer> lista = new ArrayList<>();
+        lista.add(1);
+        lista.add(2);
+        lista.add(3);
+        
+        monsteri.arvoSuunta(lista);
         
         int y = 0;
         
