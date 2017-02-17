@@ -5,6 +5,7 @@
  */
 package com.projekti.pacman.peli;
 
+import com.projekti.pacman.Suunta;
 import com.projekti.pacman.logiikka.Liikkuva;
 import com.projekti.pacman.logiikka.Monsteri;
 import com.projekti.pacman.logiikka.Pacman;
@@ -143,6 +144,41 @@ public class PeliTest {
         peli.getMonsterit().get(0).setPisteenPaalla(true);
         peli.onkoPisteenPaalla(0, 0, peli.getMonsterit().get(0));
         assertEquals(2, peli.getKentta().haePisteenArvo(0, 0));
+    }
+
+    @Test
+    public void havioToimiiKunElamiaJaljella() {
+        assertFalse(peli.havio());
+    }
+
+    @Test
+    public void havioToimiiKunElamatLoppu() {
+
+        peli.menetaElama();
+        peli.menetaElama();
+        peli.menetaElama();
+
+        assertTrue(peli.havio());
+    }
+
+    @Test
+    public void liikuLiikuttaaPacmania() {
+
+        int x = peli.getPacman().getxKordinaatti();
+        peli.getPacman().setSuunta(Suunta.VASEN);
+        peli.liiku();
+
+        assertEquals(x - 1, peli.getPacman().getxKordinaatti());
+    }
+
+    @Test
+    public void liikuEiLiikutaPacmaniaSeinaan() {
+
+        int x = peli.getPacman().getxKordinaatti();
+        peli.getPacman().setSuunta(Suunta.OIKEA);
+        peli.liiku();
+
+        assertEquals(x, peli.getPacman().getxKordinaatti());
     }
 
 }
