@@ -17,6 +17,9 @@ public abstract class Kentta {
     int[][] kentta;
     private int pisteet;
 
+    /**
+     * Asettaa pisteet oletuksena nollaan.
+     */
     public Kentta() {
         kentta = new int[111][111];
         pisteet = 0;

@@ -15,6 +15,8 @@ import javax.swing.JPanel;
 
 /**
  * Piirtää tason.
+ *
+ * @author langjimi
  */
 public class Piirtoalusta extends JPanel {
 
@@ -34,7 +36,7 @@ public class Piirtoalusta extends JPanel {
     }
 
     /**
-     * Piirtää tasoon kaiken tarvittavan aina kun päivitetään.
+     * Piirtää tasoon kaiken tarvittavan aina kun se päivitetään.
      *
      * @param g
      */
@@ -80,14 +82,12 @@ public class Piirtoalusta extends JPanel {
                 }
             }
         }
-        
+
         gf.setColor(Color.white);
-        
-        String pisteet = "" + peli.getPacman().getPisteet()*10;
-        
-        gf.drawString(pisteet, (kentta.length-3)*sivu, 15);
-        
-        
+
+        String pisteet = "" + peli.getPacman().getPisteet() * 10;
+
+        gf.drawString(pisteet, (kentta.length - 3) * sivu, 15);
 
         for (int i = 0; i < peli.getElamat(); i++) {
 

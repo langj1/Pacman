@@ -16,6 +16,12 @@ public class Monsteri extends Liikkuva {
 
     private int suuntaArvo;
 
+    /**
+     * SuuntaArvoa käytetään satunnaisen suunnan valinnassa.
+     *
+     * @param alkuX
+     * @param alkuY
+     */
     public Monsteri(int alkuX, int alkuY) {
         super(alkuX, alkuY);
 
@@ -24,8 +30,9 @@ public class Monsteri extends Liikkuva {
 
     /**
      * Metodi valitsee sattumanvaraisesti yhden suunnista, jotka sen parametrina
-     * saama lista sisältää.
-     * VASEN = 1, OIKEA = 2, YLOS = 3, ALAS = 4
+     * saama lista sisältää. VASEN = 1, OIKEA = 2, YLOS = 3, ALAS = 4
+     *
+     * @param suunnat lista mahdollisista suunnista
      */
     public void arvoSuunta(ArrayList<Integer> suunnat) {
 
@@ -69,6 +76,5 @@ public class Monsteri extends Liikkuva {
     public int getSuuntaArvo() {
         return suuntaArvo;
     }
-    
-    
+
 }

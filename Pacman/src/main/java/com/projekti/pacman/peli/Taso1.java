@@ -47,7 +47,7 @@ public class Taso1 extends Kentta {
     }
 
     /**
-     * Laskee kaikkien matriisissa olevien pisteiden määrän
+     * Laskee kaikkien matriisissa olevien pisteiden määrän.
      *
      * @return Pisteiden summa
      */
@@ -68,7 +68,7 @@ public class Taso1 extends Kentta {
     }
 
     /**
-     * Laskee jokaisen Liikkuvan koordinaatit ja lisää ne listaan
+     * Laskee jokaisen Liikkuvan koordinaatit ja lisää ne listaan.
      *
      * @return Palauttaa listan koordinaatteja
      */

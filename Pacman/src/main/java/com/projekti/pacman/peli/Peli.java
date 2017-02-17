@@ -64,6 +64,8 @@ public class Peli extends Timer implements ActionListener {
 
     /**
      * Vähentää yhden elämän, jos elämät loppuu peli päättyy.
+     *
+     * @return palauttaa true, jos elämät loppuu
      */
     public boolean havio() {
 
@@ -74,6 +76,9 @@ public class Peli extends Timer implements ActionListener {
         return false;
     }
 
+    /**
+     * Vähentää yhden elämän.
+     */
     public void menetaElama() {
         elamat--;
     }
@@ -108,6 +113,7 @@ public class Peli extends Timer implements ActionListener {
      * asetetaan Liikkuvan oma arvo uuteen ruutuun.
      *
      * @param l Pacman tai Monsteri, jota liikutetaan
+     * @return palauttaa true, jos peli resetoidaan
      */
     public boolean liikkuvaLiikkuu(Liikkuva l) {
 

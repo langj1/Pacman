@@ -27,6 +27,9 @@ public class Pacman extends Liikkuva {
         this.pisteet = pisteet;
     }
 
+    /**
+     * Lisaa yhden pisteen Pacmanille.
+     */
     public void syoPiste() {
         pisteet++;
     }

@@ -8,6 +8,8 @@ package com.projekti.pacman.peli;
 import com.projekti.pacman.logiikka.Liikkuva;
 
 /**
+ * Luokka tarkistaa Pacmanin ja Monsterien mahdolliset tormaykset toistensa tai
+ * pisteiden kanssa.
  *
  * @author langjimi
  */
@@ -16,6 +18,12 @@ public class Tormaako {
     private Kentta kentta;
     private Peli peli;
 
+    /**
+     * Asettaa oliolle Kentän ja Pelin.
+     *
+     * @param kentta
+     * @param peli
+     */
     public Tormaako(Kentta kentta, Peli peli) {
         this.kentta = kentta;
         this.peli = peli;
@@ -27,6 +35,7 @@ public class Tormaako {
      * poistetaan ja Pacmanille lisätään piste.
      *
      * @param l Pacman, joka mahdollisesti törmää
+     * @return palautta true, jos peli resetoidaan
      */
     public boolean tormaakoPacman(Liikkuva l) {
 
@@ -54,6 +63,7 @@ public class Tormaako {
      * voidaan laitta takaisin.
      *
      * @param l Monsteri, joka mahdollisesti törmää
+     * @return palautta true, jos peli resetoidaan
      */
     public boolean tormaakoMonsteri(Liikkuva l) {
 

@@ -12,6 +12,12 @@ public abstract class Liikkuva {
     private int yKordinaatti;
     private boolean pisteenPaalla;
 
+    /**
+     * Saa parametreina alkukordinaatit, jotka asetetaan Liikkuvalle.
+     *
+     * @param alkuX
+     * @param alkuY
+     */
     public Liikkuva(int alkuX, int alkuY) {
 
         this.suunta = suunta.STOP;
