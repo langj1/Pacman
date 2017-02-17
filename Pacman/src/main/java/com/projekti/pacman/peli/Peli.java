@@ -81,15 +81,19 @@ public class Peli extends Timer implements ActionListener {
     public void liiku() {
 
         arvoSuunnat();
-
-        liikkuvaLiikkuu(pacman);
+        
+        if(liikkuvaLiikkuu(pacman)){
+            return;
+        }
 
         if (voitto()) {
             stop();
         }
 
         for (Monsteri monsteri : monsterit) {
-            liikkuvaLiikkuu(monsteri);
+            if(liikkuvaLiikkuu(monsteri)){
+                break;
+            }
         }
 
     }
@@ -104,7 +108,7 @@ public class Peli extends Timer implements ActionListener {
      *
      * @param l Pacman tai Monsteri, jota liikutetaan
      */
-    public void liikkuvaLiikkuu(Liikkuva l) {
+    public boolean liikkuvaLiikkuu(Liikkuva l) {
 
         int x = l.getxKordinaatti();
         int y = l.getyKordinaatti();
@@ -118,21 +122,26 @@ public class Peli extends Timer implements ActionListener {
             l.setKoordinaatit(x, y);
 
             kentta.asetaUusiArvo(x, y, l.getKenttaNumero());
-            return;
+            return false;
         }
 
         if (l.onPacman()) {
 
-            tormaakoPacman(l);
+            if (tormaakoPacman(l)) {
+                return true;
+            }
 
         } else {
 
-            tormaakoMonsteri(l);
+            if (tormaakoMonsteri(l)) {
+                return true;
+            }
 
         }
 
         kentta.asetaUusiArvo(l.getxKordinaatti(), l.getyKordinaatti(), l.getKenttaNumero());
 
+        return false;
     }
 
     /**
@@ -162,13 +171,15 @@ public class Peli extends Timer implements ActionListener {
      *
      * @param l Monsteri, joka mahdollisesti törmää
      */
-    public void tormaakoMonsteri(Liikkuva l) {
+    public boolean tormaakoMonsteri(Liikkuva l) {
 
         if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 4) {
 
             menetaElama();
 
             reset();
+
+            return true;
         }
 
         if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 2) {
@@ -180,6 +191,8 @@ public class Peli extends Timer implements ActionListener {
             l.setPisteenPaalla(false);
 
         }
+
+        return false;
     }
 
     /**
@@ -189,13 +202,15 @@ public class Peli extends Timer implements ActionListener {
      *
      * @param l Pacman, joka mahdollisesti törmää
      */
-    public void tormaakoPacman(Liikkuva l) {
+    public boolean tormaakoPacman(Liikkuva l) {
 
         if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 3) {
 
             menetaElama();
 
             reset();
+
+            return true;
         }
 
         if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 2) {
@@ -203,6 +218,8 @@ public class Peli extends Timer implements ActionListener {
             pacman.syoPiste();
 
         }
+
+        return false;
     }
 
     /**
