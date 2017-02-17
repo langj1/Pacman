@@ -85,7 +85,7 @@ public class Piirtoalusta extends JPanel {
         
         String pisteet = "" + peli.getPacman().getPisteet()*10;
         
-        gf.drawString(pisteet, (kentta.length-2)*sivu, 15);
+        gf.drawString(pisteet, (kentta.length-3)*sivu, 15);
         
         
 
