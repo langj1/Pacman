@@ -19,45 +19,45 @@ import javax.swing.Timer;
  * @author langjimi
  */
 public class Peli extends Timer implements ActionListener {
-    
+
     private Kentta kentta;
     private int elamat;
     private ArrayList<Monsteri> monsterit;
     private Pacman pacman;
     private Piirtoalusta alusta;
     private Tormaako tormaako;
-    
+
     public Peli(Kentta kentta) {
-        
+
         super(1000, null);
-        
+
         this.kentta = kentta;
         this.pacman = kentta.pacmaninLahtokohta();
         this.monsterit = kentta.monsterienLahtokohdat();
         this.tormaako = new Tormaako(this.kentta, this);
         elamat = 3;
-        
+
         addActionListener(this);
         setInitialDelay(2000);
-        
+
     }
-    
+
     public int getElamat() {
         return elamat;
     }
-    
+
     public Kentta getKentta() {
         return kentta;
     }
-    
+
     public Pacman getPacman() {
         return pacman;
     }
-    
+
     public ArrayList<Monsteri> getMonsterit() {
         return monsterit;
     }
-    
+
     public void setAlusta(Piirtoalusta alusta) {
         this.alusta = alusta;
     }
@@ -66,14 +66,14 @@ public class Peli extends Timer implements ActionListener {
      * Vähentää yhden elämän, jos elämät loppuu peli päättyy.
      */
     public boolean havio() {
-        
+
         if (elamat < 1) {
             return true;
         }
-        
+
         return false;
     }
-    
+
     public void menetaElama() {
         elamat--;
     }
@@ -84,19 +84,19 @@ public class Peli extends Timer implements ActionListener {
      * peli päättyy. Muussa tapauksessa monsterit liikkuu seuraavaksi.
      */
     public void liiku() {
-        
+
         arvoSuunnat();
-        
+
         if (liikkuvaLiikkuu(pacman)) {
             return;
         }
-        
+
         for (Monsteri monsteri : monsterit) {
             if (liikkuvaLiikkuu(monsteri)) {
                 break;
             }
         }
-        
+
     }
 
     /**
@@ -110,38 +110,38 @@ public class Peli extends Timer implements ActionListener {
      * @param l Pacman tai Monsteri, jota liikutetaan
      */
     public boolean liikkuvaLiikkuu(Liikkuva l) {
-        
+
         int x = l.getxKordinaatti();
         int y = l.getyKordinaatti();
-        
+
         onkoPisteenPaalla(x, y, l);
-        
+
         l.liiku();
-        
+
         if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 0 || kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 3 && !l.onPacman()) {
-            
+
             l.setKoordinaatit(x, y);
-            
+
             kentta.asetaUusiArvo(x, y, l.getKenttaNumero());
             return false;
         }
-        
+
         if (l.onPacman()) {
-            
+
             if (tormaako.tormaakoPacman(l)) {
                 return true;
             }
-            
+
         } else {
-            
+
             if (tormaako.tormaakoMonsteri(l)) {
                 return true;
             }
-            
+
         }
-        
+
         kentta.asetaUusiArvo(l.getxKordinaatti(), l.getyKordinaatti(), l.getKenttaNumero());
-        
+
         return false;
     }
 
@@ -153,15 +153,15 @@ public class Peli extends Timer implements ActionListener {
      * @param l Liikkuva
      */
     public void onkoPisteenPaalla(int x, int y, Liikkuva l) {
-        
+
         if (l.isPisteenPaalla()) {
-            
+
             kentta.asetaUusiArvo(x, y, 2);
-            
+
         } else {
-            
+
             kentta.asetaUusiArvo(x, y, 1);
-            
+
         }
     }
 
@@ -169,25 +169,25 @@ public class Peli extends Timer implements ActionListener {
      * Resetoi pelin alkuperäisasetelmaan paitsi pisteitä ei palauteta.
      */
     public void reset() {
-        
+
         asetaKaikille1tai2();
-        
+
         int pisteet = pacman.getPisteet();
-        
+
         pacman.setKoordinaatit(kentta.getKoordinaatit().get(0)[1], kentta.getKoordinaatit().get(0)[0]);
-        
+
         pacman.setPisteet(pisteet);
-        
+
         pacman.setSuunta(Suunta.STOP);
-        
+
         for (int i = 0; i < 4; i++) {
             monsterit.get(i).setKoordinaatit(kentta.getKoordinaatit().get(i + 1)[1], kentta.getKoordinaatit().get(i + 1)[0]);
         }
-        
+
         asetaKaikilleOmaArvo();
-        
+
         restart();
-        
+
     }
 
     /**
@@ -195,17 +195,17 @@ public class Peli extends Timer implements ActionListener {
      * pisteen.
      */
     public void asetaKaikille1tai2() {
-        
+
         kentta.asetaUusiArvo(pacman.getxKordinaatti(), pacman.getyKordinaatti(), 1);
-        
+
         for (Monsteri monsteri : monsterit) {
-            
+
             if (monsteri.isPisteenPaalla()) {
                 kentta.asetaUusiArvo(monsteri.getxKordinaatti(), monsteri.getyKordinaatti(), 2);
                 monsteri.setPisteenPaalla(false);
                 continue;
             }
-            
+
             kentta.asetaUusiArvo(monsteri.getxKordinaatti(), monsteri.getyKordinaatti(), 1);
         }
     }
@@ -215,35 +215,49 @@ public class Peli extends Timer implements ActionListener {
      * arvot.
      */
     public void asetaKaikilleOmaArvo() {
-        
+
         kentta.asetaUusiArvo(pacman.getxKordinaatti(), pacman.getyKordinaatti(), pacman.getKenttaNumero());
-        
+
         for (Monsteri monsteri : monsterit) {
             kentta.asetaUusiArvo(monsteri.getxKordinaatti(), monsteri.getyKordinaatti(), monsteri.getKenttaNumero());
         }
     }
 
     /**
-     * Arvoo Monstereille uudet suunnat.
+     * Arvoo Monstereille uudet suunnat. Tallentaa listaan kaikki suunnat jotka
+     * ei johda seinään.
      *
      * @see com.projekti.pacman.logiikka.Monsteri#arvoSuunta()
      */
     public void arvoSuunnat() {
-        
-        Random random = new Random();
-        
+
         for (Monsteri monsteri : monsterit) {
-            
-            int satunnaismuuttuja = random.nextInt(101);
-            
-            if (satunnaismuuttuja < 50) {
-                
-                monsteri.arvoSuunta();
-                
+
+            ArrayList<Integer> suunnat = new ArrayList<>();
+
+            int x = monsteri.getxKordinaatti();
+            int y = monsteri.getyKordinaatti();
+
+            if (kentta.haePisteenArvo(x - 1, y) != 0) {
+                suunnat.add(1);
             }
-            
+
+            if (kentta.haePisteenArvo(x + 1, y) != 0) {
+                suunnat.add(2);
+            }
+
+            if (kentta.haePisteenArvo(x, y - 1) != 0) {
+                suunnat.add(3);
+            }
+
+            if (kentta.haePisteenArvo(x, y + 1) != 0) {
+                suunnat.add(4);
+            }
+
+            monsteri.arvoSuunta(suunnat);
+
         }
-        
+
     }
 
     /**
@@ -252,11 +266,11 @@ public class Peli extends Timer implements ActionListener {
      * @return True jos on tarpeeksi muulloin false.
      */
     public boolean voitto() {
-        
+
         if (pacman.getPisteet() >= kentta.getPisteet()) {
             return true;
         }
-        
+
         return false;
     }
 
@@ -267,11 +281,11 @@ public class Peli extends Timer implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+
         liiku();
-        
+
         alusta.paivita();
-        
-        setDelay(200);
+
+        setDelay(100);
     }
 }

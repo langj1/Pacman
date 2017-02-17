@@ -6,6 +6,7 @@
 package com.projekti.pacman.logiikka;
 
 import com.projekti.pacman.Suunta;
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -13,34 +14,50 @@ import java.util.Random;
  */
 public class Monsteri extends Liikkuva {
 
+    private int suuntaArvo;
+
     public Monsteri(int alkuX, int alkuY) {
         super(alkuX, alkuY);
+
+        this.suuntaArvo = 0;
     }
 
     /**
-     * Metodi valitsee sattumanvaraisesti yhden neljästä mahdollisesta suunnasta.
+     * Metodi valitsee sattumanvaraisesti yhden suunnista, jotka sen parametrina
+     * saama lista sisältää.
+     * VASEN = 1, OIKEA = 2, YLOS = 3, ALAS = 4
      */
-    public void arvoSuunta() {
+    public void arvoSuunta(ArrayList<Integer> suunnat) {
 
         Random random = new Random();
 
-        int satunnaismuuttuja = random.nextInt(101);
+        while (true) {
+            int satunnaismuuttuja = random.nextInt(100);
 
-        if (satunnaismuuttuja < 25) {
+            if (satunnaismuuttuja < 25) {
 
-            setSuunta(suunta.ALAS);
+                setSuunta(suunta.ALAS);
+                this.suuntaArvo = 4;
 
-        } else if (satunnaismuuttuja < 50) {
+            } else if (satunnaismuuttuja < 50) {
 
-            setSuunta(suunta.OIKEA);
+                setSuunta(suunta.OIKEA);
+                this.suuntaArvo = 2;
 
-        } else if (satunnaismuuttuja < 75) {
+            } else if (satunnaismuuttuja < 75) {
 
-            setSuunta(suunta.VASEN);
+                setSuunta(suunta.VASEN);
+                this.suuntaArvo = 1;
 
-        } else {
+            } else {
 
-            setSuunta(suunta.YLOS);
+                setSuunta(suunta.YLOS);
+                this.suuntaArvo = 3;
+            }
+
+            if (suunnat.contains(this.suuntaArvo)) {
+                break;
+            }
         }
     }
 
