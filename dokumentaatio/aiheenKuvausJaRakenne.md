@@ -16,6 +16,14 @@
 * Ennätysten tarkistaminen
 * Pelin sammutus
 
-**Luokkakaavio**
+**Luokkakaavio:**
 
 ![Luokkakavio](/dokumentaatio/Luokkakaavio.png)
+
+**Sekvenssikaavio:** Pacman liikkuu
+
+![Luokkakavio](/dokumentaatio/Sekvenssikaavio1.png)
+
+**Sekvenssikaavio:** Resetointi
+
+![Luokkakavio](/dokumentaatio/Sekvenssikaavio2.png)
