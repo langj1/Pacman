@@ -21,7 +21,7 @@ public class MonsteriTest {
 
     @Before
     public void setUp() {
-        monsteri = new Monsteri(0, 0);
+        monsteri = new Monsteri(0, 0, 0);
         lista = new ArrayList<>();
     }
 
