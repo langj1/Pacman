@@ -18,12 +18,12 @@
 
 **Luokkakaavio:**
 
-![Luokkakavio](/dokumentaatio/Luokkakaavio.png)
+![Luokkakavio](/dokumentaatio/Kaaviot/Luokkakaavio.png)
 
 **Sekvenssikaavio:** Pacman liikkuu
 
-![Luokkakavio](/dokumentaatio/Sekvenssikaavio1.png)
+![Sekvenssikaavio](/dokumentaatio/Kaaviot/Sekvenssikaavio1.png)
 
 **Sekvenssikaavio:** Resetointi
 
-![Luokkakavio](/dokumentaatio/Sekvenssikaavio2.png)
+![Sekvenssikaavio](/dokumentaatio/Kaaviot/Sekvenssikaavio2.png)
