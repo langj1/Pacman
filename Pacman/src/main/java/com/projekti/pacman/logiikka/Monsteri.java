@@ -15,6 +15,7 @@ import java.util.Random;
 public class Monsteri extends Liikkuva {
 
     private int suuntaArvo;
+    private int vari;
 
     /**
      * SuuntaArvoa käytetään satunnaisen suunnan valinnassa.
@@ -22,10 +23,11 @@ public class Monsteri extends Liikkuva {
      * @param alkuX
      * @param alkuY
      */
-    public Monsteri(int alkuX, int alkuY) {
+    public Monsteri(int alkuX, int alkuY, int vari) {
         super(alkuX, alkuY);
 
         this.suuntaArvo = 0;
+        this.vari = vari;
     }
 
     /**
@@ -76,5 +78,15 @@ public class Monsteri extends Liikkuva {
     public int getSuuntaArvo() {
         return suuntaArvo;
     }
+
+    public int getVari() {
+        return vari;
+    }
+
+    public void setVari(int vari) {
+        this.vari = vari;
+    }
+    
+    
 
 }

@@ -14,9 +14,11 @@ import com.projekti.pacman.Suunta;
 public class Pacman extends Liikkuva {
 
     private int pisteet;
+    private boolean suuAuki;
 
     public Pacman(int alkuX, int alkuY) {
         super(alkuX, alkuY);
+        this.suuAuki = false;
     }
 
     public int getPisteet() {
@@ -38,5 +40,15 @@ public class Pacman extends Liikkuva {
     public boolean onPacman() {
         return true;
     }
+
+    public boolean isSuuAuki() {
+        return suuAuki;
+    }
+
+    public void setSuuAuki(boolean suuAuki) {
+        this.suuAuki = suuAuki;
+    }
+    
+    
 
 }

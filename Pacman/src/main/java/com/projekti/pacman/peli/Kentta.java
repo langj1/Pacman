@@ -91,11 +91,14 @@ public abstract class Kentta {
 
         ArrayList<Monsteri> monsterit = new ArrayList<>();
 
+        int vari = 1;
+        
         for (int i = 0; i < kentta[0].length; i++) {
             for (int j = 0; j < kentta.length; j++) {
 
                 if (kentta[j][i] == 3) {
-                    monsterit.add(new Monsteri(j, i));
+                    monsterit.add(new Monsteri(j, i, vari));
+                    vari++;
                 }
             }
         }

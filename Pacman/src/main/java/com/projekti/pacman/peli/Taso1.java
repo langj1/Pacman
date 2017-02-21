@@ -77,10 +77,11 @@ public class Taso1 extends Kentta {
         ArrayList<int[]> lista = new ArrayList<>();
 
         lista.add(pacmaninLahtokohta().getKoordinaatit());
-
+        
         for (Monsteri monsteri : monsterienLahtokohdat()) {
-
+;
             lista.add(monsteri.getKoordinaatit());
+
         }
 
         return lista;

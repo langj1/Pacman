@@ -5,12 +5,16 @@
  */
 package com.projekti.pacman.gui;
 
+import com.projekti.pacman.Suunta;
 import com.projekti.pacman.logiikka.Monsteri;
 import com.projekti.pacman.peli.Kentta;
 import com.projekti.pacman.peli.Peli;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 /**
@@ -68,16 +72,78 @@ public class Piirtoalusta extends JPanel {
 
                 if (kentta[j][i] == 3) {
 
-                    gf.setColor(Color.RED);
+//                    gf.setColor(Color.RED);
+//
+//                    gf.fillOval(j * sivu, i * sivu, sivu, sivu);
+                    int vari = 0;
 
-                    gf.fillOval(j * sivu, i * sivu, sivu, sivu);
+                    for (Monsteri n : peli.getMonsterit()) {
+                        if (n.getxKordinaatti() == j && n.getyKordinaatti() == i) {
+                            vari = n.getVari();
+                        }
+                    }
+
+                    BufferedImage ghostImg = null;
+                    try {
+                        if (vari == 1) {
+                            ghostImg = ImageIO.read(new File("Images/Orange Ghost.png"));
+                        }
+                        if (vari == 2) {
+                            ghostImg = ImageIO.read(new File("Images/Teal Ghost.png"));
+                        }
+                        if (vari == 3) {
+                            ghostImg = ImageIO.read(new File("Images/Pink Ghost.png"));
+                        }
+                        if (vari == 4) {
+                            ghostImg = ImageIO.read(new File("Images/Red Ghost.png"));
+                        }
+                    } catch (IOException e) {
+                    }
+
+                    gf.drawImage(ghostImg, j * sivu, i * sivu, sivu, sivu, this);
                 }
 
                 if (kentta[j][i] == 4) {
 
-                    gf.setColor(Color.YELLOW);
+                    if (peli.getPacman().isSuuAuki()) {
 
-                    gf.fillOval(j * sivu, i * sivu, sivu, sivu);
+                        BufferedImage pacmanImg = null;
+                        try {
+                            if (peli.getPacman().getSuunta() == Suunta.VASEN) {
+                                pacmanImg = ImageIO.read(new File("Images/Pacman Left.png"));
+                                peli.getPacman().setSuuAuki(false);
+                            }
+                            if (peli.getPacman().getSuunta() == Suunta.OIKEA) {
+                                pacmanImg = ImageIO.read(new File("Images/Pacman Right.png"));
+                                peli.getPacman().setSuuAuki(false);
+                            }
+                            if (peli.getPacman().getSuunta() == Suunta.ALAS) {
+                                pacmanImg = ImageIO.read(new File("Images/Pacman Down.png"));
+                                peli.getPacman().setSuuAuki(false);
+                            }
+                            if (peli.getPacman().getSuunta() == Suunta.YLOS) {
+                                pacmanImg = ImageIO.read(new File("Images/Pacman Up.png"));
+                                peli.getPacman().setSuuAuki(false);
+                            }
+                            if (peli.getPacman().getSuunta() == Suunta.STOP) {
+                                
+                                gf.setColor(Color.YELLOW);
+                                gf.fillOval(j * sivu, i * sivu, sivu, sivu);
+                            }
+                            
+                        } catch (IOException e) {
+                        }
+
+                        gf.drawImage(pacmanImg, j * sivu, i * sivu, sivu, sivu, this);
+
+                    } else {
+
+                        gf.setColor(Color.YELLOW);
+
+                        gf.fillOval(j * sivu, i * sivu, sivu, sivu);
+
+                        peli.getPacman().setSuuAuki(true);
+                    }
 
                 }
             }

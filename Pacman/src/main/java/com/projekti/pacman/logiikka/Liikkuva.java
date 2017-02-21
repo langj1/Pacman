@@ -90,4 +90,5 @@ public abstract class Liikkuva {
     public boolean onPacman() {
         return false;
     }
+    
 }
