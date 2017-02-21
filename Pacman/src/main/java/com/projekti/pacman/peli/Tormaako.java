@@ -71,6 +71,8 @@ public class Tormaako {
 
             peli.menetaElama();
 
+            peli.getPacman().setPisteet(peli.getPacman().getPisteet()-1);
+            
             peli.reset();
 
             return true;
