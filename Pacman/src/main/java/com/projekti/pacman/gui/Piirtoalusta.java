@@ -14,6 +14,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -88,16 +89,20 @@ public class Piirtoalusta extends JPanel {
                     BufferedImage ghostImg = null;
                     try {
                         if (vari == 1) {
-                            ghostImg = ImageIO.read(new File("Images/Orange Ghost.png"));
+                            InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Orange Ghost.png");
+                            ghostImg = ImageIO.read(is);
                         }
                         if (vari == 2) {
-                            ghostImg = ImageIO.read(new File("Images/Teal Ghost.png"));
+                            InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Teal Ghost.png");
+                            ghostImg = ImageIO.read(is);
                         }
                         if (vari == 3) {
-                            ghostImg = ImageIO.read(new File("Images/Pink Ghost.png"));
+                            InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Pink Ghost.png");
+                            ghostImg = ImageIO.read(is);
                         }
                         if (vari == 4) {
-                            ghostImg = ImageIO.read(new File("Images/Red Ghost.png"));
+                            InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Red Ghost.png");
+                            ghostImg = ImageIO.read(is);
                         }
                     } catch (IOException e) {
                     }
@@ -112,19 +117,23 @@ public class Piirtoalusta extends JPanel {
                         BufferedImage pacmanImg = null;
                         try {
                             if (peli.getPacman().getSuunta() == Suunta.VASEN) {
-                                pacmanImg = ImageIO.read(new File("Images/Pacman Left.png"));
+                                InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Pacman Left.png");
+                                pacmanImg = ImageIO.read(is);
                                 peli.getPacman().setSuuAuki(false);
                             }
                             if (peli.getPacman().getSuunta() == Suunta.OIKEA) {
-                                pacmanImg = ImageIO.read(new File("Images/Pacman Right.png"));
+                                InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Pacman Right.png");
+                                pacmanImg = ImageIO.read(is);
                                 peli.getPacman().setSuuAuki(false);
                             }
                             if (peli.getPacman().getSuunta() == Suunta.ALAS) {
-                                pacmanImg = ImageIO.read(new File("Images/Pacman Down.png"));
+                                InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Pacman Down.png");
+                                pacmanImg = ImageIO.read(is);
                                 peli.getPacman().setSuuAuki(false);
                             }
                             if (peli.getPacman().getSuunta() == Suunta.YLOS) {
-                                pacmanImg = ImageIO.read(new File("Images/Pacman Up.png"));
+                                InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Pacman Up.png");
+                                pacmanImg = ImageIO.read(is);
                                 peli.getPacman().setSuuAuki(false);
                             }
                             if (peli.getPacman().getSuunta() == Suunta.STOP) {
