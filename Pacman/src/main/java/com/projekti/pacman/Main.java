@@ -6,8 +6,10 @@
 package com.projekti.pacman;
 
 import com.projekti.pacman.gui.Kayttoliittyma;
+import com.projekti.pacman.peli.Kentta;
 import com.projekti.pacman.peli.Peli;
 import com.projekti.pacman.peli.Taso1;
+import com.projekti.pacman.peli.Taso2;
 import javax.swing.SwingUtilities;
 
 /**
@@ -20,7 +22,7 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        Taso1 kentta = new Taso1();
+        Kentta kentta = new Taso2();
         
         Peli peli = new Peli(kentta);
         

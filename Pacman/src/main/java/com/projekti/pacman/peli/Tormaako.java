@@ -70,8 +70,6 @@ public class Tormaako {
         if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 4) {
 
             peli.menetaElama();
-
-            peli.getPacman().setPisteet(peli.getPacman().getPisteet()-1);
             
             peli.reset();
 

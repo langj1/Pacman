@@ -14,6 +14,8 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
@@ -126,11 +128,11 @@ public class Piirtoalusta extends JPanel {
                                 peli.getPacman().setSuuAuki(false);
                             }
                             if (peli.getPacman().getSuunta() == Suunta.STOP) {
-                                
+
                                 gf.setColor(Color.YELLOW);
                                 gf.fillOval(j * sivu, i * sivu, sivu, sivu);
                             }
-                            
+
                         } catch (IOException e) {
                         }
 
@@ -159,7 +161,13 @@ public class Piirtoalusta extends JPanel {
 
             gf.setColor(Color.YELLOW);
 
-            gf.fillOval(i * sivu, 0 * sivu, sivu / 2, sivu / 2);
+            gf.fillOval(i * sivu, sivu / 4, sivu / 2, sivu / 2);
+//            BufferedImage elama = null;
+//            try {
+//                elama = ImageIO.read(new File("Images/Pacman Right.png"));
+//            } catch (IOException e) {
+//            }
+//            gf.drawImage(elama, i * sivu, 0 * sivu, sivu / 2, sivu / 2, this);
         }
 
         g.drawImage(img, 0, 0, this);

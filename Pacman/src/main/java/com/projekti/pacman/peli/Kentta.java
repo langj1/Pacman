@@ -16,6 +16,7 @@ public abstract class Kentta {
 
     int[][] kentta;
     private int pisteet;
+    private ArrayList<int[]> koordinaatit;
 
     /**
      * Asettaa pisteet oletuksena nollaan.
@@ -35,6 +36,7 @@ public abstract class Kentta {
 
     /**
      * Asettaa uuden arvon annettuihin koordinaatteihin.
+     *
      * @param x x koordinaatti
      * @param y y koordinaatti
      * @param uusiArvo matriisiin sijoitettava uusi arvo
@@ -46,6 +48,7 @@ public abstract class Kentta {
 
     /**
      * Kertoo koordinaateissa olevan arvon.
+     *
      * @param x x koordinaatti
      * @param y y koordinaatti
      * @return palauttaa koordinaateissa olevan arvon matriisista
@@ -92,7 +95,7 @@ public abstract class Kentta {
         ArrayList<Monsteri> monsterit = new ArrayList<>();
 
         int vari = 1;
-        
+
         for (int i = 0; i < kentta[0].length; i++) {
             for (int j = 0; j < kentta.length; j++) {
 
@@ -115,11 +118,56 @@ public abstract class Kentta {
     }
 
     /**
+     * Laskee jokaisen Liikkuvan koordinaatit ja lisää ne listaan.
+     *
+     * @return Palauttaa listan koordinaatteja
+     */
+    public ArrayList<int[]> laskeKoordinaatit() {
+
+        ArrayList<int[]> lista = new ArrayList<>();
+
+        lista.add(pacmaninLahtokohta().getKoordinaatit());
+
+        for (Monsteri monsteri : monsterienLahtokohdat()) {
+
+            lista.add(monsteri.getKoordinaatit());
+
+        }
+
+        return lista;
+    }
+
+    /**
      * Jätetään tasojen täsmennettäväksi.
      *
      * @return palauttaa jokaisen Liikkuvan koordinaatit
      */
     public ArrayList<int[]> getKoordinaatit() {
-        return null;
+        return koordinaatit;
+    }
+
+    public void setKoordinaatit(ArrayList<int[]> koordinaatit) {
+        this.koordinaatit = koordinaatit;
+    }
+
+    /**
+     * Laskee kaikkien matriisissa olevien pisteiden määrän.
+     *
+     * @return Pisteiden summa
+     */
+    public int laskePisteet() {
+
+        int pisteet = 0;
+
+        for (int i = 0; i < kentta[0].length; i++) {
+            for (int j = 0; j < kentta.length; j++) {
+
+                if (kentta[j][i] == 2) {
+                    pisteet++;
+                }
+            }
+        }
+
+        return pisteet;
     }
 }
