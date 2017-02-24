@@ -22,12 +22,6 @@ public class PacmanTest {
     public void setUp() {
         pacman = new Pacman(12, 31);
     }
-
-    @Test
-    public void syoPisteToimii() {
-        pacman.syoPiste();
-        assertEquals(1, pacman.getPisteet());
-    }
     
     @Test
     public void onPacmanToimii() {

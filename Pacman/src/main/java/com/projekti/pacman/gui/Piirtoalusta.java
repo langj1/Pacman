@@ -78,29 +78,44 @@ public class Piirtoalusta extends JPanel {
 //                    gf.setColor(Color.RED);
 //
 //                    gf.fillOval(j * sivu, i * sivu, sivu, sivu);
-                    int vari = 0;
 
+                    int vari = 0;
+                    boolean syotava = false;
+                    
                     for (Monsteri n : peli.getMonsterit()) {
                         if (n.getxKordinaatti() == j && n.getyKordinaatti() == i) {
                             vari = n.getVari();
+                            syotava = n.isSyotava();
                         }
                     }
 
                     BufferedImage ghostImg = null;
                     try {
-                        if (vari == 1) {
+                        if (vari == 1 && syotava) {
+                            InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Evading Ghost.png");
+                            ghostImg = ImageIO.read(is);
+                        }else if (vari == 1) {
                             InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Orange Ghost.png");
                             ghostImg = ImageIO.read(is);
                         }
-                        if (vari == 2) {
+                        if (vari == 2 && syotava) {
+                            InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Evading Ghost.png");
+                            ghostImg = ImageIO.read(is);
+                        }else if (vari == 2) {
                             InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Teal Ghost.png");
                             ghostImg = ImageIO.read(is);
                         }
-                        if (vari == 3) {
+                        if (vari == 3 && syotava) {
+                            InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Evading Ghost.png");
+                            ghostImg = ImageIO.read(is);
+                        }else if (vari == 3) {
                             InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Pink Ghost.png");
                             ghostImg = ImageIO.read(is);
                         }
-                        if (vari == 4) {
+                        if (vari == 4 && syotava) {
+                            InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Evading Ghost.png");
+                            ghostImg = ImageIO.read(is);
+                        }else if (vari == 4) {
                             InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Red Ghost.png");
                             ghostImg = ImageIO.read(is);
                         }
@@ -155,6 +170,14 @@ public class Piirtoalusta extends JPanel {
 
                         peli.getPacman().setSuuAuki(true);
                     }
+
+                }
+
+                if (kentta[j][i] == 5) {
+
+                    gf.setColor(Color.MAGENTA);
+
+                    gf.fillOval(j * sivu + sivu / 6, i * sivu + sivu / 6, sivu / 2 + sivu / 4, sivu / 2 + sivu / 4);
 
                 }
             }

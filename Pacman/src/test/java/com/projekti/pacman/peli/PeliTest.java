@@ -79,15 +79,17 @@ public class PeliTest {
     @Test
     public void voittoToimiiKunTarpeeksiPisteita() {
 
-        peli.getPacman().setPisteet(109);
+        for (int i = 0; i < peli.getKentta().getLeveys(); i++) {
+            for (int j = 0; j < peli.getKentta().getPituus(); j++) {
+                peli.getKentta().asetaUusiArvo(i, j, 0);
+            }
+        }
 
         assertTrue(peli.voitto());
     }
 
     @Test
     public void voittoToimiiKunLiianVahanPisteita() {
-
-        peli.getPacman().setPisteet(86);
 
         assertFalse(peli.voitto());
     }
@@ -127,7 +129,7 @@ public class PeliTest {
         peli.getKentta().asetaUusiArvo(13, 1, 0);
         peli.reset();
 
-        assertEquals(4, peli.getKentta().haePisteenArvo(13, 1));
+        assertEquals(4, peli.getKentta().haePisteenArvo(13, 4));
         assertEquals(1, peli.getKentta().haePisteenArvo(10, 10));
     }
 

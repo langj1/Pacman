@@ -30,7 +30,7 @@ public class Taso1Test {
     public void kentanKonstruktorinMatriisiToimii() {
         
         int[][] matriisi = new int[][]{{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0},
+            {0, 5, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 5, 0},
             {0, 2, 0, 0, 2, 0, 0, 2, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 2, 0},
             {0, 2, 0, 0, 2, 0, 0, 2, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 2, 0},
             {0, 2, 0, 0, 2, 0, 0, 2, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 2, 0},
@@ -42,7 +42,7 @@ public class Taso1Test {
             {0, 2, 0, 0, 2, 0, 0, 2, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 2, 0},
             {0, 2, 0, 0, 2, 0, 0, 2, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 2, 0},
             {0, 2, 0, 0, 2, 0, 0, 2, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 2, 0},
-            {0, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0},
+            {0, 5, 2, 2, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 5, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
 
         Assert.assertArrayEquals(matriisi, taso.kentta);
@@ -50,7 +50,7 @@ public class Taso1Test {
 
     @Test
     public void kentanKonstruktorinPisteidenLaskuriToimii() {
-        assertEquals(109, taso.getPisteet());
+        assertEquals(105, taso.getPisteet());
     }
     
     @Test
@@ -59,7 +59,7 @@ public class Taso1Test {
         Pacman pacman = taso.pacmaninLahtokohta();
 
         assertEquals(13, pacman.getxKordinaatti());
-        assertEquals(1, pacman.getyKordinaatti());
+        assertEquals(4, pacman.getyKordinaatti());
     }
 
     @Test

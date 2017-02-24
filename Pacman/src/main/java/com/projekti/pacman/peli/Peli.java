@@ -5,11 +5,9 @@ import com.projekti.pacman.gui.Piirtoalusta;
 import com.projekti.pacman.logiikka.Liikkuva;
 import com.projekti.pacman.logiikka.Monsteri;
 import com.projekti.pacman.logiikka.Pacman;
-import static com.sun.java.accessibility.util.AWTEventMonitor.addActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Random;
 import javax.swing.Timer;
 
 /**
@@ -26,6 +24,7 @@ public class Peli extends Timer implements ActionListener {
     private Pacman pacman;
     private Piirtoalusta alusta;
     private Tormaako tormaako;
+    private PowerUpAjastin ajastin;
 
     public Peli(Kentta kentta) {
 
@@ -35,6 +34,7 @@ public class Peli extends Timer implements ActionListener {
         this.pacman = kentta.pacmaninLahtokohta();
         this.monsterit = kentta.monsterienLahtokohdat();
         this.tormaako = new Tormaako(this.kentta, this);
+        this.ajastin = null;
         elamat = 3;
 
         addActionListener(this);
@@ -101,6 +101,8 @@ public class Peli extends Timer implements ActionListener {
                 break;
             }
         }
+        
+        pacman.setPisteet(kentta.getPisteet()-kentta.laskePisteet());
 
     }
 
@@ -164,6 +166,10 @@ public class Peli extends Timer implements ActionListener {
 
             kentta.asetaUusiArvo(x, y, 2);
 
+        } else if (l.isPowerUpinPaalla()) {
+
+            kentta.asetaUusiArvo(x, y, 5);
+
         } else {
 
             kentta.asetaUusiArvo(x, y, 1);
@@ -192,6 +198,8 @@ public class Peli extends Timer implements ActionListener {
 
         asetaKaikilleOmaArvo();
 
+        monsteritNormaaleiksi();
+
         restart();
 
     }
@@ -212,6 +220,12 @@ public class Peli extends Timer implements ActionListener {
                 continue;
             }
 
+            if (monsteri.isPowerUpinPaalla()) {
+                kentta.asetaUusiArvo(monsteri.getxKordinaatti(), monsteri.getyKordinaatti(), 5);
+                monsteri.setPowerUpinPaalla(false);
+                continue;
+            }
+
             kentta.asetaUusiArvo(monsteri.getxKordinaatti(), monsteri.getyKordinaatti(), 1);
         }
     }
@@ -227,6 +241,10 @@ public class Peli extends Timer implements ActionListener {
         for (Monsteri monsteri : monsterit) {
             kentta.asetaUusiArvo(monsteri.getxKordinaatti(), monsteri.getyKordinaatti(), monsteri.getKenttaNumero());
         }
+    }
+
+    public void asetaLiikkuvalleOmaArvo(Liikkuva l) {
+        kentta.asetaUusiArvo(l.getxKordinaatti(), l.getyKordinaatti(), l.getKenttaNumero());
     }
 
     /**
@@ -273,7 +291,7 @@ public class Peli extends Timer implements ActionListener {
      */
     public boolean voitto() {
 
-        if (pacman.getPisteet() >= kentta.getPisteet()) {
+        if (kentta.laskePisteet() == 0) {
             return true;
         }
 
@@ -294,4 +312,30 @@ public class Peli extends Timer implements ActionListener {
 
         setDelay(100);
     }
+
+    public void monsteritSyotaviksi() {
+        for (Monsteri monsteri : monsterit) {
+            monsteri.setSyotava(true);
+        }
+        pacman.setSyotava(true);
+    }
+
+    public void monsteritNormaaleiksi() {
+        for (Monsteri monsteri : monsterit) {
+            monsteri.setSyotava(false);
+        }
+        pacman.setSyotava(false);
+    }
+
+    public PowerUpAjastin getAjastin() {
+        return ajastin;
+    }
+
+    public void setAjastin(PowerUpAjastin a) {
+        if (ajastin != null) {
+            ajastin.cancel();
+        }
+        this.ajastin = a;
+    }
+
 }

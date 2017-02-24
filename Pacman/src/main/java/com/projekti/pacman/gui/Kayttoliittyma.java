@@ -7,6 +7,8 @@ package com.projekti.pacman.gui;
 
 import com.projekti.pacman.peli.Peli;
 import java.awt.Container;
+import java.awt.Cursor;
+import static java.awt.Cursor.CROSSHAIR_CURSOR;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
@@ -45,6 +47,10 @@ public class Kayttoliittyma implements Runnable {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
         luoKomponentit(frame.getContentPane());
+        
+        Cursor cursor = new Cursor(CROSSHAIR_CURSOR);
+        
+        frame.setCursor(cursor);
         
         frame.pack();
         frame.setLocationRelativeTo(null);

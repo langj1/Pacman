@@ -149,6 +149,10 @@ public abstract class Kentta {
     public void setKoordinaatit(ArrayList<int[]> koordinaatit) {
         this.koordinaatit = koordinaatit;
     }
+    
+    public int[] tietynMonsterinLahto(int vari){
+        return koordinaatit.get(vari);
+    }
 
     /**
      * Laskee kaikkien matriisissa olevien pisteiden määrän.

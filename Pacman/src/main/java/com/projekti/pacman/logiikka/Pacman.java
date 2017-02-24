@@ -29,13 +29,6 @@ public class Pacman extends Liikkuva {
         this.pisteet = pisteet;
     }
 
-    /**
-     * Lisaa yhden pisteen Pacmanille.
-     */
-    public void syoPiste() {
-        pisteet++;
-    }
-
     @Override
     public boolean onPacman() {
         return true;
@@ -48,7 +41,4 @@ public class Pacman extends Liikkuva {
     public void setSuuAuki(boolean suuAuki) {
         this.suuAuki = suuAuki;
     }
-    
-    
-
 }

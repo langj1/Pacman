@@ -16,6 +16,7 @@ public class Monsteri extends Liikkuva {
 
     private int suuntaArvo;
     private int vari;
+ 
 
     /**
      * SuuntaArvoa käytetään satunnaisen suunnan valinnassa.
@@ -86,7 +87,5 @@ public class Monsteri extends Liikkuva {
     public void setVari(int vari) {
         this.vari = vari;
     }
-    
-    
 
 }

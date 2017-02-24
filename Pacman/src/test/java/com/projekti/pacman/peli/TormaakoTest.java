@@ -73,14 +73,4 @@ public class TormaakoTest {
         assertEquals(2, peli.getElamat());
         assertEquals(0, peli.getPacman().getPisteet());
     }
-
-    @Test
-    public void tormaakoPacmanToimiiKunTormaaPisteeseen() {
-
-        peli.getKentta().asetaUusiArvo(peli.getPacman().getxKordinaatti(), peli.getPacman().getyKordinaatti(), 2);
-        tormaako.tormaakoPacman(peli.getPacman());
-
-        assertEquals(3, peli.getElamat());
-        assertEquals(1, peli.getPacman().getPisteet());
-    }
 }

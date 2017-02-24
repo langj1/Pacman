@@ -27,7 +27,7 @@ public class KenttaTest {
     
     @Test
     public void pisteenArvonHakuToimii() {
-        assertEquals(4, taso.haePisteenArvo(13, 1));
+        assertEquals(5, taso.haePisteenArvo(13, 1));
     }
     
     @Test

@@ -11,6 +11,8 @@ public abstract class Liikkuva {
     private int xKordinaatti;
     private int yKordinaatti;
     private boolean pisteenPaalla;
+    private boolean powerUpinPaalla;
+    private boolean syotava;
 
     /**
      * Saa parametreina alkukordinaatit, jotka asetetaan Liikkuvalle.
@@ -24,7 +26,8 @@ public abstract class Liikkuva {
         this.xKordinaatti = alkuX;
         this.yKordinaatti = alkuY;
         this.pisteenPaalla = false;
-
+        this.powerUpinPaalla = false;
+        this.syotava = false;
     }
 
     public void setPisteenPaalla(boolean pisteenPaalla) {
@@ -90,5 +93,20 @@ public abstract class Liikkuva {
     public boolean onPacman() {
         return false;
     }
-    
+
+    public boolean isPowerUpinPaalla() {
+        return powerUpinPaalla;
+    }
+
+    public void setPowerUpinPaalla(boolean powerUpinPaalla) {
+        this.powerUpinPaalla = powerUpinPaalla;
+    }
+
+    public boolean isSyotava() {
+        return syotava;
+    }
+
+    public void setSyotava(boolean syotava) {
+        this.syotava = syotava;
+    }
 }
