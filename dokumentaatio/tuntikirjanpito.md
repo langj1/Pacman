@@ -8,6 +8,7 @@ Päivä | Tunnit | Kuvaus
 10.02.2016 | 5h | Ohjelmointia, testien luontia, korjausta, dokumentaatiota
 17.02.2016 | 5h | Ohjelmointia, testien luontia, korjausta, dokumentaatiota
 21.02.2016 | 2h | Ohjelmointia, korjausta, dokumentaatiota
+24.02.2016 | 4h | Ohjelmointia, korjausta, dokumentaatiota
 
 
 
