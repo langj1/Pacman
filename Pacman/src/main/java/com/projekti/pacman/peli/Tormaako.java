@@ -40,43 +40,12 @@ public class Tormaako {
      */
     public boolean tormaakoPacman(Liikkuva l) {
 
-        if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 3 && l.isSyotava()) {
-
-            for (Monsteri monsteri : peli.getMonsterit()) {
-                if (monsteri.getxKordinaatti() == l.getxKordinaatti() && monsteri.getyKordinaatti() == l.getyKordinaatti()) {
-                    monsteri.setKoordinaatit(kentta.tietynMonsterinLahto(monsteri.getVari())[1], kentta.tietynMonsterinLahto(monsteri.getVari())[0]);
-                    peli.asetaLiikkuvalleOmaArvo(monsteri);
-
-                    if (monsteri.isPisteenPaalla()) {
-                        monsteri.setPisteenPaalla(false);
-                    }
-                    monsteri.setSyotava(false);
-                    peli.getPacman().setExtraPisteet(peli.getPacman().getExtraPisteet() + 10);
-                }
-
-            }
-
-        } else if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 3) {
-
-            peli.menetaElama();
-
-            peli.reset();
-
+        if (tormaakoMonsteriin(l)) {
             return true;
         }
 
-//        if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 2) {
-//
-//            peli.getPacman().syoPiste();
-//
-//        }
+        tormaakoPowerUppiin(l);
 
-        if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 5) {
-
-            peli.monsteritSyotaviksi();
-            peli.setAjastin(new PowerUpAjastin(peli));
-
-        }
         return false;
     }
 
@@ -90,31 +59,42 @@ public class Tormaako {
      */
     public boolean tormaakoMonsteri(Liikkuva l) {
 
-        if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 4 && l.isSyotava()) {
+        if (tormaakoPacmaniin(l)) {
+            return true;
+        }
 
-            for (Monsteri monsteri : peli.getMonsterit()) {
-                if (monsteri.getxKordinaatti() == l.getxKordinaatti() && monsteri.getyKordinaatti() == l.getyKordinaatti()) {
-                    monsteri.setKoordinaatit(kentta.tietynMonsterinLahto(monsteri.getVari())[1], kentta.tietynMonsterinLahto(monsteri.getVari())[0]);
-                    peli.asetaLiikkuvalleOmaArvo(monsteri);
+        tormaakoPisteeseen(l);
 
-                    if (monsteri.isPisteenPaalla()) {
-                        monsteri.setPisteenPaalla(false);
-                    }
-                    monsteri.setSyotava(false);
-                    peli.getPacman().setExtraPisteet(peli.getPacman().getExtraPisteet() + 10);
+        tormaakoPowerUppiin(l);
 
-                }
+        return false;
+    }
+
+    public void tormaakoPowerUppiin(Liikkuva l) {
+        if (l.onPacman()) {
+
+            if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 5) {
+
+                peli.monsteritSyotaviksi();
+                peli.setAjastin(new PowerUpAjastin(peli));
 
             }
 
-        } else if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 4) {
+        } else {
 
-            peli.menetaElama();
+            if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 5) {
 
-            peli.reset();
+                l.setPowerUpinPaalla(true);
 
-            return true;
+            } else {
+
+                l.setPowerUpinPaalla(false);
+
+            }
         }
+    }
+
+    public void tormaakoPisteeseen(Liikkuva l) {
 
         if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 2) {
 
@@ -125,17 +105,56 @@ public class Tormaako {
             l.setPisteenPaalla(false);
 
         }
+    }
 
-        if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 5) {
+    public boolean tormaakoPacmaniin(Liikkuva l) {
 
-            l.setPowerUpinPaalla(true);
+        if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 4 && l.isSyotava()) {
 
-        } else {
+           tormaaMonsteriinKunPowerUp(l);
 
-            l.setPowerUpinPaalla(false);
+        } else if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 4) {
+
+            peli.menetaElama();
+
+            peli.reset();
+
+            return true;
+        }
+        return false;
+    }
+
+    public boolean tormaakoMonsteriin(Liikkuva l) {
+
+        if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 3 && l.isSyotava()) {
+
+            tormaaMonsteriinKunPowerUp(l);
+
+        } else if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 3) {
+
+            peli.menetaElama();
+
+            peli.reset();
+
+            return true;
+        }
+        return false;
+    }
+
+    public void tormaaMonsteriinKunPowerUp(Liikkuva l) {
+
+        for (Monsteri monsteri : peli.getMonsterit()) {
+            if (monsteri.getxKordinaatti() == l.getxKordinaatti() && monsteri.getyKordinaatti() == l.getyKordinaatti()) {
+                monsteri.setKoordinaatit(kentta.tietynMonsterinLahto(monsteri.getVari())[1], kentta.tietynMonsterinLahto(monsteri.getVari())[0]);
+                peli.asetaLiikkuvalleOmaArvo(monsteri);
+
+                if (monsteri.isPisteenPaalla()) {
+                    monsteri.setPisteenPaalla(false);
+                }
+                monsteri.setSyotava(false);
+                peli.getPacman().setExtraPisteet(peli.getPacman().getExtraPisteet() + 10);
+            }
 
         }
-
-        return false;
     }
 }
