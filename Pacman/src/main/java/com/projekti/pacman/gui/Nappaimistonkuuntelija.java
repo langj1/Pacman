@@ -19,7 +19,8 @@ public class Nappaimistonkuuntelija implements KeyListener {
 
     /**
      * Saa Pacmanin, jota liikutetaan näppäimistöllä kontruktorin parametrina.
-     * @param pacman 
+     *
+     * @param pacman Pacman, jota liikutetaan.
      */
     public Nappaimistonkuuntelija(Pacman pacman) {
         this.pacman = pacman;

@@ -14,9 +14,8 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 /**
- *Huolehtii pelin grafiikoista.
+ * Huolehtii pelin grafiikoista.
  */
-
 public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
@@ -29,48 +28,47 @@ public class Kayttoliittyma implements Runnable {
         this.peli = peli;
         this.sivu = sivu;
     }
-    
+
     /**
      * Luo uuden ikkunan ja asetta sille arvot ja sisällön.
      */
-
     @Override
     public void run() {
-        
+
         frame = new JFrame("Pacman");
-        
-        int leveys = (peli.getKentta().getLeveys())*sivu +sivu/2;
-        int pituus = (peli.getKentta().getPituus()+1)*sivu +sivu/2;
-        
+
+        int leveys = (peli.getKentta().getLeveys()) * sivu + sivu / 2;
+        int pituus = (peli.getKentta().getPituus() + 1) * sivu + sivu / 2;
+
         frame.setPreferredSize(new Dimension(leveys, pituus));
-        
+
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        
+
         luoKomponentit(frame.getContentPane());
-        
+
         Cursor cursor = new Cursor(CROSSHAIR_CURSOR);
-        
+
         frame.setCursor(cursor);
-        
+
         frame.pack();
         frame.setLocationRelativeTo(null);
-        
+
         frame.setVisible(true);
     }
-    
+
     /**
      * Yhdistää Näppäimistönkuuntelijan ja Piirtoalustan Käyttöliittymään.
-     * @param container 
+     *
+     * @param container
      */
-    
-    public void luoKomponentit(Container container){
-        
+    public void luoKomponentit(Container container) {
+
         alusta = new Piirtoalusta(peli, sivu);
-        
+
         container.add(alusta);
-        
+
         Nappaimistonkuuntelija kuuntelija = new Nappaimistonkuuntelija(peli.getPacman());
-        
+
         frame.addKeyListener(kuuntelija);
     }
 

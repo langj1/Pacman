@@ -19,8 +19,8 @@ public abstract class Liikkuva {
     /**
      * Saa parametreina alkukordinaatit, jotka asetetaan Liikkuvalle.
      *
-     * @param alkuX
-     * @param alkuY
+     * @param alkuX Aloitus x koordinaatti.
+     * @param alkuY Aloitus y koordinaatti.
      */
     public Liikkuva(int alkuX, int alkuY) {
 
@@ -48,14 +48,27 @@ public abstract class Liikkuva {
         this.suunta = suunta;
     }
 
+    /**
+     * Palautta x koordinaatin.
+     * @return Koordinaatin arvo.
+     */
     public int getxKordinaatti() {
         return xKordinaatti;
     }
 
+    /**
+     * Palautta y koordinaatin.
+     * @return koordinaatin arvo.
+     */
     public int getyKordinaatti() {
         return yKordinaatti;
     }
 
+    /**
+     * Palauttaa molemmat koordinaatit tauluna.
+     *
+     * @return X ja y koordinaatit taulussa.
+     */
     public int[] getKoordinaatit() {
 
         int[] koordinaatit = {yKordinaatti, xKordinaatti};
@@ -63,6 +76,12 @@ public abstract class Liikkuva {
         return koordinaatit;
     }
 
+    /**
+     * Asettaa uudet x ja y koordinaatit.
+     *
+     * @param x Uusi x koordinaatin arvo.
+     * @param y Uusi y koordinaatin arvo.
+     */
     public void setKoordinaatit(int x, int y) {
         this.xKordinaatti = x;
         this.yKordinaatti = y;
@@ -88,10 +107,19 @@ public abstract class Liikkuva {
         }
     }
 
+    /**
+     * Palauttaa Liikkuvan kenttä arvon.
+     *
+     * @return 4 tarkoittaa Pacmania ja 3 Monsteria.
+     */
     public int getKenttaNumero() {
         return 4;
     }
 
+    /**
+     * Kertoo onko Liikkuva monsteri vai Pacman.
+     * @return False, jos Monsteri.
+     */
     public boolean onPacman() {
         return false;
     }
@@ -111,8 +139,13 @@ public abstract class Liikkuva {
     public void setSyotava(boolean syotava) {
         this.syotava = syotava;
     }
-    
-    public BufferedImage piirra(){
+
+    /**
+     * Metodi piirtää Liikkuvan. Määritetään perivissä luokissa.
+     *
+     * @return Palauttaa bufferoidun kuvan Liikkuvasta.
+     */
+    public BufferedImage piirra() {
         return null;
     }
 }

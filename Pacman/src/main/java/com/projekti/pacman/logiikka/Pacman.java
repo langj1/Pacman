@@ -22,6 +22,12 @@ public class Pacman extends Liikkuva {
     private boolean suuAuki;
     private int extraPisteet;
 
+    /**
+     * Asettaa Pacmanin alkuarvot.
+     *
+     * @param alkuX Aloitus x koordinaatti.
+     * @param alkuY Aloitus y koordinaatti.
+     */
     public Pacman(int alkuX, int alkuY) {
         super(alkuX, alkuY);
         this.suuAuki = false;

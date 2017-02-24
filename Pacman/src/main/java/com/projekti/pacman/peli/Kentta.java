@@ -149,8 +149,13 @@ public abstract class Kentta {
     public void setKoordinaatit(ArrayList<int[]> koordinaatit) {
         this.koordinaatit = koordinaatit;
     }
-    
-    public int[] tietynMonsterinLahto(int vari){
+
+    /**
+     * Palautta tietyn monsterin lähtö koordinaatit.
+     * @param vari Määrittää minkä monsterin koordinaatit haetaan.
+     * @return Koordinaatit tauluna.
+     */
+    public int[] tietynMonsterinLahto(int vari) {
         return koordinaatit.get(vari);
     }
 

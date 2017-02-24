@@ -22,8 +22,8 @@ public class Tormaako {
     /**
      * Asettaa oliolle Kentän ja Pelin.
      *
-     * @param kentta
-     * @param peli
+     * @param kentta Kenttä, jossa törmäykset tapahtuu.
+     * @param peli Peli, jossa törmäykset tapahtuu.
      */
     public Tormaako(Kentta kentta, Peli peli) {
         this.kentta = kentta;
@@ -70,6 +70,11 @@ public class Tormaako {
         return false;
     }
 
+    /**
+     * Katsoo, jos Liikkuva törmää Power Uppiin.
+     *
+     * @param l Liikkuva, joka mahdollisesti törmää.
+     */
     public void tormaakoPowerUppiin(Liikkuva l) {
         if (l.onPacman()) {
 
@@ -94,6 +99,11 @@ public class Tormaako {
         }
     }
 
+    /**
+     * Katsoo, jos Liikkuva törmää pisteeseen.
+     *
+     * @param l Liikkuva, joka mahdollisesti törmää.
+     */
     public void tormaakoPisteeseen(Liikkuva l) {
 
         if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 2) {
@@ -107,11 +117,17 @@ public class Tormaako {
         }
     }
 
+    /**
+     * Katsoo, jos Liikkuva törmää Pacmaniin.
+     *
+     * @param l Liikkuva, joka mahdollisesti törmää.
+     * @return Palautta true, jos törmää.
+     */
     public boolean tormaakoPacmaniin(Liikkuva l) {
 
         if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 4 && l.isSyotava()) {
 
-           tormaaMonsteriinKunPowerUp(l);
+            tormaaMonsteriinKunPowerUp(l);
 
         } else if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 4) {
 
@@ -124,6 +140,12 @@ public class Tormaako {
         return false;
     }
 
+    /**
+     * Katsoo, jos Liikkuva törmää Monsteriin.
+     *
+     * @param l Liikkuva, joka mahdollisesti törmää.
+     * @return Palautta True, jos törmää.
+     */
     public boolean tormaakoMonsteriin(Liikkuva l) {
 
         if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 3 && l.isSyotava()) {
@@ -141,6 +163,11 @@ public class Tormaako {
         return false;
     }
 
+    /**
+     * Asettaa Monsterin takaisin lähtökohtaan ja antaa lisäpisteitä.
+     *
+     * @param l Liikkuva, joka mahdollisesti törmää.
+     */
     public void tormaaMonsteriinKunPowerUp(Liikkuva l) {
 
         for (Monsteri monsteri : peli.getMonsterit()) {

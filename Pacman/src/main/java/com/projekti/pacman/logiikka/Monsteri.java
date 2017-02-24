@@ -25,8 +25,9 @@ public class Monsteri extends Liikkuva {
     /**
      * SuuntaArvoa käytetään satunnaisen suunnan valinnassa.
      *
-     * @param alkuX
-     * @param alkuY
+     * @param alkuX Aloitus x koordinaatti.
+     * @param alkuY Aloitus y koordinaatti.
+     * @param vari Kertoo monsterin värin.
      */
     public Monsteri(int alkuX, int alkuY, int vari) {
         super(alkuX, alkuY);
@@ -93,17 +94,9 @@ public class Monsteri extends Liikkuva {
         this.vari = vari;
     }
 
-    public void valkkyy() {
-        if (valkkyy == 1) {
-            valkkyy = 2;
-        } else {
-            valkkyy = 1;
-        }
-    }
-
     @Override
     public BufferedImage piirra() {
-    
+
         BufferedImage ghostImg = null;
         try {
             if (vari == 1 && isSyotava()) {

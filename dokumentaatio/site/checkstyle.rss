@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2017</copyright>
     <item>
-      <title>File: 12,
-             Errors: 18,
+      <title>File: 14,
+             Errors: 1,
              Warnings: 0,
              Infos: 0
       </title>
@@ -46,7 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#com.projekti.pacman.kayttajat.Pelaaja.java">com/projekti/pacman/kayttajat/Pelaaja.java</a>
+                  <a href="${project.url}/checkstyle.html#com.projekti.pacman.peli.Peli.java">com/projekti/pacman/peli/Peli.java</a>
                 </td>
                 <td>
                   0
@@ -60,7 +60,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#com.projekti.pacman.peli.Peli.java">com/projekti/pacman/peli/Peli.java</a>
+                  <a href="${project.url}/checkstyle.html#com.projekti.pacman.peli.Taso2.java">com/projekti/pacman/peli/Taso2.java</a>
                 </td>
                 <td>
                   0
@@ -69,7 +69,63 @@ under the License.
                   0
                 </td>
                 <td>
-                  4
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#com.projekti.pacman.peli.PowerUpAjastin.java">com/projekti/pacman/peli/PowerUpAjastin.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#com.projekti.pacman.logiikka.Monsteri.java">com/projekti/pacman/logiikka/Monsteri.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#com.projekti.pacman.peli.Taso1.java">com/projekti/pacman/peli/Taso1.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#com.projekti.pacman.Main.java">com/projekti/pacman/Main.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
                 </td>
               </tr>
                           <tr>
@@ -83,7 +139,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
+                  0
                 </td>
               </tr>
                           <tr>
@@ -116,20 +172,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#com.projekti.pacman.logiikka.Monsteri.java">com/projekti/pacman/logiikka/Monsteri.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  1
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="${project.url}/checkstyle.html#com.projekti.pacman.logiikka.Liikkuva.java">com/projekti/pacman/logiikka/Liikkuva.java</a>
                 </td>
                 <td>
@@ -139,7 +181,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  6
+                  0
                 </td>
               </tr>
                           <tr>
@@ -158,21 +200,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#com.projekti.pacman.peli.Taso1.java">com/projekti/pacman/peli/Taso1.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  2
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#com.projekti.pacman.Main.java">com/projekti/pacman/Main.java</a>
+                  <a href="${project.url}/checkstyle.html#com.projekti.pacman.peli.Tormaako.java">com/projekti/pacman/peli/Tormaako.java</a>
                 </td>
                 <td>
                   0
@@ -195,7 +223,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
+                  0
                 </td>
               </tr>
                           <tr>
@@ -209,7 +237,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  2
+                  0
                 </td>
               </tr>
                       </tbody>

@@ -21,25 +21,25 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
         Kentta kentta = new Taso2();
-        
+
         Peli peli = new Peli(kentta);
-        
+
         Kayttoliittyma gui = new Kayttoliittyma(peli, 20);
         SwingUtilities.invokeLater(gui);
-        
-        while(gui.getAlusta() == null){
-            
-            try{
+
+        while (gui.getAlusta() == null) {
+
+            try {
                 Thread.sleep(100);
-            }catch(InterruptedException e){
+            } catch (InterruptedException e) {
                 System.out.println("Lataa");
             }
         }
-        
+
         peli.setAlusta(gui.getAlusta());
         peli.start();
     }
-    
+
 }

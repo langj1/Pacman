@@ -12,7 +12,7 @@ import javax.swing.Timer;
 
 /**
  * Luokka, joka hallitsee pelin kulkua ja yhdistää kaikki muut logiikan luokat
- * sekä käyttöliittymän.
+ * sekä käyttöliittymän. Täytyy jakaa pienempiin osiin.
  *
  * @author langjimi
  */
@@ -26,6 +26,11 @@ public class Peli extends Timer implements ActionListener {
     private Tormaako tormaako;
     private PowerUpAjastin ajastin;
 
+    /**
+     * Luo uuden pelin.
+     *
+     * @param kentta Määrittää mitä tasoa peli käyttää.
+     */
     public Peli(Kentta kentta) {
 
         super(1000, null);
@@ -246,6 +251,11 @@ public class Peli extends Timer implements ActionListener {
         }
     }
 
+    /**
+     * Asettaa yhdelle Liikkuvalle oikean kenttäarvon kenttään.
+     *
+     * @param l Liikkuva, jolle arvo asetetaan.
+     */
     public void asetaLiikkuvalleOmaArvo(Liikkuva l) {
         kentta.asetaUusiArvo(l.getxKordinaatti(), l.getyKordinaatti(), l.getKenttaNumero());
     }
@@ -324,6 +334,9 @@ public class Peli extends Timer implements ActionListener {
         setDelay(100);
     }
 
+    /**
+     * Tekee kaikista monstereista syötäviä.
+     */
     public void monsteritSyotaviksi() {
         for (Monsteri monsteri : monsterit) {
             monsteri.setSyotava(true);
@@ -331,6 +344,9 @@ public class Peli extends Timer implements ActionListener {
         pacman.setSyotava(true);
     }
 
+    /**
+     * Tekee kaikista Monstereista normaaleja.
+     */
     public void monsteritNormaaleiksi() {
         for (Monsteri monsteri : monsterit) {
             monsteri.setSyotava(false);
@@ -342,6 +358,10 @@ public class Peli extends Timer implements ActionListener {
         return ajastin;
     }
 
+    /**
+     * Asettaa uuden ajastimen ja nollaa vanhan.
+     * @param a Ajastin, joka asetetaan.
+     */
     public void setAjastin(PowerUpAjastin a) {
         if (ajastin != null) {
             ajastin.cancel();

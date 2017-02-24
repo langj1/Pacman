@@ -9,30 +9,42 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
+ * Määrittää kauan Monsterit pysyy syötävänä.
  *
  * @author langjimi
  */
 public class PowerUpAjastin {
-    
+
     private Peli peli;
     private Timer ajastin;
-    
-    public PowerUpAjastin(Peli peli){
+
+    /**
+     * Saa pelin parametrina sekä luo ja käynnistää ajastimen.
+     *
+     * @param peli Peli, jolle ajastin luodaan.
+     */
+    public PowerUpAjastin(Peli peli) {
         this.peli = peli;
         ajastin = new Timer();
-        aloitaPowerUpAjastin();
+        kaynnistaPowerUpAjastin();
     }
-    
-    public void aloitaPowerUpAjastin(){
+
+    /**
+     * Ajastimen päättyessä Monsterit asetetaan normaaleiksi.
+     */
+    public void kaynnistaPowerUpAjastin() {
         ajastin.schedule(new TimerTask() {
             @Override
             public void run() {
                 peli.monsteritNormaaleiksi(); //To change body of generated methods, choose Tools | Templates.
             }
-        }, 10000);
+        }, 8000);
     }
-    
-    public void cancel(){
+
+    /**
+     * Nollaa ajastimen.
+     */
+    public void cancel() {
         ajastin.cancel();
     }
 }
