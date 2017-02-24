@@ -16,6 +16,9 @@
 * Ennätysten tarkistaminen
 * Pelin sammutus
 
+**Rakenne kuvaus:**
+Main käynnistää ohjelman luomalla käyttöliittymän, joka saa parametrinaa Pelin, joka saa parametrinaan Kentän. Käyttöliittymä käyttää myös näppäimstönkuuntelijaa sekä Piirtoalustaa. Pelin toiminta pyörii Peli luokan ympärillä. Peli luokka luo Pacmanin ja neljä monsteria saamansa Tason avulla. Peli käyttää Tormaako luokka törmäyksien tarkistamisessa.
+
 **Luokkakaavio:**
 
 ![Luokkakavio](/dokumentaatio/Kaaviot/Luokkakaavio.png)
