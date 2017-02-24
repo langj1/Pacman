@@ -75,93 +75,31 @@ public class Piirtoalusta extends JPanel {
 
                 if (kentta[j][i] == 3) {
 
-//                    gf.setColor(Color.RED);
-//
-//                    gf.fillOval(j * sivu, i * sivu, sivu, sivu);
-
-                    int vari = 0;
-                    boolean syotava = false;
-                    
+                    Monsteri m = new Monsteri(0, 0, 0);
                     for (Monsteri n : peli.getMonsterit()) {
                         if (n.getxKordinaatti() == j && n.getyKordinaatti() == i) {
-                            vari = n.getVari();
-                            syotava = n.isSyotava();
+                            m = n;
                         }
                     }
 
-                    BufferedImage ghostImg = null;
-                    try {
-                        if (vari == 1 && syotava) {
-                            InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Evading Ghost.png");
-                            ghostImg = ImageIO.read(is);
-                        }else if (vari == 1) {
-                            InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Orange Ghost.png");
-                            ghostImg = ImageIO.read(is);
-                        }
-                        if (vari == 2 && syotava) {
-                            InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Evading Ghost.png");
-                            ghostImg = ImageIO.read(is);
-                        }else if (vari == 2) {
-                            InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Teal Ghost.png");
-                            ghostImg = ImageIO.read(is);
-                        }
-                        if (vari == 3 && syotava) {
-                            InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Evading Ghost.png");
-                            ghostImg = ImageIO.read(is);
-                        }else if (vari == 3) {
-                            InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Pink Ghost.png");
-                            ghostImg = ImageIO.read(is);
-                        }
-                        if (vari == 4 && syotava) {
-                            InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Evading Ghost.png");
-                            ghostImg = ImageIO.read(is);
-                        }else if (vari == 4) {
-                            InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Red Ghost.png");
-                            ghostImg = ImageIO.read(is);
-                        }
-                    } catch (IOException e) {
-                    }
-
-                    gf.drawImage(ghostImg, j * sivu, i * sivu, sivu, sivu, this);
+                    gf.drawImage(m.piirra(), j * sivu, i * sivu, sivu, sivu, this);
                 }
 
                 if (kentta[j][i] == 4) {
 
                     if (peli.getPacman().isSuuAuki()) {
 
-                        BufferedImage pacmanImg = null;
-                        try {
-                            if (peli.getPacman().getSuunta() == Suunta.VASEN) {
-                                InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Pacman Left.png");
-                                pacmanImg = ImageIO.read(is);
-                                peli.getPacman().setSuuAuki(false);
-                            }
-                            if (peli.getPacman().getSuunta() == Suunta.OIKEA) {
-                                InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Pacman Right.png");
-                                pacmanImg = ImageIO.read(is);
-                                peli.getPacman().setSuuAuki(false);
-                            }
-                            if (peli.getPacman().getSuunta() == Suunta.ALAS) {
-                                InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Pacman Down.png");
-                                pacmanImg = ImageIO.read(is);
-                                peli.getPacman().setSuuAuki(false);
-                            }
-                            if (peli.getPacman().getSuunta() == Suunta.YLOS) {
-                                InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Pacman Up.png");
-                                pacmanImg = ImageIO.read(is);
-                                peli.getPacman().setSuuAuki(false);
-                            }
-                            if (peli.getPacman().getSuunta() == Suunta.STOP) {
+                        BufferedImage pacmanImg = peli.getPacman().piirra();
 
-                                gf.setColor(Color.YELLOW);
-                                gf.fillOval(j * sivu, i * sivu, sivu, sivu);
-                            }
+                        if (pacmanImg == null) {
+                            gf.setColor(Color.YELLOW);
 
-                        } catch (IOException e) {
+                            gf.fillOval(j * sivu, i * sivu, sivu, sivu);
+                        } else {
+
+                            gf.drawImage(pacmanImg, j * sivu, i * sivu, sivu, sivu, this);
+
                         }
-
-                        gf.drawImage(pacmanImg, j * sivu, i * sivu, sivu, sivu, this);
-
                     } else {
 
                         gf.setColor(Color.YELLOW);
@@ -193,13 +131,8 @@ public class Piirtoalusta extends JPanel {
 
             gf.setColor(Color.YELLOW);
 
-            gf.fillOval(i * sivu, sivu / 4, sivu / 2, sivu / 2);
-//            BufferedImage elama = null;
-//            try {
-//                elama = ImageIO.read(new File("Images/Pacman Right.png"));
-//            } catch (IOException e) {
-//            }
-//            gf.drawImage(elama, i * sivu, 0 * sivu, sivu / 2, sivu / 2, this);
+            gf.fillOval(i * sivu + 5, sivu / 4, sivu / 2, sivu / 2);
+
         }
 
         g.drawImage(img, 0, 0, this);

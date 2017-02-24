@@ -51,7 +51,7 @@ public class Tormaako {
                         monsteri.setPisteenPaalla(false);
                     }
                     monsteri.setSyotava(false);
-                    peli.getPacman().setPisteet(peli.getPacman().getPisteet() + 100);
+                    peli.getPacman().setExtraPisteet(peli.getPacman().getExtraPisteet() + 10);
                 }
 
             }
@@ -101,7 +101,8 @@ public class Tormaako {
                         monsteri.setPisteenPaalla(false);
                     }
                     monsteri.setSyotava(false);
-                    peli.getPacman().setPisteet(peli.getPacman().getPisteet() + 100);
+                    peli.getPacman().setExtraPisteet(peli.getPacman().getExtraPisteet() + 10);
+
                 }
 
             }

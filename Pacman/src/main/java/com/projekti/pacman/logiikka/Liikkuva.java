@@ -1,6 +1,8 @@
 package com.projekti.pacman.logiikka;
 
 import com.projekti.pacman.Suunta;
+import com.projekti.pacman.peli.Peli;
+import java.awt.image.BufferedImage;
 
 /**
  * Luokka luo pohjan, jonka Pacman ja monsterit perii.
@@ -108,5 +110,9 @@ public abstract class Liikkuva {
 
     public void setSyotava(boolean syotava) {
         this.syotava = syotava;
+    }
+    
+    public BufferedImage piirra(){
+        return null;
     }
 }

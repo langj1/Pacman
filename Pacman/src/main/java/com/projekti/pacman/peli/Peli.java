@@ -101,9 +101,12 @@ public class Peli extends Timer implements ActionListener {
                 break;
             }
         }
-        
-        pacman.setPisteet(kentta.getPisteet()-kentta.laskePisteet());
 
+        int pisteet = kentta.getPisteet() - kentta.laskePisteet();
+
+        if (pisteet > pacman.getPisteet() - pacman.getExtraPisteet()) {
+            pacman.setPisteet(pisteet + pacman.getExtraPisteet());
+        }
     }
 
     /**
@@ -291,7 +294,15 @@ public class Peli extends Timer implements ActionListener {
      */
     public boolean voitto() {
 
-        if (kentta.laskePisteet() == 0) {
+        boolean onkoMonsteriPisteenPaalla = false;
+
+        for (Monsteri monsteri : monsterit) {
+            if (monsteri.isPisteenPaalla()) {
+                onkoMonsteriPisteenPaalla = true;
+            }
+        }
+
+        if (kentta.laskePisteet() == 0 && !onkoMonsteriPisteenPaalla) {
             return true;
         }
 

@@ -6,8 +6,12 @@
 package com.projekti.pacman.logiikka;
 
 import com.projekti.pacman.Suunta;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Random;
+import javax.imageio.ImageIO;
 
 /**
  * Luokka kuvaa Pacmania jahtaavia monstereita Perii luokan Liikkuva.
@@ -16,7 +20,7 @@ public class Monsteri extends Liikkuva {
 
     private int suuntaArvo;
     private int vari;
- 
+    private int valkkyy;
 
     /**
      * SuuntaArvoa käytetään satunnaisen suunnan valinnassa.
@@ -29,6 +33,7 @@ public class Monsteri extends Liikkuva {
 
         this.suuntaArvo = 0;
         this.vari = vari;
+        this.valkkyy = 0;
     }
 
     /**
@@ -86,6 +91,52 @@ public class Monsteri extends Liikkuva {
 
     public void setVari(int vari) {
         this.vari = vari;
+    }
+
+    public void valkkyy() {
+        if (valkkyy == 1) {
+            valkkyy = 2;
+        } else {
+            valkkyy = 1;
+        }
+    }
+
+    @Override
+    public BufferedImage piirra() {
+    
+        BufferedImage ghostImg = null;
+        try {
+            if (vari == 1 && isSyotava()) {
+                InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Evading Ghost.png");
+                ghostImg = ImageIO.read(is);
+            } else if (vari == 1) {
+                InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Orange Ghost.png");
+                ghostImg = ImageIO.read(is);
+            }
+            if (vari == 2 && isSyotava()) {
+                InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Evading Ghost.png");
+                ghostImg = ImageIO.read(is);
+            } else if (vari == 2) {
+                InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Teal Ghost.png");
+                ghostImg = ImageIO.read(is);
+            }
+            if (vari == 3 && isSyotava()) {
+                InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Evading Ghost.png");
+                ghostImg = ImageIO.read(is);
+            } else if (vari == 3) {
+                InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Pink Ghost.png");
+                ghostImg = ImageIO.read(is);
+            }
+            if (vari == 4 && isSyotava()) {
+                InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Evading Ghost.png");
+                ghostImg = ImageIO.read(is);
+            } else if (vari == 4) {
+                InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Red Ghost.png");
+                ghostImg = ImageIO.read(is);
+            }
+        } catch (IOException e) {
+        }
+        return ghostImg;
     }
 
 }
