@@ -12,9 +12,7 @@ import javax.swing.Timer;
 
 /**
  * Luokka, joka hallitsee pelin kulkua ja yhdistää kaikki muut logiikan luokat
- * sekä käyttöliittymän. Täytyy jakaa pienempiin osiin.
- *
- * @author langjimi
+ * sekä käyttöliittymän. 
  */
 public class Peli extends Timer implements ActionListener {
 
@@ -24,6 +22,7 @@ public class Peli extends Timer implements ActionListener {
     private Pacman pacman;
     private Piirtoalusta alusta;
     private Tormaako tormaako;
+    private Liikuttaja liikuttaja;
     private PowerUpAjastin ajastin;
 
     /**
@@ -40,6 +39,7 @@ public class Peli extends Timer implements ActionListener {
         this.monsterit = kentta.monsterienLahtokohdat();
         this.tormaako = new Tormaako(this.kentta, this);
         this.ajastin = null;
+        this.liikuttaja = new Liikuttaja(this);
         elamat = 3;
 
         addActionListener(this);
@@ -67,6 +67,14 @@ public class Peli extends Timer implements ActionListener {
         this.alusta = alusta;
     }
 
+    public Tormaako getTormaako() {
+        return tormaako;
+    }
+
+    public Liikuttaja getLiikuttaja() {
+        return liikuttaja;
+    }
+    
     /**
      * Vähentää yhden elämän, jos elämät loppuu peli päättyy.
      *
@@ -77,7 +85,6 @@ public class Peli extends Timer implements ActionListener {
         if (elamat < 1) {
             return true;
         }
-
         return false;
     }
 
@@ -89,211 +96,23 @@ public class Peli extends Timer implements ActionListener {
     }
 
     /**
-     * Ensiksi arvoo monstereille uudet suunnat, jonka jälkeen liikuttaa
-     * Pacmania. Jos Pacman saavuttaa tason voittoon vaadittavan pistemäärän
-     * peli päättyy. Muussa tapauksessa monsterit liikkuu seuraavaksi.
-     */
-    public void liiku() {
-
-        arvoSuunnat();
-
-        if (liikkuvaLiikkuu(pacman)) {
-            return;
-        }
-
-        for (Monsteri monsteri : monsterit) {
-            if (liikkuvaLiikkuu(monsteri)) {
-                break;
-            }
-        }
-
-        int pisteet = kentta.getPisteet() - kentta.laskePisteet();
-
-        if (pisteet > pacman.getPisteet() - pacman.getExtraPisteet()) {
-            pacman.setPisteet(pisteet + pacman.getExtraPisteet());
-        }
-    }
-
-    /**
-     * Ottaa muistiin Liikkuvan alkuperäiset koordinaatit. Sitten asettaa
-     * koordinaatteihin joista liikutaan pois joko pisteen tai tyhjän ruudun.
-     * Seuraavaksi liikutetaan Liikkuvaa. Sitten katsotaan onko Liikkuva
-     * liikkumassa muuriin, jolloin Liikkuva palaa alkuperäiseen ruutuun. Sitten
-     * katsotaan törmätäänkö pisteeseen, Pacmaniin tai Monsteriin. Lopulta
-     * asetetaan Liikkuvan oma arvo uuteen ruutuun.
-     *
-     * @param l Pacman tai Monsteri, jota liikutetaan
-     * @return palauttaa true, jos peli resetoidaan
-     */
-    public boolean liikkuvaLiikkuu(Liikkuva l) {
-
-        int x = l.getxKordinaatti();
-        int y = l.getyKordinaatti();
-
-        onkoPisteenPaalla(x, y, l);
-
-        l.liiku();
-
-        if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 0 || kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 3 && !l.onPacman()) {
-
-            l.setKoordinaatit(x, y);
-
-            kentta.asetaUusiArvo(x, y, l.getKenttaNumero());
-            return false;
-        }
-
-        if (l.onPacman()) {
-
-            if (tormaako.tormaakoPacman(l)) {
-                return true;
-            }
-
-        } else {
-
-            if (tormaako.tormaakoMonsteri(l)) {
-                return true;
-            }
-
-        }
-
-        kentta.asetaUusiArvo(l.getxKordinaatti(), l.getyKordinaatti(), l.getKenttaNumero());
-
-        return false;
-    }
-
-    /**
-     * Määrittää, mikä arvo laitetaan lähtöruutuun.
-     *
-     * @param x x koordinaatti
-     * @param y y koordinaatti
-     * @param l Liikkuva
-     */
-    public void onkoPisteenPaalla(int x, int y, Liikkuva l) {
-
-        if (l.isPisteenPaalla()) {
-
-            kentta.asetaUusiArvo(x, y, 2);
-
-        } else if (l.isPowerUpinPaalla()) {
-
-            kentta.asetaUusiArvo(x, y, 5);
-
-        } else {
-
-            kentta.asetaUusiArvo(x, y, 1);
-
-        }
-    }
-
-    /**
      * Resetoi pelin alkuperäisasetelmaan paitsi pisteitä ei palauteta.
      */
     public void reset() {
 
-        asetaKaikille1tai2();
-
+        liikuttaja.asetaKaikille1tai2();
         int pisteet = pacman.getPisteet();
-
         pacman.setKoordinaatit(kentta.getKoordinaatit().get(0)[1], kentta.getKoordinaatit().get(0)[0]);
-
         pacman.setPisteet(pisteet);
-
         pacman.setSuunta(Suunta.STOP);
 
         for (int i = 0; i < 4; i++) {
             monsterit.get(i).setKoordinaatit(kentta.getKoordinaatit().get(i + 1)[1], kentta.getKoordinaatit().get(i + 1)[0]);
         }
 
-        asetaKaikilleOmaArvo();
-
+        liikuttaja.asetaKaikilleOmaArvo();
         monsteritNormaaleiksi();
-
         restart();
-
-    }
-
-    /**
-     * Asettaa pelin Monsterien ja Pacmanien koordinaatteihin tyhjän ruudun tai
-     * pisteen.
-     */
-    public void asetaKaikille1tai2() {
-
-        kentta.asetaUusiArvo(pacman.getxKordinaatti(), pacman.getyKordinaatti(), 1);
-
-        for (Monsteri monsteri : monsterit) {
-
-            if (monsteri.isPisteenPaalla()) {
-                kentta.asetaUusiArvo(monsteri.getxKordinaatti(), monsteri.getyKordinaatti(), 2);
-                monsteri.setPisteenPaalla(false);
-                continue;
-            }
-
-            if (monsteri.isPowerUpinPaalla()) {
-                kentta.asetaUusiArvo(monsteri.getxKordinaatti(), monsteri.getyKordinaatti(), 5);
-                monsteri.setPowerUpinPaalla(false);
-                continue;
-            }
-
-            kentta.asetaUusiArvo(monsteri.getxKordinaatti(), monsteri.getyKordinaatti(), 1);
-        }
-    }
-
-    /**
-     * Asettaa pelin Monsterien ja Pacmanin koordinaatteihin heitä kuvaavat
-     * arvot.
-     */
-    public void asetaKaikilleOmaArvo() {
-
-        kentta.asetaUusiArvo(pacman.getxKordinaatti(), pacman.getyKordinaatti(), pacman.getKenttaNumero());
-
-        for (Monsteri monsteri : monsterit) {
-            kentta.asetaUusiArvo(monsteri.getxKordinaatti(), monsteri.getyKordinaatti(), monsteri.getKenttaNumero());
-        }
-    }
-
-    /**
-     * Asettaa yhdelle Liikkuvalle oikean kenttäarvon kenttään.
-     *
-     * @param l Liikkuva, jolle arvo asetetaan.
-     */
-    public void asetaLiikkuvalleOmaArvo(Liikkuva l) {
-        kentta.asetaUusiArvo(l.getxKordinaatti(), l.getyKordinaatti(), l.getKenttaNumero());
-    }
-
-    /**
-     * Arvoo Monstereille uudet suunnat. Tallentaa listaan kaikki suunnat jotka
-     * ei johda seinään.
-     *
-     * @see com.projekti.pacman.logiikka.Monsteri#arvoSuunta()
-     */
-    public void arvoSuunnat() {
-
-        for (Monsteri monsteri : monsterit) {
-
-            ArrayList<Integer> suunnat = new ArrayList<>();
-
-            int x = monsteri.getxKordinaatti();
-            int y = monsteri.getyKordinaatti();
-
-            if (kentta.haePisteenArvo(x - 1, y) != 0) {
-                suunnat.add(1);
-            }
-
-            if (kentta.haePisteenArvo(x + 1, y) != 0) {
-                suunnat.add(2);
-            }
-
-            if (kentta.haePisteenArvo(x, y - 1) != 0) {
-                suunnat.add(3);
-            }
-
-            if (kentta.haePisteenArvo(x, y + 1) != 0) {
-                suunnat.add(4);
-            }
-
-            monsteri.arvoSuunta(suunnat);
-
-        }
 
     }
 
@@ -305,17 +124,14 @@ public class Peli extends Timer implements ActionListener {
     public boolean voitto() {
 
         boolean onkoMonsteriPisteenPaalla = false;
-
         for (Monsteri monsteri : monsterit) {
             if (monsteri.isPisteenPaalla()) {
                 onkoMonsteriPisteenPaalla = true;
             }
         }
-
         if (kentta.laskePisteet() == 0 && !onkoMonsteriPisteenPaalla) {
             return true;
         }
-
         return false;
     }
 
@@ -327,7 +143,8 @@ public class Peli extends Timer implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        liiku();
+        Liikuttaja l = new Liikuttaja(this);
+        l.liiku();
 
         alusta.paivita();
 

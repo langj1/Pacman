@@ -80,6 +80,7 @@ public class Tormaako {
 
             if (kentta.haePisteenArvo(l.getxKordinaatti(), l.getyKordinaatti()) == 5) {
 
+                peli.monsteritNormaaleiksi();
                 peli.monsteritSyotaviksi();
                 peli.setAjastin(new PowerUpAjastin(peli));
 
@@ -173,7 +174,7 @@ public class Tormaako {
         for (Monsteri monsteri : peli.getMonsterit()) {
             if (monsteri.getxKordinaatti() == l.getxKordinaatti() && monsteri.getyKordinaatti() == l.getyKordinaatti()) {
                 monsteri.setKoordinaatit(kentta.tietynMonsterinLahto(monsteri.getVari())[1], kentta.tietynMonsterinLahto(monsteri.getVari())[0]);
-                peli.asetaLiikkuvalleOmaArvo(monsteri);
+                peli.getLiikuttaja().asetaLiikkuvalleOmaArvo(monsteri);
 
                 if (monsteri.isPisteenPaalla()) {
                     monsteri.setPisteenPaalla(false);
