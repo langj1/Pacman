@@ -350,8 +350,18 @@ public class Peli extends Timer implements ActionListener {
     public void monsteritNormaaleiksi() {
         for (Monsteri monsteri : monsterit) {
             monsteri.setSyotava(false);
+            monsteri.setValkkyy(0);
         }
         pacman.setSyotava(false);
+    }
+    
+    /**
+     * Tekee kaikista monstereista välkkyviä.
+     */
+    public void monsteritValkkyviksi(){
+        for (Monsteri monsteri : monsterit) {
+            monsteri.setValkkyy(1);
+        }
     }
 
     public PowerUpAjastin getAjastin() {

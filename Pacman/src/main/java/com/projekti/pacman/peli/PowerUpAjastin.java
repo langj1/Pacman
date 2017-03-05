@@ -27,6 +27,7 @@ public class PowerUpAjastin {
         this.peli = peli;
         ajastin = new Timer();
         kaynnistaPowerUpAjastin();
+        kaynnistaValkkyyAjastin();
     }
 
     /**
@@ -39,6 +40,18 @@ public class PowerUpAjastin {
                 peli.monsteritNormaaleiksi(); //To change body of generated methods, choose Tools | Templates.
             }
         }, 8000);
+    }
+
+    /**
+     * Ajastimen päättyessä monsterit välkkyy.
+     */
+    public void kaynnistaValkkyyAjastin() {
+        ajastin.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                peli.monsteritValkkyviksi(); //To change body of generated methods, choose Tools | Templates.
+            }
+        }, 5000);
     }
 
     /**

@@ -94,38 +94,73 @@ public class Monsteri extends Liikkuva {
         this.vari = vari;
     }
 
+    public int getValkkyy() {
+        return valkkyy;
+    }
+
+    public void setValkkyy(int valkkyy) {
+        this.valkkyy = valkkyy;
+    }
+
     @Override
     public BufferedImage piirra() {
 
         BufferedImage ghostImg = null;
         try {
-            if (vari == 1 && isSyotava()) {
+            if (vari == 1 && isSyotava() && valkkyy != 1) {
                 InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Evading Ghost.png");
                 ghostImg = ImageIO.read(is);
+                if (valkkyy == 2) {
+                    valkkyy--;
+                }
+
             } else if (vari == 1) {
                 InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Orange Ghost.png");
                 ghostImg = ImageIO.read(is);
+                if (valkkyy == 1) {
+                    valkkyy++;
+                }
+
             }
-            if (vari == 2 && isSyotava()) {
+            if (vari == 2 && isSyotava() && valkkyy != 1) {
                 InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Evading Ghost.png");
                 ghostImg = ImageIO.read(is);
+                if (valkkyy == 2) {
+                    valkkyy--;
+                }
+
             } else if (vari == 2) {
                 InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Teal Ghost.png");
                 ghostImg = ImageIO.read(is);
+                if (valkkyy == 1) {
+                    valkkyy++;
+                }
             }
-            if (vari == 3 && isSyotava()) {
+            if (vari == 3 && isSyotava() && valkkyy != 1) {
                 InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Evading Ghost.png");
                 ghostImg = ImageIO.read(is);
+                if (valkkyy == 2) {
+                    valkkyy--;
+                }
             } else if (vari == 3) {
                 InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Pink Ghost.png");
                 ghostImg = ImageIO.read(is);
+                if (valkkyy == 1) {
+                    valkkyy++;
+                }
             }
-            if (vari == 4 && isSyotava()) {
+            if (vari == 4 && isSyotava() && valkkyy != 1) {
                 InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Evading Ghost.png");
                 ghostImg = ImageIO.read(is);
+                if (valkkyy == 2) {
+                    valkkyy--;
+                }
             } else if (vari == 4) {
                 InputStream is = getClass().getClassLoader().getResourceAsStream("Images/Red Ghost.png");
                 ghostImg = ImageIO.read(is);
+                if (valkkyy == 1) {
+                    valkkyy++;
+                }
             }
         } catch (IOException e) {
         }
