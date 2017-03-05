@@ -170,8 +170,6 @@ public class Liikuttaja {
     /**
      * Arvoo Monstereille uudet suunnat. Tallentaa listaan kaikki suunnat jotka
      * ei johda seinään.
-     *
-     * @see com.projekti.pacman.logiikka.Monsteri#arvoSuunta()
      */
     public void arvoSuunnat() {
 

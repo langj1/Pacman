@@ -16,7 +16,6 @@ import javax.swing.JPanel;
 /**
  * Piirtää tason.
  *
- * @author langjimi
  */
 public class Piirtoalusta extends JPanel {
 
@@ -38,7 +37,7 @@ public class Piirtoalusta extends JPanel {
     /**
      * Piirtää tasoon kaiken tarvittavan aina kun se päivitetään.
      *
-     * @param g
+     * @param g grafiikka, jonka alusta piirtää
      */
     @Override
     protected void paintComponent(Graphics g) {

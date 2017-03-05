@@ -59,7 +59,7 @@ public class Kayttoliittyma implements Runnable {
     /**
      * Yhdistää Näppäimistönkuuntelijan ja Piirtoalustan Käyttöliittymään.
      *
-     * @param container
+     * @param container alusta lisätään containeriin
      */
     public void luoKomponentit(Container container) {
 
