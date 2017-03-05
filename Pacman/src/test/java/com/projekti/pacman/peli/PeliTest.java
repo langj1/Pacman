@@ -5,10 +5,11 @@
  */
 package com.projekti.pacman.peli;
 
+import com.projekti.pacman.tasot.Taso1;
 import com.projekti.pacman.Suunta;
-import com.projekti.pacman.logiikka.Liikkuva;
+import com.projekti.pacman.gui.Piirtoalusta;
 import com.projekti.pacman.logiikka.Monsteri;
-import com.projekti.pacman.logiikka.Pacman;
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -95,6 +96,8 @@ public class PeliTest {
 
     @Test
     public void havioToimiiKunElamiaJaljella() {
+        peli.menetaElama();
+        peli.menetaElama();
         assertFalse(peli.havio());
     }
 
@@ -106,6 +109,74 @@ public class PeliTest {
         peli.menetaElama();
 
         assertTrue(peli.havio());
+    }
+
+    @Test
+    public void pacmaninPisteetSailyyResetinJalkeen() {
+        peli.getPacman().setPisteet(123);
+        peli.reset();
+        assertEquals(123, peli.getPacman().getPisteet());
+    }
+
+    @Test
+    public void pacmaninSuuntaSTOPResetinJalkeen() {
+
+        peli.reset();
+        assertEquals(Suunta.STOP, peli.getPacman().getSuunta());
+    }
+
+    @Test
+    public void monstereillaAlkuKoordinaatitResetinJalkeen() {
+        peli.reset();
+        for (int i = 0; i < 4; i++) {
+            assertArrayEquals(peli.getKentta().monsterienLahtokohdat().get(i).getKoordinaatit(), peli.getMonsterit().get(i).getKoordinaatit());
+        }
+    }
+
+    @Test
+    public void monsteritEiSyotaviaResetinJalkeen() {
+        boolean testi = true;
+        for (Monsteri m : peli.getMonsterit()) {
+            if (m.isSyotava()) {
+                testi = false;
+            }
+        }
+        assertTrue(testi);
+    }
+
+    @Test
+    public void monsteritSyotaviksiToimii() {
+
+        peli.monsteritSyotaviksi();
+        for (Monsteri m : peli.getMonsterit()) {
+            assertTrue(m.isSyotava());
+        }
+        assertTrue(peli.getPacman().isSyotava());
+    }
+
+    @Test
+    public void monsteritNormaaleiksiToimii() {
+
+        peli.monsteritSyotaviksi();
+        peli.monsteritNormaaleiksi();
+        for (Monsteri m : peli.getMonsterit()) {
+            assertFalse(m.isSyotava());
+        }
+        assertFalse(peli.getPacman().isSyotava());
+    }
+
+    @Test
+    public void monsteritValkkyviksiToimii() {
+
+        peli.monsteritValkkyviksi();
+        for (Monsteri m : peli.getMonsterit()) {
+            assertEquals(1, m.getValkkyy());
+        }
+    }
+
+    @Test
+    public void getAjastinToimii() {
+        assertEquals(null, peli.getAjastin());
     }
 
 }

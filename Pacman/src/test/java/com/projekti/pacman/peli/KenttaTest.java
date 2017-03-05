@@ -1,21 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.projekti.pacman.peli;
 
+import com.projekti.pacman.tasot.Taso1;
 import com.projekti.pacman.logiikka.Monsteri;
 import com.projekti.pacman.logiikka.Pacman;
 import java.util.ArrayList;
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- *
- * @author langjimi
- */
 public class KenttaTest {
     
     Kentta taso;
@@ -52,5 +45,30 @@ public class KenttaTest {
         ArrayList<Monsteri> monsterit = taso.monsterienLahtokohdat();
         
         assertEquals(7, monsterit.get(0).getxKordinaatti());
+    }
+    
+    @Test
+    public void getKenttaToimii() {
+        assertEquals(0,taso.getKentta()[0][0]);
+    }
+    
+    @Test
+    public void pacmaninLahtokohtaEiNull() {
+        int x = 0;
+        if(taso.pacmaninLahtokohta() == null){
+            x++;
+        }
+        assertEquals(0,x);
+    }
+    
+    @Test
+    public void monsteritEriVarisia() {
+        assertEquals(3,taso.monsterienLahtokohdat().get(2).getVari());
+    }
+    
+    @Test
+    public void tietynMonsterinLahtoToimii() {
+        int[] i = {8,7};
+        assertArrayEquals(i,taso.tietynMonsterinLahto(1));
     }
 }

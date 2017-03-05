@@ -8,8 +8,8 @@ package com.projekti.pacman;
 import com.projekti.pacman.gui.Kayttoliittyma;
 import com.projekti.pacman.peli.Kentta;
 import com.projekti.pacman.peli.Peli;
-import com.projekti.pacman.peli.Taso1;
-import com.projekti.pacman.peli.Taso2;
+import com.projekti.pacman.tasot.Taso1;
+import com.projekti.pacman.tasot.Taso2;
 import javax.swing.SwingUtilities;
 
 /**

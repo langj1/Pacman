@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.projekti.pacman.peli;
+package com.projekti.pacman;
 
+import com.projekti.pacman.peli.Peli;
 import java.util.Timer;
 import java.util.TimerTask;
 

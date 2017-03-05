@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.projekti.pacman.logiikka;
 
 import java.util.ArrayList;
@@ -10,10 +5,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- *
- * @author langjimi
- */
 public class MonsteriTest {
 
     Monsteri monsteri;
@@ -21,7 +12,7 @@ public class MonsteriTest {
 
     @Before
     public void setUp() {
-        monsteri = new Monsteri(0, 0, 0);
+        monsteri = new Monsteri(0, 0, 1);
         lista = new ArrayList<>();
     }
 
@@ -77,4 +68,89 @@ public class MonsteriTest {
         assertEquals(4, monsteri.getSuuntaArvo());
     }
 
+    @Test
+    public void getVariToimii() {
+        assertEquals(1, monsteri.getVari());
+    }
+
+    @Test
+    public void setVariToimii() {
+        monsteri.setVari(123);
+        assertEquals(123, monsteri.getVari());
+    }
+
+    @Test
+    public void getValkkyyToimii() {
+        assertEquals(0, monsteri.getValkkyy());
+    }
+
+    @Test
+    public void valkkyyToimii() {
+        monsteri.setSyotava(true);
+        monsteri.setValkkyy(2);
+        monsteri.piirra();
+        assertEquals(1, monsteri.getValkkyy());
+    }
+
+    @Test
+    public void valkkyyToimii2() {
+        monsteri.setSyotava(true);
+        monsteri.setValkkyy(1);
+        monsteri.piirra();
+        assertEquals(2, monsteri.getValkkyy());
+    }
+
+    @Test
+    public void valkkyyToimii3() {
+        monsteri.setVari(2);
+        monsteri.setSyotava(true);
+        monsteri.setValkkyy(2);
+        monsteri.piirra();
+        assertEquals(1, monsteri.getValkkyy());
+    }
+
+    @Test
+    public void valkkyyToimii4() {
+        monsteri.setVari(2);
+        monsteri.setSyotava(true);
+        monsteri.setValkkyy(1);
+        monsteri.piirra();
+        assertEquals(2, monsteri.getValkkyy());
+    }
+
+    @Test
+    public void valkkyyToimii5() {
+        monsteri.setVari(3);
+        monsteri.setSyotava(true);
+        monsteri.setValkkyy(2);
+        monsteri.piirra();
+        assertEquals(1, monsteri.getValkkyy());
+    }
+
+    @Test
+    public void valkkyyToimii6() {
+        monsteri.setVari(3);
+        monsteri.setSyotava(true);
+        monsteri.setValkkyy(1);
+        monsteri.piirra();
+        assertEquals(2, monsteri.getValkkyy());
+    }
+
+    @Test
+    public void valkkyyToimii7() {
+        monsteri.setVari(4);
+        monsteri.setSyotava(true);
+        monsteri.setValkkyy(2);
+        monsteri.piirra();
+        assertEquals(1, monsteri.getValkkyy());
+    }
+
+    @Test
+    public void valkkyyToimii8() {
+        monsteri.setVari(4);
+        monsteri.setSyotava(true);
+        monsteri.setValkkyy(1);
+        monsteri.piirra();
+        assertEquals(2, monsteri.getValkkyy());
+    }
 }

@@ -52,7 +52,7 @@ public class Liikuttaja {
                 break;
             }
         }
-        int pisteet = kentta.getPisteet() - kentta.laskePisteet();
+        int pisteet = kentta.getPisteet() - kentta.laskePisteetOttaenMonsteritHuomioon(monsterit);
 
         if (pisteet > pacman.getPisteet() - pacman.getExtraPisteet()) {
             pacman.setPisteet(pisteet + pacman.getExtraPisteet());
@@ -121,7 +121,7 @@ public class Liikuttaja {
 
     /**
      * Asettaa pelin Monsterien ja Pacmanien koordinaatteihin tyhjän ruudun tai
-     * pisteen.
+     * pisteen tai powerupin.
      */
     public void asetaKaikille1tai2() {
 

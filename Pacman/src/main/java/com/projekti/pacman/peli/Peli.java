@@ -1,8 +1,8 @@
 package com.projekti.pacman.peli;
 
+import com.projekti.pacman.PowerUpAjastin;
 import com.projekti.pacman.Suunta;
 import com.projekti.pacman.gui.Piirtoalusta;
-import com.projekti.pacman.logiikka.Liikkuva;
 import com.projekti.pacman.logiikka.Monsteri;
 import com.projekti.pacman.logiikka.Pacman;
 import java.awt.event.ActionEvent;
@@ -63,6 +63,10 @@ public class Peli extends Timer implements ActionListener {
         return monsterit;
     }
 
+    public Piirtoalusta getAlusta() {
+        return alusta;
+    }
+    
     public void setAlusta(Piirtoalusta alusta) {
         this.alusta = alusta;
     }
@@ -105,15 +109,13 @@ public class Peli extends Timer implements ActionListener {
         pacman.setKoordinaatit(kentta.getKoordinaatit().get(0)[1], kentta.getKoordinaatit().get(0)[0]);
         pacman.setPisteet(pisteet);
         pacman.setSuunta(Suunta.STOP);
-
+        
         for (int i = 0; i < 4; i++) {
             monsterit.get(i).setKoordinaatit(kentta.getKoordinaatit().get(i + 1)[1], kentta.getKoordinaatit().get(i + 1)[0]);
         }
-
         liikuttaja.asetaKaikilleOmaArvo();
         monsteritNormaaleiksi();
         restart();
-
     }
 
     /**
@@ -143,11 +145,8 @@ public class Peli extends Timer implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        Liikuttaja l = new Liikuttaja(this);
-        l.liiku();
-
+        liikuttaja.liiku();
         alusta.paivita();
-
         setDelay(100);
     }
 
@@ -196,5 +195,4 @@ public class Peli extends Timer implements ActionListener {
         }
         this.ajastin = a;
     }
-
 }

@@ -5,6 +5,7 @@
  */
 package com.projekti.pacman.peli;
 
+import com.projekti.pacman.PowerUpAjastin;
 import com.projekti.pacman.logiikka.Liikkuva;
 import com.projekti.pacman.logiikka.Monsteri;
 

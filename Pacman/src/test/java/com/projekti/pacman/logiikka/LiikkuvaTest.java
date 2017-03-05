@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.projekti.pacman.logiikka;
 
 import com.projekti.pacman.Suunta;
@@ -12,10 +7,6 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- *
- * @author langjimi
- */
 public class LiikkuvaTest {
 
     Liikkuva liikkuva;
@@ -82,27 +73,49 @@ public class LiikkuvaTest {
         assertEquals(324, liikkuva.getyKordinaatti());
         assertEquals(12, liikkuva.getxKordinaatti());
     }
-    
+
     @Test
     public void getKoordinaatitToimii() {
-        
+
         int[] taulu = liikkuva.getKoordinaatit();
-        
+
         assertEquals(324, taulu[0]);
         assertEquals(12, taulu[1]);
-        
+
     }
-    
+
     @Test
     public void isPisteenPaallaToimii() {
         assertFalse(liikkuva.isPisteenPaalla());
     }
-    
+
     @Test
     public void setPisteenPaallaToimii() {
-        
+
         liikkuva.setPisteenPaalla(true);
-        
+
         assertTrue(liikkuva.isPisteenPaalla());
+    }
+
+    @Test
+    public void getSuuntaToimii() {
+
+        int x = 0;
+        if (liikkuva.getSuunta() == null) {
+            x++;
+        }
+
+        assertEquals(0, x);
+    }
+
+    @Test
+    public void onPacmanToimiiJosEiPacman() {
+        Monsteri m = new Monsteri(1, 2, 3);
+        assertFalse(m.onPacman());
+    }
+
+    @Test
+    public void onPacmanToimiiJosPacman() {
+        assertTrue(liikkuva.onPacman());
     }
 }

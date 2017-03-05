@@ -3,33 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.projekti.pacman.peli;
+package com.projekti.pacman.tasot;
 
 import com.projekti.pacman.logiikka.Monsteri;
 import com.projekti.pacman.logiikka.Pacman;
+import com.projekti.pacman.peli.Kentta;
 import java.util.ArrayList;
-import org.junit.Assert;
-import static org.junit.Assert.assertEquals;
-import org.junit.Before;
-import org.junit.Test;
 
 /**
- *
- * @author langjimi
+ * Yksi mahdollisista tasoista. Perii luokan Kentta.
  */
-public class Taso1Test {
+public class Taso1 extends Kentta {
 
-    Taso1 taso;
+    /**
+     * Matriisi kuvaa tasoa. 0 = muuri, 1 = tyhjä ruutu, 2 = ruutu, jossa piste,
+     * 3 = ruutu, jossa monsteri, 4 = ruutu, jossa Pacman, 5 = power up.
+     */
+    public Taso1() {
 
-    @Before
-    public void setUp() {
-        taso = new Taso1();
-    }
-
-    @Test
-    public void kentanKonstruktorinMatriisiToimii() {
-        
-        int[][] matriisi = new int[][]{{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        int[][] taso = new int[][]{{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 5, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 5, 0},
             {0, 2, 0, 0, 2, 0, 0, 2, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 2, 0},
             {0, 2, 0, 0, 2, 0, 0, 2, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 2, 0},
@@ -45,31 +37,12 @@ public class Taso1Test {
             {0, 5, 2, 2, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 5, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
 
-        Assert.assertArrayEquals(matriisi, taso.kentta);
+        setKentta(taso);
+
+        setPisteet(laskePisteet());
+
+        setKoordinaatit(laskeKoordinaatit());
+
     }
 
-    @Test
-    public void kentanKonstruktorinPisteidenLaskuriToimii() {
-        assertEquals(105, taso.getPisteet());
-    }
-    
-    @Test
-    public void pacmaninLuontiToimii() {
-
-        Pacman pacman = taso.pacmaninLahtokohta();
-
-        assertEquals(13, pacman.getxKordinaatti());
-        assertEquals(4, pacman.getyKordinaatti());
-    }
-
-    @Test
-    public void monsterienLuontiToimii() {
-
-        ArrayList<Monsteri> monsterit = taso.monsterienLahtokohdat();
-
-        assertEquals(7, monsterit.get(2).getxKordinaatti());
-        assertEquals(11, monsterit.get(3).getyKordinaatti());
-    }
-    
-    
 }

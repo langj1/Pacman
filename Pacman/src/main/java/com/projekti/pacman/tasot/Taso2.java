@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.projekti.pacman.peli;
+package com.projekti.pacman.tasot;
 
 import com.projekti.pacman.logiikka.Monsteri;
 import com.projekti.pacman.logiikka.Pacman;
+import com.projekti.pacman.peli.Kentta;
 import java.util.ArrayList;
 
 /**

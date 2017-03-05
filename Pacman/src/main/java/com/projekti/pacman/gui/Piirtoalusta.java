@@ -7,17 +7,10 @@ package com.projekti.pacman.gui;
 
 import com.projekti.pacman.Suunta;
 import com.projekti.pacman.logiikka.Monsteri;
-import com.projekti.pacman.peli.Kentta;
 import com.projekti.pacman.peli.Peli;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 /**
@@ -27,8 +20,8 @@ import javax.swing.JPanel;
  */
 public class Piirtoalusta extends JPanel {
 
-    private Peli peli;
-    private int sivu;
+    private final Peli peli;
+    private final int sivu;
     private BufferedImage img;
     private Graphics gf;
 

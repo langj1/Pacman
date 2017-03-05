@@ -81,7 +81,6 @@ public abstract class Kentta {
                 }
             }
         }
-
         return null;
     }
 
@@ -93,7 +92,6 @@ public abstract class Kentta {
     public ArrayList<Monsteri> monsterienLahtokohdat() {
 
         ArrayList<Monsteri> monsterit = new ArrayList<>();
-
         int vari = 1;
 
         for (int i = 0; i < kentta[0].length; i++) {
@@ -105,7 +103,6 @@ public abstract class Kentta {
                 }
             }
         }
-
         return monsterit;
     }
 
@@ -125,15 +122,12 @@ public abstract class Kentta {
     public ArrayList<int[]> laskeKoordinaatit() {
 
         ArrayList<int[]> lista = new ArrayList<>();
-
         lista.add(pacmaninLahtokohta().getKoordinaatit());
 
         for (Monsteri monsteri : monsterienLahtokohdat()) {
 
             lista.add(monsteri.getKoordinaatit());
-
         }
-
         return lista;
     }
 
@@ -152,6 +146,7 @@ public abstract class Kentta {
 
     /**
      * Palautta tietyn monsterin lähtö koordinaatit.
+     *
      * @param vari Määrittää minkä monsterin koordinaatit haetaan.
      * @return Koordinaatit tauluna.
      */
@@ -176,7 +171,24 @@ public abstract class Kentta {
                 }
             }
         }
+        return pisteet;
+    }
 
+    /**
+     * Laskee kaikkien matriisissa olevien pisteiden määrän ja ottaa huomioo
+     * onko monsteri pisteen päällä.
+     *
+     * @param monsterit Lista pelin monstereista.
+     * @return Pisteiden summa
+     */
+    public int laskePisteetOttaenMonsteritHuomioon(ArrayList<Monsteri> monsterit) {
+
+        int pisteet = laskePisteet();
+        for (Monsteri monsteri : monsterit) {
+            if (monsteri.isPisteenPaalla()) {
+                pisteet++;
+            }
+        }
         return pisteet;
     }
 }
