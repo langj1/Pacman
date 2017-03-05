@@ -12,7 +12,7 @@ import javax.swing.Timer;
 
 /**
  * Luokka, joka hallitsee pelin kulkua ja yhdistää kaikki muut logiikan luokat
- * sekä käyttöliittymän. 
+ * sekä käyttöliittymän.
  */
 public class Peli extends Timer implements ActionListener {
 
@@ -74,7 +74,7 @@ public class Peli extends Timer implements ActionListener {
     public Liikuttaja getLiikuttaja() {
         return liikuttaja;
     }
-    
+
     /**
      * Vähentää yhden elämän, jos elämät loppuu peli päättyy.
      *
@@ -171,11 +171,11 @@ public class Peli extends Timer implements ActionListener {
         }
         pacman.setSyotava(false);
     }
-    
+
     /**
      * Tekee kaikista monstereista välkkyviä.
      */
-    public void monsteritValkkyviksi(){
+    public void monsteritValkkyviksi() {
         for (Monsteri monsteri : monsterit) {
             monsteri.setValkkyy(1);
         }
@@ -187,6 +187,7 @@ public class Peli extends Timer implements ActionListener {
 
     /**
      * Asettaa uuden ajastimen ja nollaa vanhan.
+     *
      * @param a Ajastin, joka asetetaan.
      */
     public void setAjastin(PowerUpAjastin a) {

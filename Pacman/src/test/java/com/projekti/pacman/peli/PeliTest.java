@@ -37,46 +37,6 @@ public class PeliTest {
     }
 
     @Test
-    public void aseta1tai2KaikilleToimiiPacmanille() {
-
-        peli.asetaKaikille1tai2();
-
-        assertEquals(1, peli.getKentta().haePisteenArvo(peli.getPacman().getxKordinaatti(), peli.getPacman().getyKordinaatti()));
-    }
-
-    @Test
-    public void aseta1tai2KaikilleToimiiMonstereille() {
-
-        peli.asetaKaikille1tai2();
-
-        for (Monsteri m : peli.getMonsterit()) {
-            assertEquals(1, peli.getKentta().haePisteenArvo(m.getxKordinaatti(), m.getyKordinaatti()));
-        }
-
-    }
-
-    @Test
-    public void asetaKaikilleKenttaArvoToimiiPacmanille() {
-
-        peli.asetaKaikille1tai2();
-        peli.asetaKaikilleOmaArvo();
-
-        assertEquals(4, peli.getKentta().haePisteenArvo(peli.getPacman().getxKordinaatti(), peli.getPacman().getyKordinaatti()));
-    }
-
-    @Test
-    public void asetaKaikilleKenttaArvoToimiiMonstereille() {
-
-        peli.asetaKaikille1tai2();
-        peli.asetaKaikilleOmaArvo();
-
-        for (Monsteri m : peli.getMonsterit()) {
-            assertEquals(3, peli.getKentta().haePisteenArvo(m.getxKordinaatti(), m.getyKordinaatti()));
-        }
-
-    }
-
-    @Test
     public void voittoToimiiKunTarpeeksiPisteita() {
 
         for (int i = 0; i < peli.getKentta().getLeveys(); i++) {
@@ -134,21 +94,6 @@ public class PeliTest {
     }
 
     @Test
-    public void onkoPisteenPaallaToimiiJosFalse() {
-
-        peli.onkoPisteenPaalla(0, 0, peli.getMonsterit().get(0));
-        assertEquals(1, peli.getKentta().haePisteenArvo(0, 0));
-    }
-
-    @Test
-    public void onkoPisteenPaallaToimiiJosTrue() {
-
-        peli.getMonsterit().get(0).setPisteenPaalla(true);
-        peli.onkoPisteenPaalla(0, 0, peli.getMonsterit().get(0));
-        assertEquals(2, peli.getKentta().haePisteenArvo(0, 0));
-    }
-
-    @Test
     public void havioToimiiKunElamiaJaljella() {
         assertFalse(peli.havio());
     }
@@ -161,26 +106,6 @@ public class PeliTest {
         peli.menetaElama();
 
         assertTrue(peli.havio());
-    }
-
-    @Test
-    public void liikuLiikuttaaPacmania() {
-
-        int x = peli.getPacman().getxKordinaatti();
-        peli.getPacman().setSuunta(Suunta.VASEN);
-        peli.liiku();
-
-        assertEquals(x - 1, peli.getPacman().getxKordinaatti());
-    }
-
-    @Test
-    public void liikuEiLiikutaPacmaniaSeinaan() {
-
-        int x = peli.getPacman().getxKordinaatti();
-        peli.getPacman().setSuunta(Suunta.OIKEA);
-        peli.liiku();
-
-        assertEquals(x, peli.getPacman().getxKordinaatti());
     }
 
 }

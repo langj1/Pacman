@@ -16,7 +16,7 @@ public class Taso1 extends Kentta {
 
     /**
      * Matriisi kuvaa tasoa. 0 = muuri, 1 = tyhjä ruutu, 2 = ruutu, jossa piste,
-     * 3 = ruutu, jossa monsteri, 4 = ruutu, jossa Pacman.
+     * 3 = ruutu, jossa monsteri, 4 = ruutu, jossa Pacman, 5 = power up.
      */
     public Taso1() {
 
